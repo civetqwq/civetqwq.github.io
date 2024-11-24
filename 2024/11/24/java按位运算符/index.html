@@ -1,0 +1,796 @@
+
+  <!DOCTYPE html>
+  <html lang="en"  >
+  <head>
+  <meta charset="utf-8">
+  
+
+  
+
+  
+
+  
+  <script>window.icon_font = '4552607_tq6stt6tcg';window.clipboard_tips = {"success":"复制成功(*^▽^*)","fail":"复制失败 (ﾟ⊿ﾟ)ﾂ","copyright":{"enable":false,"count":50,"content":"本文版权：本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！"}};</script>
+  
+  
+  <title>
+    Java按位运算符 |
+    
+    Hexo
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic%7CUbuntu%20Mono:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic%7CUbuntu%20Mono:400,400italic,700,700italic&display=swap" media="print" onload="this.media&#x3D;&#39;all&#39;">
+  
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_tq6stt6tcg.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  
+  
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+  
+  <meta name="description" content="按位运算符   运算符 示例 和示例相同    &amp;&#x3D; x &amp;&#x3D; 3 x &#x3D; x &amp; 3   |&#x3D; x |&#x3D; 3 x &#x3D; x | 3   ^&#x3D; x ^&#x3D; 3 x &#x3D; x ^ 3   &gt;&gt;&#x3D; x &gt;&gt;&#x3D; 3 x &#x3D; x &gt;&gt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java按位运算符">
+<meta property="og:url" content="http://example.com/2024/11/24/java%E6%8C%89%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="按位运算符   运算符 示例 和示例相同    &amp;&#x3D; x &amp;&#x3D; 3 x &#x3D; x &amp; 3   |&#x3D; x |&#x3D; 3 x &#x3D; x | 3   ^&#x3D; x ^&#x3D; 3 x &#x3D; x ^ 3   &gt;&gt;&#x3D; x &gt;&gt;&#x3D; 3 x &#x3D; x &gt;&gt;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-11-24T13:41:50.679Z">
+<meta property="article:modified_time" content="2024-11-24T13:22:28.702Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  
+  
+  
+  
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js"></script>
+
+  
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.0.1/dist/aos.css">
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+    
+  <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi">
+        <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+          <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="#ff5252" />
+          <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+         M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="#ff5252" />
+        </svg>
+      </div>
+      <div class="loading-word">少女祈祷中...</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var startLoading = () => {
+      time = Date.now();
+      document.getElementById('loader').classList.remove("loading");
+    }
+    var endLoading = () => {
+      if (!time) {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loader').classList.add("loading");
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          document.body.style.overflow = 'auto';
+          document.getElementById('loader').classList.add("loading");
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    document.getElementById('loader').addEventListener('click', endLoading);
+  </script>
+
+<div id="copy-tooltip" style="pointer-events: none; opacity: 0; transition: all 0.2s ease; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
+</div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav">
+    
+      <span class="main-nav-link-wrap">
+        <div class="main-nav-icon icon-taichi"></div>
+        <a class="main-nav-link" href="/">Home</a>
+      </span>
+    
+      <span class="main-nav-link-wrap">
+        <div class="main-nav-icon icon-taichi"></div>
+        <a class="main-nav-link" href="/archives">Archives</a>
+      </span>
+    
+      <span class="main-nav-link-wrap">
+        <div class="main-nav-icon icon-taichi"></div>
+        <a class="main-nav-link" href="/about">About</a>
+      </span>
+    
+      <span class="main-nav-link-wrap">
+        <div class="main-nav-icon icon-taichi"></div>
+        <a class="main-nav-link" href="/friend">Friend</a>
+      </span>
+    
+    <a id="main-nav-toggle" class="nav-icon"></a>
+  </nav>
+  <nav id="sub-nav">
+    
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+    
+    
+    
+  </nav>
+</div>
+<header id="header">
+  
+    
+      <img fetchpriority="high" src="/images/banner.webp" alt="Java按位运算符">
+    
+  
+  <div id="header-outer">
+    <div id="header-title">
+      
+        
+        
+          <a href="/" id="logo">
+            <h1 data-aos="slide-up">Java按位运算符</h1>
+          </a>
+        
+      
+      
+        
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+          
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+        <div id="content">
+          
+          <section id="main"><article id="post-java按位运算符" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <a href="/2024/11/24/java%E6%8C%89%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/" class="article-date-link" data-aos="zoom-in">
+    <time datetime="2024-11-24T13:41:50.679Z" itemprop="datePublished">2024-11-24</time>
+    <time style="display: none;" id="post-update-time">2024-11-24</time>
+  </a>
+</div>
+
+      
+
+    </div>
+    <div class="hr-line"></div>
+    
+
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <h3 id="按位运算符"><a href="#按位运算符" class="headerlink" title="按位运算符"></a>按位运算符</h3><table>
+<thead>
+<tr>
+<th align="left">运算符</th>
+<th align="left">示例</th>
+<th align="left">和示例相同</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">&amp;&#x3D;</td>
+<td align="left">x &amp;&#x3D; 3</td>
+<td align="left">x &#x3D; x &amp; 3</td>
+</tr>
+<tr>
+<td align="left">|&#x3D;</td>
+<td align="left">x |&#x3D; 3</td>
+<td align="left">x &#x3D; x | 3</td>
+</tr>
+<tr>
+<td align="left">^&#x3D;</td>
+<td align="left">x ^&#x3D; 3</td>
+<td align="left">x &#x3D; x ^ 3</td>
+</tr>
+<tr>
+<td align="left">&gt;&gt;&#x3D;</td>
+<td align="left">x &gt;&gt;&#x3D; 3</td>
+<td align="left">x &#x3D; x &gt;&gt; 3</td>
+</tr>
+<tr>
+<td align="left">&lt;&lt;&#x3D;</td>
+<td align="left">x &lt;&lt;&#x3D; 3</td>
+<td align="left">x &#x3D; x &lt;&lt; 3</td>
+</tr>
+</tbody></table>
+<h4 id="按位与运算符"><a href="#按位与运算符" class="headerlink" title="&amp;  按位与运算符"></a><code>&amp;</code>  按位与运算符</h4><p><strong>其作用是对两个整数的每一位进行与操作，即逐位比较两个数字的二进制表示</strong>，并根据以下规则进行计算：</p>
+<ul>
+<li>如果两个对应位都是 <code>1</code>，结果是 <code>1</code>；</li>
+<li>如果两个对应位中至少有一个是 <code>0</code>，结果是 <code>0</code>。</li>
+</ul>
+<p><strong>例子：</strong></p>
+<p>假设我们有两个整数 <code>a = 12</code> 和 <code>b = 10</code>，我们希望对它们进行按位与操作。</p>
+<ol>
+<li><strong>12 的二进制表示：</strong><ul>
+<li>12 的二进制是 <code>1100</code>（这是 4 位二进制表示，实际上 Java 中是 32 位，但为了简单展示只看低 4 位）。</li>
+</ul>
+</li>
+<li><strong>10 的二进制表示：</strong><ul>
+<li>10 的二进制是 <code>1010</code>。</li>
+</ul>
+</li>
+<li><strong>按位与操作：</strong><ul>
+<li>比较 <code>12</code> 和 <code>10</code> 的二进制表示：</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1100   (12)</span><br><span class="line">1010   (10)</span><br><span class="line">----</span><br><span class="line">1000   (8)</span><br></pre></td></tr></table></figure>
+
+<p><strong>代码示例：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">12</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> a &amp; b;  <span class="comment">// 按位与操作</span></span><br><span class="line">        System.out.println(result);  <span class="comment">// 输出 8</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>解释：在这个例子中，<code>a &amp; b</code> 的结果是 <code>8</code>，因为 <code>12</code>（<code>1100</code>）与 <code>10</code>（<code>1010</code>）按位与后得到 <code>1000</code>，即 8。</p>
+<h4 id="按位或运算符"><a href="#按位或运算符" class="headerlink" title="|  按位或运算符"></a><code>|</code>  按位或运算符</h4><p><strong>作用：用于对两个数字的每一位进行“或”运算，逐位比较两个数字的二进制表示</strong>，并根据以下规则得出结果：</p>
+<ul>
+<li>如果两个对应位中有至少一个是 <code>1</code>，结果是 <code>1</code>；</li>
+<li>如果两个对应位都是 <code>0</code>，结果是 <code>0</code>。</li>
+</ul>
+<p><strong>举个例子：</strong></p>
+<p>假设我们有两个整数 <code>a = 12</code> 和 <code>b = 5</code>，我们希望对它们进行按位或操作。</p>
+<ol>
+<li><strong>12 的二进制表示：</strong><ul>
+<li>12 的二进制是 <code>1100</code>。</li>
+</ul>
+</li>
+<li><strong>5 的二进制表示：</strong><ul>
+<li>5 的二进制是 <code>0101</code>。</li>
+</ul>
+</li>
+<li><strong>按位或操作：</strong><ul>
+<li>比较 <code>12</code> 和 <code>5</code> 的二进制表示：</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1100   (12)</span><br><span class="line">0101   (5)</span><br><span class="line">----</span><br><span class="line">1101   (13)</span><br></pre></td></tr></table></figure>
+
+<p><strong>代码示例：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">12</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">5</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> a | b;  <span class="comment">// 按位或操作</span></span><br><span class="line">        System.out.println(result);  <span class="comment">// 输出 13</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>解释：</strong></p>
+<p>在这个例子中，<code>a | b</code> 的结果是 <code>13</code>，因为 <code>12</code>（<code>1100</code>）与 <code>5</code>（<code>0101</code>）按位或后得到 <code>1101</code>，即 13。</p>
+<h4 id="按位异或运算符"><a href="#按位异或运算符" class="headerlink" title="^  按位异或运算符"></a><code>^</code>  按位异或运算符</h4><p>它用于对两个数字的每一位进行“异或”运算</p>
+<p><strong>异或运算的规则：</strong></p>
+<ul>
+<li>如果两个对应的位相同（即都为 0 或都为 1），则结果为 <code>0</code>；</li>
+<li>如果两个对应的位不同（一个为 0，一个为 1），则结果为 <code>1</code>。</li>
+</ul>
+<p>简而言之，不同为 1，相同为 0”的运算。</p>
+<p><strong>举个例子：</strong></p>
+<p>假设我们有两个整数 <code>a = 12</code> 和 <code>b = 5</code>，我们希望对它们进行按位异或操作。</p>
+<ol>
+<li><strong>12 的二进制表示：</strong><ul>
+<li>12 的二进制是 <code>1100</code>。</li>
+</ul>
+</li>
+<li><strong>5 的二进制表示：</strong><ul>
+<li>5 的二进制是 <code>0101</code>。</li>
+</ul>
+</li>
+<li><strong>按位异或操作：</strong><ul>
+<li>比较 <code>12</code> 和 <code>5</code> 的二进制表示：</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1100   (12)</span><br><span class="line">0101   (5)</span><br><span class="line">----</span><br><span class="line">1001   (9)</span><br></pre></td></tr></table></figure>
+
+<p>​        结果是 <code>1001</code>，即十进制的 <code>9</code></p>
+<p><strong>代码示例：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">12</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">5</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> a ^ b;  <span class="comment">// 按位异或操作</span></span><br><span class="line">        System.out.println(result);  <span class="comment">// 输出 9</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>解释：在这个例子中，<code>a ^ b</code> 的结果是 <code>9</code>，因为 <code>12</code>（<code>1100</code>）与 <code>5</code>（<code>0101</code>）按位异或后得到 <code>1001</code>，即十进制的 <code>9</code>。</p>
+<h5 id="常见的异或运算应用："><a href="#常见的异或运算应用：" class="headerlink" title="常见的异或运算应用："></a>常见的异或运算应用：</h5><p><strong>交换两个数：</strong> 异或可以用于在不使用临时变量的情况下交换两个数。通过三次异或操作，可以将两个数的值互换。</p>
+<p>例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">10</span>, b = <span class="number">20</span>;</span><br><span class="line">a = a ^ b;  <span class="comment">// 步骤1</span></span><br><span class="line">b = a ^ b;  <span class="comment">// 步骤2</span></span><br><span class="line">a = a ^ b;  <span class="comment">// 步骤3</span></span><br><span class="line">System.out.println(<span class="string">&quot;a = &quot;</span> + a);  <span class="comment">// 输出 20</span></span><br><span class="line">System.out.println(<span class="string">&quot;b = &quot;</span> + b);  <span class="comment">// 输出 10</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>检测两个数是否相等：</strong> 如果 <code>a ^ b == 0</code>，则 <code>a</code> 和 <code>b</code> 是相等的。因为如果两数相同，它们的按位异或结果就是 0。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">java</span><br><span class="line"><span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">15</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">15</span>;</span><br><span class="line"><span class="keyword">if</span> ((a ^ b) == <span class="number">0</span>) &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;a 和 b 相等&quot;</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;a 和 b 不相等&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>总结：</p>
+<ul>
+<li><code>^</code> 是按位异或运算符，用于对两个整数的每一位执行异或操作。</li>
+<li>异或操作的规则是：相同为 <code>0</code>，不同为 <code>1</code>。</li>
+<li>异或运算有很多应用，特别是在交换变量、加密、校验等领域。</li>
+</ul>
+<h4 id="右移运算符，用于将一个整数的二进制位向右移动指定的位数。（注意左补充）"><a href="#右移运算符，用于将一个整数的二进制位向右移动指定的位数。（注意左补充）" class="headerlink" title="&gt;&gt; 右移运算符，用于将一个整数的二进制位向右移动指定的位数。（注意左补充）"></a><code>&gt;&gt;</code> 右移运算符，用于将一个整数的二进制位向右移动指定的位数。（注意左补充）</h4><p>在二进制表示中，右移操作意味着将数字的所有位移到更低的位置（即向右），并且最左边的空位根据数值的符号（符号位）填充。</p>
+<h5 id="右移运算符的基本规则："><a href="#右移运算符的基本规则：" class="headerlink" title="右移运算符的基本规则："></a>右移运算符的基本规则：</h5><ul>
+<li>**<code>a &gt;&gt; n</code>**：表示将整数 <code>a</code> 的二进制位向右移动 <code>n</code> 位。</li>
+<li>对于正数，右移时会在左边补充 <code>0</code>。</li>
+<li>对于负数，右移时会在左边补充 <code>1</code>，这称为 <strong>算术右移</strong>（保留符号位）。</li>
+</ul>
+<p><strong>举个例子：</strong></p>
+<p>假设我们有一个整数 <code>a = 8</code>，并执行 <code>a &gt;&gt; 2</code>：</p>
+<ol>
+<li><strong>8 的二进制表示：</strong><ul>
+<li>8 的二进制是 <code>1000</code>。</li>
+</ul>
+</li>
+<li><strong>执行右移操作：</strong><ul>
+<li><code>8 &gt;&gt; 2</code> 表示将 8 向右移动 2 位：</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1000 (8)  -&gt;  0010 (2)</span><br></pre></td></tr></table></figure>
+
+<p>​       结果是 2</p>
+<p><strong>代码示例：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">8</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> a &gt;&gt; <span class="number">2</span>;  <span class="comment">// 8 向右移动 2 位</span></span><br><span class="line">        System.out.println(result);  <span class="comment">// 输出 2</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="负数的右移："><a href="#负数的右移：" class="headerlink" title="负数的右移："></a>负数的右移：</h5><p>对于负数，右移时会在左边填充符号位（即填充 <code>1</code>）。这被称为 <strong>算术右移</strong>。</p>
+<p>假设 <code>a = -8</code>，并执行 <code>a &gt;&gt; 2</code>：</p>
+<ol>
+<li><strong>-8 的二进制表示：</strong><ul>
+<li>假设我们使用 8 位二进制表示，<code>-8</code> 的二进制是补码表示，即 <code>11111000</code>。</li>
+</ul>
+</li>
+<li><strong>执行右移操作：</strong><ul>
+<li><code>-8 &gt;&gt; 2</code> 表示将 <code>-8</code> 向右移动 2 位：</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">11111000 (-8)  -&gt;  11111110 (-2)</span><br></pre></td></tr></table></figure>
+
+<p>​           结果是 -2</p>
+<p><strong>总结：</strong></p>
+<ul>
+<li><code>&gt;&gt;</code> 是右移运算符，将数字的二进制位向右移动。</li>
+<li>对于正数，左边补充 <code>0</code>；对于负数，左边补充 <code>1</code>（算术右移）。</li>
+<li>右移操作常用于高效地进行除法操作和位操作，特别是在性能要求较高的程序中。</li>
+</ul>
+<h4 id="在-Java-中，"><a href="#在-Java-中，" class="headerlink" title="在 Java 中，&lt;&lt; 是 按位左移运算符，用于将一个整数的二进制位向左移动指定的位数。"></a>在 Java 中，<code>&lt;&lt;</code> 是 <strong>按位左移运算符</strong>，用于将一个整数的二进制位向左移动指定的位数。</h4><p>左移操作相当于将数值乘以 <code>2</code> 的某个幂。具体来说，<code>a &lt;&lt; n</code> 表示将 <code>a</code> 的二进制位向左移动 <code>n</code> 位，并在右侧补充 <code>0</code>。</p>
+<h5 id="操作规则："><a href="#操作规则：" class="headerlink" title="操作规则："></a>操作规则：</h5><ul>
+<li><strong>左移操作</strong>：<code>a &lt;&lt; n</code> 将 <code>a</code> 的二进制表示向左移动 <code>n</code> 位，右侧补充 <code>0</code>，并将高位丢弃。相当于将 <code>a</code> 乘以 <code>2^n</code>（即 <code>a * 2^n</code>）。</li>
+<li><strong>符号扩展</strong>：对于负数，Java 会保持符号位（即最高位）的完整性，左移时符号位不会受到影响。</li>
+</ul>
+<p><strong>例子:</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">5</span>;   <span class="comment">// 二进制表示：0000 0101</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> a &lt;&lt; <span class="number">2</span>; <span class="comment">// 左移 2 位</span></span><br><span class="line">        System.out.println(<span class="string">&quot;a = &quot;</span> + a);  <span class="comment">// 输出：a = 5</span></span><br><span class="line">        System.out.println(<span class="string">&quot;a &lt;&lt; 2 = &quot;</span> + result);  <span class="comment">// 输出：a &lt;&lt; 2 = 20</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>解释：</p>
+<ul>
+<li><code>a = 5</code> 的二进制表示是 <code>0000 0101</code>（假设是 8 位表示）。</li>
+<li><code>a &lt;&lt; 2</code> 表示将 <code>a</code> 的二进制表示左移 2 位，即：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0000 0101  -&gt;  0001 0100</span><br></pre></td></tr></table></figure>
+
+<p>结果是 <code>20</code>，因为 <code>5 * 2^2 = 5 * 4 = 20</code>。 ( 0001 0100 它的10进制为 20 )</p>
+<h5 id="更深入的解释："><a href="#更深入的解释：" class="headerlink" title="更深入的解释："></a>更深入的解释：</h5><ol>
+<li><strong>二进制左移</strong>：每次左移 1 位，相当于乘以 2。例如：<ul>
+<li><code>5 &lt;&lt; 1</code>：将 <code>5</code> 的二进制表示 <code>00000101</code> 左移 1 位，结果为 <code>00001010</code>，即 <code>10</code>。</li>
+<li><code>5 &lt;&lt; 2</code>：将 <code>5</code> 左移 2 位，结果为 <code>20</code>。</li>
+</ul>
+</li>
+<li><strong>溢出问题</strong>：如果左移时，超出了变量能够表示的位数，结果会变得不确定或出现溢出。例如，Java 中的 <code>int</code> 是 32 位的，如果左移超出 31 位，可能会得到不可预料的结果。</li>
+<li><strong>符号扩展</strong>：如果是负数，Java 会保持符号位（最高位），即负数的符号位不会因为左移而改变。这意味着左移负数时，它的符号不变，但大小会增加。</li>
+</ol>
+<p><strong>注意：</strong></p>
+<ul>
+<li>在 Java 中，<code>&lt;&lt;</code> 仅适用于整数类型 (<code>int</code>, <code>long</code>)。</li>
+<li>对于负数的左移，结果仍然会有符号扩展。</li>
+</ul>
+<p><strong>总结：</strong></p>
+<ul>
+<li><code>&lt;&lt;</code> 是按位左移运算符，它将一个数的二进制位向左移动指定的位数，并在右侧补 <code>0</code>。</li>
+<li>左移操作相当于将数值乘以 <code>2</code> 的某个幂，<code>a &lt;&lt; n</code> 等同于 &#96;a * 2^n</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+    
+  <nav id="article-nav" data-aos="fade-up">
+    
+    
+    <div class="article-nav-link-wrap article-nav-link-right">
+      
+        
+        
+          <img data-src="/images/banner.webp" data-sizes="auto" alt="Java运算符" class="lazyload">
+        
+      
+      <a href="/2024/11/23/Java%E8%BF%90%E7%AE%97%E7%AC%A6/"></a>
+      <div class="article-nav-caption">Older</div>
+      <h3 class="article-nav-title">
+        
+          Java运算符
+        
+      </h3>
+    </div>
+    
+  </nav>
+
+
+  
+</article>
+
+
+
+
+
+
+</section>
+          
+            <aside id="sidebar">
+  <div class="sidebar-wrapper wrap-sticky">
+    <div class="sidebar-wrap" data-aos="fade-up">
+      
+        <div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class" >
+      
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%89%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.</span> <span class="toc-text">按位运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%89%E4%BD%8D%E4%B8%8E%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.1.</span> <span class="toc-text">&amp;  按位与运算符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%89%E4%BD%8D%E6%88%96%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.2.</span> <span class="toc-text">|  按位或运算符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%89%E4%BD%8D%E5%BC%82%E6%88%96%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.3.</span> <span class="toc-text">^  按位异或运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E5%BC%82%E6%88%96%E8%BF%90%E7%AE%97%E5%BA%94%E7%94%A8%EF%BC%9A"><span class="toc-number">1.3.1.</span> <span class="toc-text">常见的异或运算应用：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%B3%E7%A7%BB%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%8C%E7%94%A8%E4%BA%8E%E5%B0%86%E4%B8%80%E4%B8%AA%E6%95%B4%E6%95%B0%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BD%8D%E5%90%91%E5%8F%B3%E7%A7%BB%E5%8A%A8%E6%8C%87%E5%AE%9A%E7%9A%84%E4%BD%8D%E6%95%B0%E3%80%82%EF%BC%88%E6%B3%A8%E6%84%8F%E5%B7%A6%E8%A1%A5%E5%85%85%EF%BC%89"><span class="toc-number">1.4.</span> <span class="toc-text">&gt;&gt; 右移运算符，用于将一个整数的二进制位向右移动指定的位数。（注意左补充）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%B3%E7%A7%BB%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%88%99%EF%BC%9A"><span class="toc-number">1.4.1.</span> <span class="toc-text">右移运算符的基本规则：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%B4%9F%E6%95%B0%E7%9A%84%E5%8F%B3%E7%A7%BB%EF%BC%9A"><span class="toc-number">1.4.2.</span> <span class="toc-text">负数的右移：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8-Java-%E4%B8%AD%EF%BC%8C"><span class="toc-number">1.5.</span> <span class="toc-text">在 Java 中，&lt;&lt; 是 按位左移运算符，用于将一个整数的二进制位向左移动指定的位数。</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E8%A7%84%E5%88%99%EF%BC%9A"><span class="toc-number">1.5.1.</span> <span class="toc-text">操作规则：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9B%B4%E6%B7%B1%E5%85%A5%E7%9A%84%E8%A7%A3%E9%87%8A%EF%BC%9A"><span class="toc-number">1.5.2.</span> <span class="toc-text">更深入的解释：</span></a></li></ol></li></ol></li></ol>
+      
+  </div>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="John Doe" class="lazyload">
+  <div class="sidebar-author-name">John Doe</div>
+  <div class="sidebar-description"></div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Posts</div>
+    <div class="sidebar-state-number">16</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Categories</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tags</div>
+    <div class="sidebar-state-number">3</div>
+  </div>
+</div>
+<div class="sidebar-social">
+  
+</div>
+<div class="sidebar-menu">
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/" aria-label="Home"></a>
+      <div class="sidebar-menu-icon icon-taichi"></div>
+      <div class="sidebar-menu-link">Home</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/archives" aria-label="Archives"></a>
+      <div class="sidebar-menu-icon icon-taichi"></div>
+      <div class="sidebar-menu-link">Archives</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/about" aria-label="About"></a>
+      <div class="sidebar-menu-icon icon-taichi"></div>
+      <div class="sidebar-menu-link">About</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/friend" aria-label="Friend"></a>
+      <div class="sidebar-menu-icon icon-taichi"></div>
+      <div class="sidebar-menu-link">Friend</div>
+    </div>
+  
+</div>
+</div>
+      
+      
+        <div class="sidebar-btn-wrapper" style="position:static">
+          <div class="sidebar-toc-btn current"></div>
+          <div class="sidebar-common-btn"></div>
+        </div>
+      
+    </div>
+  </div>
+
+  
+</aside>
+
+          
+        </div>
+        <footer id="footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    
+    <div>
+      <span class="icon-copyright"></span>
+      2020-2024
+      <span class="footer-info-sep"></span>
+      John Doe
+    </div>
+    
+      <div>
+        Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" target="_blank">Reimu</a>
+      </div>
+    
+    
+      <div>
+        <span class="icon-brush"></span>
+        23.4k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        01:24
+      </div>
+    
+    
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">Number of visits&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">Number of visitors&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+    
+  </div>
+</footer>
+
+        <div class="sidebar-top">
+          <img src="/images/taichi.png" height="50" width="50" alt="backtop" />
+          <div class="arrow-up"></div>
+        </div>
+        <div id="mask"></div>
+      </div>
+      <nav id="mobile-nav">
+  <div class="sidebar-wrap">
+    
+      <div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class" >
+      
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%89%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.</span> <span class="toc-text">按位运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%89%E4%BD%8D%E4%B8%8E%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.1.</span> <span class="toc-text">&amp;  按位与运算符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%89%E4%BD%8D%E6%88%96%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.2.</span> <span class="toc-text">|  按位或运算符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%89%E4%BD%8D%E5%BC%82%E6%88%96%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.3.</span> <span class="toc-text">^  按位异或运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E5%BC%82%E6%88%96%E8%BF%90%E7%AE%97%E5%BA%94%E7%94%A8%EF%BC%9A"><span class="toc-number">1.3.1.</span> <span class="toc-text">常见的异或运算应用：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%B3%E7%A7%BB%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%8C%E7%94%A8%E4%BA%8E%E5%B0%86%E4%B8%80%E4%B8%AA%E6%95%B4%E6%95%B0%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BD%8D%E5%90%91%E5%8F%B3%E7%A7%BB%E5%8A%A8%E6%8C%87%E5%AE%9A%E7%9A%84%E4%BD%8D%E6%95%B0%E3%80%82%EF%BC%88%E6%B3%A8%E6%84%8F%E5%B7%A6%E8%A1%A5%E5%85%85%EF%BC%89"><span class="toc-number">1.4.</span> <span class="toc-text">&gt;&gt; 右移运算符，用于将一个整数的二进制位向右移动指定的位数。（注意左补充）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%B3%E7%A7%BB%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%88%99%EF%BC%9A"><span class="toc-number">1.4.1.</span> <span class="toc-text">右移运算符的基本规则：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%B4%9F%E6%95%B0%E7%9A%84%E5%8F%B3%E7%A7%BB%EF%BC%9A"><span class="toc-number">1.4.2.</span> <span class="toc-text">负数的右移：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8-Java-%E4%B8%AD%EF%BC%8C"><span class="toc-number">1.5.</span> <span class="toc-text">在 Java 中，&lt;&lt; 是 按位左移运算符，用于将一个整数的二进制位向左移动指定的位数。</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E8%A7%84%E5%88%99%EF%BC%9A"><span class="toc-number">1.5.1.</span> <span class="toc-text">操作规则：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9B%B4%E6%B7%B1%E5%85%A5%E7%9A%84%E8%A7%A3%E9%87%8A%EF%BC%9A"><span class="toc-number">1.5.2.</span> <span class="toc-text">更深入的解释：</span></a></li></ol></li></ol></li></ol>
+      
+  </div>
+</div>
+</div>
+      <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="John Doe" class="lazyload">
+  <div class="sidebar-author-name">John Doe</div>
+  <div class="sidebar-description"></div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Posts</div>
+    <div class="sidebar-state-number">16</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Categories</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tags</div>
+    <div class="sidebar-state-number">3</div>
+  </div>
+</div>
+<div class="sidebar-social">
+  
+</div>
+<div class="sidebar-menu">
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/" aria-label="Home"></a>
+      <div class="sidebar-menu-icon icon-taichi"></div>
+      <div class="sidebar-menu-link">Home</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/archives" aria-label="Archives"></a>
+      <div class="sidebar-menu-icon icon-taichi"></div>
+      <div class="sidebar-menu-link">Archives</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/about" aria-label="About"></a>
+      <div class="sidebar-menu-icon icon-taichi"></div>
+      <div class="sidebar-menu-link">About</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/friend" aria-label="Friend"></a>
+      <div class="sidebar-menu-icon icon-taichi"></div>
+      <div class="sidebar-menu-link">Friend</div>
+    </div>
+  
+</div>
+</div>
+    
+  </div>
+  
+    <div class="sidebar-btn-wrapper">
+      <div class="sidebar-toc-btn current"></div>
+      <div class="sidebar-common-btn"></div>
+    </div>
+  
+</nav>
+
+    </div>
+    
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js"></script>
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+<script type="module" data-pjax>
+  import PhotoSwipeLightbox from "https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js";
+  
+  const pswp = () => {
+    if (_$$('.article-entry a.article-gallery-item').length > 0) {
+      new PhotoSwipeLightbox({
+        gallery: '.article-entry',
+        children: 'a.article-gallery-item',
+        pswpModule: () => import("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js")
+      }).init();
+    }
+    if(_$$('.article-gallery a.article-gallery-item').length > 0) {
+      new PhotoSwipeLightbox({
+        gallery: '.article-gallery',
+        children: 'a.article-gallery-item',
+        pswpModule: () => import("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js")
+      }).init();
+    }
+    window.lightboxStatus = 'done';
+    window.removeEventListener('lightbox:ready', pswp);
+  }
+  if(window.lightboxStatus === 'ready') {
+    pswp()
+  } else {
+    window.addEventListener('lightbox:ready', pswp);
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.0.4/dist/index.umd.js"></script>
+
+  <script>
+    firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["#ff5252","#ff7c7c","#ffafaf","#ffd0d0"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["#ff0000"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'))
+  </script>
+
+
+
+
+
+
+
+  
+<script src="https://npm.webcache.cn/quicklink@2.3.0/dist/quicklink.umd.js"></script>
+
+  <script data-pjax>
+    quicklink.listen({
+      timeout: 3000,
+      priority: true,
+      ignores: []
+    });
+  </script>
+
+
+<div id="lazy-script">
+  <div>
+    
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '0.3.0-alpha.1' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+  <!-- hexo injector body_end start -->
+<script src="/js/insert_highlight.js" data-pjax></script>
+<!-- hexo injector body_end end --></body>
+  </html>
+
