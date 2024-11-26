@@ -28,15 +28,15 @@
 <link rel="stylesheet" href="/css/loader.css">
 
   
-  <meta name="description" content="一. Java数据类型A. 强类型语言（例如：java , c++ 等)  要求变量的使用要严格符合规定，所有变量都必须先定义后才能使用 如果指定了一个变量的类型，不经过数据转换永远都是那个类型  严谨安全性高，速度慢 B. 弱类型语言(例如：python , JS等)  变量的使用符合规定就行  C. 数据类型分为两类：  基本数据类型 - 包括 byte、short、int、long、floa">
+  <meta name="description" content="学习目录:  数据类型 理解什么是字符 会使用不同数据类型的实际例子 理解 非原数据类型 和 原始数据类型  一. Java数据类型A. 强类型语言（例如：java , c++ 等)  要求变量的使用要严格符合规定，所有变量都必须先定义后才能使用 如果指定了一个变量的类型，不经过数据转换永远都是那个类型  严谨安全性高，速度慢 B. 弱类型语言(例如：python , JS等)  变量的使用符合规">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java的基础数据类型">
 <meta property="og:url" content="http://example.com/2024/11/22/java%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="一. Java数据类型A. 强类型语言（例如：java , c++ 等)  要求变量的使用要严格符合规定，所有变量都必须先定义后才能使用 如果指定了一个变量的类型，不经过数据转换永远都是那个类型  严谨安全性高，速度慢 B. 弱类型语言(例如：python , JS等)  变量的使用符合规定就行  C. 数据类型分为两类：  基本数据类型 - 包括 byte、short、int、long、floa">
+<meta property="og:description" content="学习目录:  数据类型 理解什么是字符 会使用不同数据类型的实际例子 理解 非原数据类型 和 原始数据类型  一. Java数据类型A. 强类型语言（例如：java , c++ 等)  要求变量的使用要严格符合规定，所有变量都必须先定义后才能使用 如果指定了一个变量的类型，不经过数据转换永远都是那个类型  严谨安全性高，速度慢 B. 弱类型语言(例如：python , JS等)  变量的使用符合规">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-11-22T13:43:09.591Z">
-<meta property="article:modified_time" content="2024-11-22T14:01:47.320Z">
+<meta property="article:modified_time" content="2024-11-26T02:55:27.155Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -177,7 +177,7 @@
       <div class="article-date">
   <a href="/2024/11/22/java%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="article-date-link" data-aos="zoom-in">
     <time datetime="2024-11-22T13:43:09.591Z" itemprop="datePublished">2024-11-22</time>
-    <time style="display: none;" id="post-update-time">2024-11-22</time>
+    <time style="display: none;" id="post-update-time">2024-11-26</time>
   </a>
 </div>
 
@@ -190,7 +190,14 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
       
-        <h3 id="一-Java数据类型"><a href="#一-Java数据类型" class="headerlink" title="一. Java数据类型"></a>一. Java数据类型</h3><p><strong>A. 强类型语言（例如：java , c++ 等)</strong></p>
+        <p><strong>学习目录:</strong></p>
+<ol>
+<li>数据类型</li>
+<li>理解什么是字符</li>
+<li>会使用不同数据类型的实际例子</li>
+<li>理解 非原数据类型 和 原始数据类型</li>
+</ol>
+<h3 id="一-Java数据类型"><a href="#一-Java数据类型" class="headerlink" title="一. Java数据类型"></a>一. Java数据类型</h3><p><strong>A. 强类型语言（例如：java , c++ 等)</strong></p>
 <ul>
 <li>要求变量的使用要严格符合规定，所有变量都必须先定义后才能使用</li>
 <li>如果指定了一个变量的类型，不经过数据转换永远都是那个类型</li>
@@ -279,17 +286,7 @@
 <p>输出的结果：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">35000.0</span></span><br><span class="line"><span class="number">120000.0</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="二-Java的布尔数据类型"><a href="#二-Java的布尔数据类型" class="headerlink" title="二. Java的布尔数据类型"></a>二. Java的布尔数据类型</h3><p><code>boolean</code> 是一种数据类型，它只能存储两种值：<code>true</code>（真）或 <code>false</code>（假）。这是用于表示逻辑值的类型，通常用于条件判断或控制结构中</p>
-<p>在编程中，您经常需要一个数据类型，它只能具有两个值之一，例如：</p>
-<ul>
-<li>是 &#x2F; 否</li>
-<li>开 &#x2F; 关</li>
-<li>对 &#x2F; 错</li>
-</ul>
-<p>例：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"><span class="type">boolean</span> <span class="variable">isJavaFun</span> <span class="operator">=</span> <span class="literal">true</span>;  <span class="comment">// 声明一个布尔变量 isJavaFun，并将其初始化为 true（布尔值表示 &quot;真&quot;）。</span></span><br><span class="line"><span class="type">boolean</span> <span class="variable">isFishTasty</span> <span class="operator">=</span> <span class="literal">false</span>;  <span class="comment">// 声明另一个布尔变量 isFishTasty，并将其初始化为 false（布尔值表示 &quot;假&quot;）。</span></span><br><span class="line">System.out.println(isJavaFun);     <span class="comment">// 输出 isJavaFun 的值，结果为 true，表示 &quot;Java 很有趣&quot;。</span></span><br><span class="line">System.out.println(isFishTasty);   <span class="comment">// 输出 isFishTasty 的值，结果为 false，表示 &quot;鱼不好吃&quot;。</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="三-字符"><a href="#三-字符" class="headerlink" title="三. 字符"></a>三. 字符</h3><p><strong>a. 字符：</strong><br> <code>char</code> 数据类型用于存储单个字符。字符必须用单引号括起来，例如 <code>&#39;A&#39;</code> 或 <code>&#39;c&#39;</code>。</p>
+<h3 id="二-字符"><a href="#二-字符" class="headerlink" title="二. 字符"></a>二. 字符</h3><p><strong>a. 字符：</strong><br> <code>char</code> 数据类型用于存储单个字符。字符必须用单引号括起来，例如 <code>&#39;A&#39;</code> 或 <code>&#39;c&#39;</code>。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">char</span> <span class="variable">myGrade</span> <span class="operator">=</span> <span class="string">&#x27;B&#x27;</span>;</span><br><span class="line">    System.out.println(myGrade);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p><strong>b. 另外，如果你熟悉 ASCII 值，你可以使用这些值来显示特定的字符：</strong></p>
@@ -302,13 +299,13 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">greeting</span> <span class="operator">=</span> <span class="string">&quot;Hello World&quot;</span>;</span><br><span class="line">    System.out.println(greeting);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>String 类型在 Java 中使用得非常广泛,在 Java 中，<code>String</code> 实际上是一种非原始数据类型，因为它指向一个对象。<code>String</code> 对象有一些方法，用于对字符串执行特定的操作。</p>
-<h3 id="四-使用不同数据类型的实际例子"><a href="#四-使用不同数据类型的实际例子" class="headerlink" title="四. 使用不同数据类型的实际例子"></a>四. 使用不同数据类型的实际例子</h3><p><strong>用于计算并输出若干商品的总成本：</strong></p>
+<h3 id="三-使用不同数据类型的实际例子"><a href="#三-使用不同数据类型的实际例子" class="headerlink" title="三. 使用不同数据类型的实际例子"></a>三. 使用不同数据类型的实际例子</h3><p><strong>用于计算并输出若干商品的总成本：</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="comment">// 创建不同数据类型的变量</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">items</span> <span class="operator">=</span> <span class="number">50</span>;   <span class="comment">// items 物品</span></span><br><span class="line">    <span class="type">float</span> <span class="variable">costPerItem</span> <span class="operator">=</span> <span class="number">9.99f</span>;   <span class="comment">// costPerItem 单件成本</span></span><br><span class="line">    <span class="type">float</span> <span class="variable">totalCost</span> <span class="operator">=</span> items * costPerItem;   <span class="comment">// totalCost 总成本</span></span><br><span class="line">    <span class="type">char</span> <span class="variable">currency</span> <span class="operator">=</span> <span class="string">&#x27;$&#x27;</span>;   <span class="comment">// currency 货币</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 打印变量</span></span><br><span class="line">    System.out.println(<span class="string">&quot;Number of items: &quot;</span> + items);</span><br><span class="line">    System.out.println(<span class="string">&quot;Cost per item: &quot;</span> + costPerItem + currency);</span><br><span class="line">    System.out.println(<span class="string">&quot;Total cost = &quot;</span> + totalCost + currency);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>输出结果：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Number of items: <span class="number">50</span>   <span class="comment">//  物品数量：50 </span></span><br><span class="line">Cost per item: <span class="number">9.99</span>$  <span class="comment">//  物品的成本：9.99$</span></span><br><span class="line"><span class="type">Total</span> <span class="variable">cost</span> <span class="operator">=</span> <span class="number">499.50</span>$  <span class="comment">//  总成本 = 499.50$</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="五-非原始数据类型"><a href="#五-非原始数据类型" class="headerlink" title="五. 非原始数据类型"></a>五. 非原始数据类型</h3><p> 非原始数据类型被称为引用类型，因为它们指向对象。</p>
+<h3 id="四-非原始数据类型"><a href="#四-非原始数据类型" class="headerlink" title="四. 非原始数据类型"></a>四. 非原始数据类型</h3><p> 非原始数据类型被称为引用类型，因为它们指向对象。</p>
 <p><strong>原始数据类型</strong>和<strong>非原始数据类型</strong>之间的<strong>主要区别</strong>如下：</p>
 <ol>
 <li>Java 中的原始数据类型是预定义的，并且内置于语言中，而非原始数据类型是由程序员创建的（除了 String）。</li>
@@ -317,7 +314,7 @@
 <li>原始数据类型总是保存一个值，而非原始数据类型可以为 null。</li>
 <li>非原始数据类型的例子包括字符串、数组、类等。</li>
 </ol>
-<h3 id="六-原始数据类型"><a href="#六-原始数据类型" class="headerlink" title="六. 原始数据类型"></a>六. 原始数据类型</h3><p>在 Java 中，<strong>原始数据类型</strong>是语言提供的最基本的数据类型，用于表示基本的数值、字符和逻辑值。原始数据类型是 <strong>值类型</strong>，也就是说，它们的变量直接存储数据的值，而不是指向数据的引用。</p>
+<h3 id="五-原始数据类型"><a href="#五-原始数据类型" class="headerlink" title="五. 原始数据类型"></a>五. 原始数据类型</h3><p>在 Java 中，<strong>原始数据类型</strong>是语言提供的最基本的数据类型，用于表示基本的数值、字符和逻辑值。原始数据类型是 <strong>值类型</strong>，也就是说，它们的变量直接存储数据的值，而不是指向数据的引用。</p>
 <p>Java 共有 <strong>8 种原始数据类型</strong>，它们分别是：<code>byte</code>、<code>short</code>、<code>int</code>、<code>long</code>、<code>float</code>、<code>double</code>、<code>boolean</code> 和 <code>char</code>。</p>
 <p><strong>原始数据类型的特点：</strong></p>
 <ol>
@@ -399,7 +396,7 @@
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-Java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">一. Java数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-Java%E7%9A%84%E5%B8%83%E5%B0%94%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">二. Java的布尔数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-%E5%AD%97%E7%AC%A6"><span class="toc-number">3.</span> <span class="toc-text">三. 字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%90%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AE%9E%E9%99%85%E4%BE%8B%E5%AD%90"><span class="toc-number">4.</span> <span class="toc-text">四. 使用不同数据类型的实际例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94-%E9%9D%9E%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">5.</span> <span class="toc-text">五. 非原始数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AD-%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">6.</span> <span class="toc-text">六. 原始数据类型</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-Java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">一. Java数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-%E5%AD%97%E7%AC%A6"><span class="toc-number">2.</span> <span class="toc-text">二. 字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%90%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AE%9E%E9%99%85%E4%BE%8B%E5%AD%90"><span class="toc-number">3.</span> <span class="toc-text">三. 使用不同数据类型的实际例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-%E9%9D%9E%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.</span> <span class="toc-text">四. 非原始数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94-%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">5.</span> <span class="toc-text">五. 原始数据类型</span></a></li></ol>
       
   </div>
 </div>
@@ -412,7 +409,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>Posts</div>
-    <div class="sidebar-state-number">18</div>
+    <div class="sidebar-state-number">19</div>
   </div>
   <div class="sidebar-state-category">
     <div>Categories</div>
@@ -490,10 +487,10 @@
     
       <div>
         <span class="icon-brush"></span>
-        26.5k
+        27.5k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        01:36
+        01:41
       </div>
     
     
@@ -521,7 +518,7 @@
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-Java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">一. Java数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-Java%E7%9A%84%E5%B8%83%E5%B0%94%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">二. Java的布尔数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-%E5%AD%97%E7%AC%A6"><span class="toc-number">3.</span> <span class="toc-text">三. 字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%90%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AE%9E%E9%99%85%E4%BE%8B%E5%AD%90"><span class="toc-number">4.</span> <span class="toc-text">四. 使用不同数据类型的实际例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94-%E9%9D%9E%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">5.</span> <span class="toc-text">五. 非原始数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AD-%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">6.</span> <span class="toc-text">六. 原始数据类型</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-Java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">一. Java数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-%E5%AD%97%E7%AC%A6"><span class="toc-number">2.</span> <span class="toc-text">二. 字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%90%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AE%9E%E9%99%85%E4%BE%8B%E5%AD%90"><span class="toc-number">3.</span> <span class="toc-text">三. 使用不同数据类型的实际例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-%E9%9D%9E%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.</span> <span class="toc-text">四. 非原始数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94-%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">5.</span> <span class="toc-text">五. 原始数据类型</span></a></li></ol>
       
   </div>
 </div>
@@ -534,7 +531,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>Posts</div>
-    <div class="sidebar-state-number">18</div>
+    <div class="sidebar-state-number">19</div>
   </div>
   <div class="sidebar-state-category">
     <div>Categories</div>
