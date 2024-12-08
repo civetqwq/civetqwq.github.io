@@ -14,7 +14,7 @@
   
   
   <title>
-    心得 |
+    Java 类的方法 和 构造器的知识 |
     
     昨天放的鸽子，今天要亲自去追
   </title>
@@ -28,15 +28,15 @@
 <link rel="stylesheet" href="/css/loader.css">
 
   
-  <meta name="description" content="博客的创建推荐:  csdn    博客园     hexo    简书     知乎   对于纯小白推荐 csdn ,博客园 ，注册简单易上手;  写博客的好处 对自己所学做出一个总结，也方便复习 可以提升文笔组织的能力 可以提升学习总结能力 可以提升逻辑思维能力 帮助他人，结交朋友（最重要的一点）  安装的药方：方子1 点击跳转到Hexo进行阅读，跟随里面的教程一步步安装操作即可 方子2喊一个">
+  <meta name="description" content="目录：  类的方法 构造器  一.  类的方法12345678910111213141516171819public class Main &#123;  &#x2F;&#x2F; 静态方法  static void myStaticMethod() &#123;    System.out.println(&quot;静态方法可以在不创建对象的情况下调用&quot;);  &#125;  &#x2F;&#x2F; 公共方法  pu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="心得">
-<meta property="og:url" content="http://example.com/2024/10/12/%E5%BF%83%E5%BE%97/index.html">
+<meta property="og:title" content="Java 类的方法 和 构造器的知识">
+<meta property="og:url" content="http://example.com/2024/12/08/Java%E7%B1%BB%E7%9A%84%E6%96%B9%E6%B3%95%E5%92%8C%E6%9E%84%E9%80%A0%E5%99%A8%E7%9A%84%E7%9F%A5%E8%AF%86/index.html">
 <meta property="og:site_name" content="昨天放的鸽子，今天要亲自去追">
-<meta property="og:description" content="博客的创建推荐:  csdn    博客园     hexo    简书     知乎   对于纯小白推荐 csdn ,博客园 ，注册简单易上手;  写博客的好处 对自己所学做出一个总结，也方便复习 可以提升文笔组织的能力 可以提升学习总结能力 可以提升逻辑思维能力 帮助他人，结交朋友（最重要的一点）  安装的药方：方子1 点击跳转到Hexo进行阅读，跟随里面的教程一步步安装操作即可 方子2喊一个">
+<meta property="og:description" content="目录：  类的方法 构造器  一.  类的方法12345678910111213141516171819public class Main &#123;  &#x2F;&#x2F; 静态方法  static void myStaticMethod() &#123;    System.out.println(&quot;静态方法可以在不创建对象的情况下调用&quot;);  &#125;  &#x2F;&#x2F; 公共方法  pu">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-10-12T12:09:31.000Z">
-<meta property="article:modified_time" content="2024-10-30T07:54:39.691Z">
+<meta property="article:published_time" content="2024-12-08T11:29:24.376Z">
+<meta property="article:modified_time" content="2024-12-08T11:29:20.434Z">
 <meta property="article:author" content="civet">
 <meta name="twitter:card" content="summary">
   
@@ -146,7 +146,7 @@
 <header id="header">
   
     
-      <img fetchpriority="high" src="/images/banner.webp" alt="心得">
+      <img fetchpriority="high" src="/images/banner.webp" alt="Java 类的方法 和 构造器的知识">
     
   
   <div id="header-outer">
@@ -155,7 +155,7 @@
         
         
           <a href="/" id="logo">
-            <h1 data-aos="slide-up">心得</h1>
+            <h1 data-aos="slide-up">Java 类的方法 和 构造器的知识</h1>
           </a>
         
       
@@ -171,13 +171,13 @@
 
         <div id="content">
           
-          <section id="main"><article id="post-心得" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main"><article id="post-Java类的方法和构造器的知识" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
-  <a href="/2024/10/12/%E5%BF%83%E5%BE%97/" class="article-date-link" data-aos="zoom-in">
-    <time datetime="2024-10-12T12:09:31.000Z" itemprop="datePublished">2024-10-12</time>
-    <time style="display: none;" id="post-update-time">2024-10-30</time>
+  <a href="/2024/12/08/Java%E7%B1%BB%E7%9A%84%E6%96%B9%E6%B3%95%E5%92%8C%E6%9E%84%E9%80%A0%E5%99%A8%E7%9A%84%E7%9F%A5%E8%AF%86/" class="article-date-link" data-aos="zoom-in">
+    <time datetime="2024-12-08T11:29:24.376Z" itemprop="datePublished">2024-12-08</time>
+    <time style="display: none;" id="post-update-time">2024-12-08</time>
   </a>
 </div>
 
@@ -190,25 +190,87 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
       
-        <h1 id="博客的创建"><a href="#博客的创建" class="headerlink" title="博客的创建"></a>博客的创建</h1><p>推荐:  csdn    博客园     hexo    简书     知乎 </p>
-<blockquote>
-<p><em><strong>对于纯小白推荐 csdn ,博客园 ，注册简单易上手;</strong></em></p>
-</blockquote>
-<h3 id="写博客的好处"><a href="#写博客的好处" class="headerlink" title="写博客的好处"></a>写博客的好处</h3><ul>
-<li>对自己所学做出一个总结，也方便复习</li>
-<li>可以提升文笔组织的能力</li>
-<li>可以提升学习总结能力</li>
-<li>可以提升逻辑思维能力</li>
-<li>帮助他人，结交朋友（<strong>最重要的一点</strong>）</li>
+        <p>  目录：</p>
+<ol>
+<li>类的方法</li>
+<li>构造器</li>
+</ol>
+<h2 id="一-类的方法"><a href="#一-类的方法" class="headerlink" title="一.  类的方法"></a>一.  类的方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">  <span class="comment">// 静态方法</span></span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">myStaticMethod</span><span class="params">()</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;静态方法可以在不创建对象的情况下调用&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 公共方法</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">myPublicMethod</span><span class="params">()</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;公共方法必须通过创建对象来调用&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 主方法</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    myStaticMethod(); <span class="comment">// 调用静态方法</span></span><br><span class="line"></span><br><span class="line">    <span class="type">Main</span> <span class="variable">myObj</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Main</span>(); <span class="comment">// 创建一个 Main 类的对象</span></span><br><span class="line">    myObj.myPublicMethod(); <span class="comment">// 调用公共方法</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>代码解释：</strong></p>
+<ul>
+<li><strong>静态方法（Static Method）</strong>：<ul>
+<li><code>myStaticMethod()</code> 是一个静态方法，使用 <code>static</code> 关键字定义。</li>
+<li>静态方法可以直接通过类名调用，也可以在类的任何方法中直接调用，而不需要创建类的对象。</li>
+<li>在 <code>main</code> 方法中，我们直接调用了 <code>myStaticMethod()</code>，不需要创建 <code>Main</code> 类的对象。</li>
 </ul>
-<h3 id="安装的药方："><a href="#安装的药方：" class="headerlink" title="安装的药方："></a>安装的药方：</h3><h4 id="方子1"><a href="#方子1" class="headerlink" title="方子1"></a><strong>方子1</strong></h4><p> <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">点击跳转到Hexo</a>进行阅读，跟随里面的教程一步步安装操作即可</p>
-<h3 id="方子2"><a href="#方子2" class="headerlink" title="方子2"></a>方子2</h3><p>喊一个牛叉的人辅导你安装</p>
-<h1 id="感悟"><a href="#感悟" class="headerlink" title="感悟"></a>感悟</h1><p>​      博客，我认为是一种笔记方式，分享各自观点及知识，在学了费曼学习法后，越加感受到分享的重要性，分享是人与人之间的桥梁，</p>
-<p>是心与心之间的纽带，在分享中，我们不仅照亮了别人，也点燃了自己的内心。</p>
-<p>​     写博客可以记录自己的一个学习进度，对所学进行一个总结，在忘记的情况下可以拿出来翻翻进行一个复习，也可以访问他人的博客</p>
-<p>来从中获取其经验和知识，丰富自己的视野。</p>
-<blockquote>
-<h4 id="环境不会改变，解决之道在于改变自己，每个牛13的人，都有一段苦13的坚持"><a href="#环境不会改变，解决之道在于改变自己，每个牛13的人，都有一段苦13的坚持" class="headerlink" title="环境不会改变，解决之道在于改变自己，每个牛13的人，都有一段苦13的坚持"></a><em><strong><del>环境不会改变，解决之道在于改变自己，每个牛13的人，都有一段苦13的坚持</del></strong></em></h4></blockquote>
+</li>
+<li><strong>公共方法（Public Method）</strong>：<ul>
+<li><code>myPublicMethod()</code> 是一个公共方法，使用 <code>public</code> 关键字定义。</li>
+<li>公共方法必须通过类的实例（对象）来调用。它不能像静态方法那样直接通过类名调用。</li>
+<li>在 <code>main</code> 方法中，我们首先创建了 <code>Main</code> 类的对象 <code>myObj</code>，然后通过 <code>myObj</code> 来调用公共方法 <code>myPublicMethod()</code>。</li>
+</ul>
+</li>
+<li><strong>主方法（Main Method）</strong>：<ul>
+<li><code>public static void main(String[] args)</code> 是 Java 程序的入口点，是程序执行时自动调用的方法。</li>
+<li>在这个方法中，我们首先调用了静态方法，然后创建了 <code>Main</code> 类的对象并调用了公共方法。</li>
+</ul>
+</li>
+</ul>
+<p><strong>主要概念：</strong></p>
+<ul>
+<li><strong>方法的参数</strong>：<code>speed(int maxSpeed)</code> 方法带有一个参数，表示车的最大速度。</li>
+<li><strong>对象的使用</strong>：通过 <code>new Main()</code> 创建对象后，可以使用该对象调用类中的方法。</li>
+</ul>
+<h2 id="二-构造器"><a href="#二-构造器" class="headerlink" title="二.  构造器"></a>二.  构造器</h2><ol>
+<li><p>构造函数是 Java 中的一种特殊方法，用于初始化对象。当一个类的对象被创建时，构造函数会被调用。它可以用于为对象的属性设置初始值。</p>
+</li>
+<li><p>构造函数的名称必须与类名匹配，并且不能有返回类型（例如 <code>void</code>）。</p>
+</li>
+<li><p>构造函数是在对象创建时被调用的。</p>
+</li>
+<li><p>所有类默认都有构造函数：如果你自己没有创建类的构造函数，Java 会为你创建一个。然而，在这种情况下，你将无法为对象的属性设置初始值。</p>
+</li>
+</ol>
+<h3 id="1-构造函数参数"><a href="#1-构造函数参数" class="headerlink" title="1.  构造函数参数"></a>1.  构造函数参数</h3><ul>
+<li>构造函数也可以带有参数，用于初始化属性。</li>
+</ul>
+<p>下面的示例为构造函数添加了一个参数。在构造函数内部，我们将 <code>x</code> 设置为 <code>y</code>（即 <code>x = y</code>）。当我们调用构造函数时，我们传递一个参数（5），这将把 <code>x</code> 的值设置为 5：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">  <span class="type">int</span> x;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="title function_">Main</span><span class="params">(<span class="type">int</span> y)</span> &#123;</span><br><span class="line">    x = y;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">Main</span> <span class="variable">myObj</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Main</span>(<span class="number">5</span>);</span><br><span class="line">    System.out.println(myObj.x);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>拥有任意数量的参数：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 文件名：Main.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;  <span class="comment">// 定义一个名为 Main 的类</span></span><br><span class="line">  <span class="type">int</span> modelYear;  <span class="comment">// 定义一个整数类型的变量 modelYear，用于存储汽车的年份</span></span><br><span class="line">  String modelName;  <span class="comment">// 定义一个字符串类型的变量 modelName，用于存储汽车的名称</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 构造函数，接受两个参数：年（year）和名称（name）</span></span><br><span class="line">  <span class="keyword">public</span> <span class="title function_">Main</span><span class="params">(<span class="type">int</span> year, String name)</span> &#123;</span><br><span class="line">    modelYear = year;  <span class="comment">// 将传入的 year 参数值赋给类的 modelYear 属性</span></span><br><span class="line">    modelName = name;  <span class="comment">// 将传入的 name 参数值赋给类的 modelName 属性</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// main 方法是程序的入口点</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="comment">// 创建一个 Main 类的对象 myCar，传入 1969 和 &quot;Mustang&quot; 作为参数</span></span><br><span class="line">    <span class="type">Main</span> <span class="variable">myCar</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Main</span>(<span class="number">1969</span>, <span class="string">&quot;捷风&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 输出 myCar 对象的 modelYear 和 modelName 属性的值</span></span><br><span class="line">    System.out.println(myCar.modelYear + <span class="string">&quot; &quot;</span> + myCar.modelName);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       
     </div>
@@ -227,22 +289,22 @@
     
   <nav id="article-nav" data-aos="fade-up">
     
-      <div class="article-nav-link-wrap article-nav-link-left">
-        
-          
-          
-            <img data-src="/images/banner.webp" data-sizes="auto" alt="网络攻防基础知识" class="lazyload">
-          
-        
-        <a href="/2024/10/15/%E7%BD%91%E7%BB%9C%E6%94%BB%E9%98%B2%E5%B0%8F%E7%A1%80/"></a>
-        <div class="article-nav-caption">Newer</div>
-        <h3 class="article-nav-title">
-          
-            网络攻防基础知识
-          
-        </h3>
-      </div>
     
+    <div class="article-nav-link-wrap article-nav-link-right">
+      
+        
+        
+          <img data-src="/images/banner.webp" data-sizes="auto" alt="Java方法 参数 返回值" class="lazyload">
+        
+      
+      <a href="/2024/12/08/Java%E6%96%B9%E6%B3%95%E5%8F%82%E6%95%B0%E8%BF%94%E5%9B%9E%E5%80%BC/"></a>
+      <div class="article-nav-caption">Older</div>
+      <h3 class="article-nav-title">
+        
+          Java方法 参数 返回值
+        
+      </h3>
+    </div>
     
   </nav>
 
@@ -265,7 +327,7 @@
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="toc-number">1.</span> <span class="toc-text">博客的创建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%99%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="toc-number">1.0.1.</span> <span class="toc-text">写博客的好处</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E7%9A%84%E8%8D%AF%E6%96%B9%EF%BC%9A"><span class="toc-number">1.0.2.</span> <span class="toc-text">安装的药方：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E5%AD%901"><span class="toc-number">1.0.2.1.</span> <span class="toc-text">方子1</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E5%AD%902"><span class="toc-number">1.0.3.</span> <span class="toc-text">方子2</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%84%9F%E6%82%9F"><span class="toc-number">2.</span> <span class="toc-text">感悟</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E4%B8%8D%E4%BC%9A%E6%94%B9%E5%8F%98%EF%BC%8C%E8%A7%A3%E5%86%B3%E4%B9%8B%E9%81%93%E5%9C%A8%E4%BA%8E%E6%94%B9%E5%8F%98%E8%87%AA%E5%B7%B1%EF%BC%8C%E6%AF%8F%E4%B8%AA%E7%89%9B13%E7%9A%84%E4%BA%BA%EF%BC%8C%E9%83%BD%E6%9C%89%E4%B8%80%E6%AE%B5%E8%8B%A613%E7%9A%84%E5%9D%9A%E6%8C%81"><span class="toc-number">2.0.0.1.</span> <span class="toc-text">环境不会改变，解决之道在于改变自己，每个牛13的人，都有一段苦13的坚持</span></a></li></ol></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E7%B1%BB%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">一.  类的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E6%9E%84%E9%80%A0%E5%99%A8"><span class="toc-number">2.</span> <span class="toc-text">二.  构造器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0"><span class="toc-number">2.1.</span> <span class="toc-text">1.  构造函数参数</span></a></li></ol></li></ol>
       
   </div>
 </div>
@@ -387,7 +449,7 @@
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="toc-number">1.</span> <span class="toc-text">博客的创建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%99%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="toc-number">1.0.1.</span> <span class="toc-text">写博客的好处</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E7%9A%84%E8%8D%AF%E6%96%B9%EF%BC%9A"><span class="toc-number">1.0.2.</span> <span class="toc-text">安装的药方：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E5%AD%901"><span class="toc-number">1.0.2.1.</span> <span class="toc-text">方子1</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E5%AD%902"><span class="toc-number">1.0.3.</span> <span class="toc-text">方子2</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%84%9F%E6%82%9F"><span class="toc-number">2.</span> <span class="toc-text">感悟</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E4%B8%8D%E4%BC%9A%E6%94%B9%E5%8F%98%EF%BC%8C%E8%A7%A3%E5%86%B3%E4%B9%8B%E9%81%93%E5%9C%A8%E4%BA%8E%E6%94%B9%E5%8F%98%E8%87%AA%E5%B7%B1%EF%BC%8C%E6%AF%8F%E4%B8%AA%E7%89%9B13%E7%9A%84%E4%BA%BA%EF%BC%8C%E9%83%BD%E6%9C%89%E4%B8%80%E6%AE%B5%E8%8B%A613%E7%9A%84%E5%9D%9A%E6%8C%81"><span class="toc-number">2.0.0.1.</span> <span class="toc-text">环境不会改变，解决之道在于改变自己，每个牛13的人，都有一段苦13的坚持</span></a></li></ol></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E7%B1%BB%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">一.  类的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E6%9E%84%E9%80%A0%E5%99%A8"><span class="toc-number">2.</span> <span class="toc-text">二.  构造器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0"><span class="toc-number">2.1.</span> <span class="toc-text">1.  构造函数参数</span></a></li></ol></li></ol>
       
   </div>
 </div>
