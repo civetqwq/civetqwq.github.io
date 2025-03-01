@@ -16,7 +16,7 @@
   <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_0khxww3tj3q9';window.REIMU_CONFIG.clipboard_tips = {"success":"复制成功(*^▽^*)","fail":"复制失败 (ﾟ⊿ﾟ)ﾂ","copyright":{"enable":false,"count":50,"content":"本文版权：本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！"}};window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'http://example.com';</script>
   
   <title>
-    简单代码示例--》java数组篇 |
+    KOTLIN 变量 |
     
     昨天放的鸽子，今天要亲自去追
   </title>
@@ -31,15 +31,15 @@
 
   
   
-    <meta name="description" content="实际应用1为了展示数组的实际应用，我们可以创建一个程序，计算不同年龄的平均值 1234567891011121314151617181920212223public class Main &#123;  public static void main(String[] args) &#123;    &#x2F;&#x2F; 定义一个整数数组，存储不同的年龄    int ages[] &#x3D; &#123;20, 22,">
+    <meta name="description" content="一.  Kotlin 变量​    变量是用来存储数据值的容器。 要创建一个变量，可以使用 var 或 val &#x3D; 语法： 1234var variableName &#x3D; value&#x2F;&#x2F; 声明一个可变的变量 variableName，并给它赋一个初始值 value。你可以在之后修改这个变量的值val variableName &#x3D; value&#x2F;&#x2F; 声明一个不可变的变量 variableName，并给它">
 <meta property="og:type" content="article">
-<meta property="og:title" content="简单代码示例--》java数组篇">
-<meta property="og:url" content="http://example.com/2024/11/30/%E6%95%B0%E7%BB%84%E4%BE%8B%E5%AD%90/index.html">
+<meta property="og:title" content="KOTLIN 变量">
+<meta property="og:url" content="http://example.com/2025/03/01/KOTLIN%20%E5%8F%98%E9%87%8F/index.html">
 <meta property="og:site_name" content="昨天放的鸽子，今天要亲自去追">
-<meta property="og:description" content="实际应用1为了展示数组的实际应用，我们可以创建一个程序，计算不同年龄的平均值 1234567891011121314151617181920212223public class Main &#123;  public static void main(String[] args) &#123;    &#x2F;&#x2F; 定义一个整数数组，存储不同的年龄    int ages[] &#x3D; &#123;20, 22,">
+<meta property="og:description" content="一.  Kotlin 变量​    变量是用来存储数据值的容器。 要创建一个变量，可以使用 var 或 val &#x3D; 语法： 1234var variableName &#x3D; value&#x2F;&#x2F; 声明一个可变的变量 variableName，并给它赋一个初始值 value。你可以在之后修改这个变量的值val variableName &#x3D; value&#x2F;&#x2F; 声明一个不可变的变量 variableName，并给它">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-11-30T14:56:29.998Z">
-<meta property="article:modified_time" content="2024-11-30T14:54:39.481Z">
+<meta property="article:published_time" content="2025-03-01T13:07:10.844Z">
+<meta property="article:modified_time" content="2025-03-01T13:07:22.613Z">
 <meta property="article:author" content="civet">
 <meta name="twitter:card" content="summary">
   
@@ -175,7 +175,7 @@
       
     </picture>
     
-      <img fetchpriority="high" src="/images/banner.webp" alt="简单代码示例--》java数组篇">
+      <img fetchpriority="high" src="/images/banner.webp" alt="KOTLIN 变量">
     
   
   <div id="header-outer">
@@ -184,7 +184,7 @@
         
         
           <a href="/" id="logo">
-            <h1 data-aos="slide-up">简单代码示例--》java数组篇</h1>
+            <h1 data-aos="slide-up">KOTLIN 变量</h1>
           </a>
         
       
@@ -209,7 +209,7 @@
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A81"><span class="toc-number">1.</span> <span class="toc-text">实际应用1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A82"><span class="toc-number">2.</span> <span class="toc-text">实际应用2</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-Kotlin-%E5%8F%98%E9%87%8F"><span class="toc-number">1.</span> <span class="toc-text">一.  Kotlin 变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">二 .  变量类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E6%98%BE%E7%A4%BA%E5%8F%98%E9%87%8F"><span class="toc-number">3.</span> <span class="toc-text">三.  显示变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Kotlin-%E5%8F%98%E9%87%8F%E7%9A%84%E4%B8%80%E8%88%AC%E8%A7%84%E5%88%99"><span class="toc-number">3.1.</span> <span class="toc-text">1.  Kotlin 变量的一般规则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%AE%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AF%E4%BF%9D%E7%95%99%E5%AD%97%EF%BC%9F"><span class="toc-number">3.1.1.</span> <span class="toc-text">问：什么是保留字？</span></a></li></ol></li></ol></li></ol>
       
   </div>
 </div>
@@ -289,13 +289,13 @@
   </div>
 </aside>
 
-          <section id="main"><article id="post-数组例子" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main"><article id="post-KOTLIN 变量" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
   <span class="article-date-link" data-aos="zoom-in">
-    <time datetime="2024-11-30T14:56:29.998Z" itemprop="datePublished">2024-11-30</time>
-    <time style="display: none;" id="post-update-time">2024-11-30</time>
+    <time datetime="2025-03-01T13:07:10.844Z" itemprop="datePublished">2025-03-01</time>
+    <time style="display: none;" id="post-update-time">2025-03-01</time>
   </span>
 </div>
 
@@ -308,37 +308,55 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
       
-        <h2 id="实际应用1"><a href="#实际应用1" class="headerlink" title="实际应用1"></a>实际应用1</h2><p>为了展示数组的实际应用，我们可以创建一个程序，计算不同年龄的平均值</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="comment">// 定义一个整数数组，存储不同的年龄</span></span><br><span class="line">    <span class="type">int</span> ages[] = &#123;<span class="number">20</span>, <span class="number">22</span>, <span class="number">18</span>, <span class="number">35</span>, <span class="number">48</span>, <span class="number">26</span>, <span class="number">87</span>, <span class="number">70</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="type">float</span> avg, sum = <span class="number">0</span>;  </span><br><span class="line">    <span class="comment">// 声明了两个浮动类型（float）的变量：avg 用来存储平均值，sum 用来累加数组中所有元素的总和，并将 sum 初始化为 0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取数组的长度</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">length</span> <span class="operator">=</span> ages.length;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 遍历数组中的元素</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> age : ages) &#123;</span><br><span class="line">      sum += age;  <span class="comment">//将当前的 age 值加到 sum 中，从而累计数组中所有元素的总和。</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 通过将总和 sum 除以数组的长度来计算平均值</span></span><br><span class="line">    avg = sum / length;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 输出平均值</span></span><br><span class="line">    System.out.println(<span class="string">&quot;他们的平均年龄是: &quot;</span> + avg);  <span class="comment">// 打印出平均年龄</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="一-Kotlin-变量"><a href="#一-Kotlin-变量" class="headerlink" title="一.  Kotlin 变量"></a>一.  Kotlin 变量</h2><p>​    变量是用来存储数据值的容器。</p>
+<p>要创建一个变量，可以使用 <code>var</code> 或 <code>val</code> <code>=</code></p>
+<p>语法：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> variableName = value</span><br><span class="line"><span class="comment">// 声明一个可变的变量 variableName，并给它赋一个初始值 value。你可以在之后修改这个变量的值</span></span><br><span class="line"><span class="keyword">val</span> variableName = value</span><br><span class="line"><span class="comment">// 声明一个不可变的变量 variableName，并给它赋一个初始值 value。一旦赋值后，变量的值就不能再修改</span></span><br></pre></td></tr></table></figure>
 
-<p>代码输出的结果：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">他们的平均年龄是：<span class="number">40.75</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>var</code> 赋值后，允许修改变量的值。</p>
+<p><code>val</code> 赋值后，不允许修改变量的值</p>
+</blockquote>
+<p>问： 那么什么时候使用 <code>val</code> 呢？</p>
+<p>答： <code>val</code> 关键字在你希望一个变量始终存储相同的值时非常有用，比如 PI（3.14159…）</p>
+<p>​                    PI（π）是圆周率的符号</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> pi = <span class="number">3.14159265359</span></span><br><span class="line">println(pi)</span><br></pre></td></tr></table></figure>
 
-<h2 id="实际应用2"><a href="#实际应用2" class="headerlink" title="实际应用2"></a>实际应用2</h2><p>在这个例子中，我们创建一个程序，找到不同年龄中的最小年龄</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="comment">// 定义一个数组，存储不同的年龄</span></span><br><span class="line">    <span class="type">int</span> ages[] = &#123;<span class="number">20</span>, <span class="number">22</span>, <span class="number">18</span>, <span class="number">35</span>, <span class="number">48</span>, <span class="number">26</span>, <span class="number">87</span>, <span class="number">70</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="type">float</span> avg, sum = <span class="number">0</span>;  <span class="comment">// 定义浮动类型的变量 avg（用于计算平均值）和 sum（用于累加总和），并将 sum 初始化为 0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取数组的长度</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">length</span> <span class="operator">=</span> ages.length;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 创建一个 &quot;最低年龄&quot; 变量，并将数组中第一个元素赋值给它</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">lowestAge</span> <span class="operator">=</span> ages[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 遍历年龄数组中的每个元素，找到最低的年龄</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> age : ages) &#123;</span><br><span class="line">      <span class="comment">// 检查当前年龄是否小于当前的 &quot;最低年龄&quot;</span></span><br><span class="line">      <span class="keyword">if</span> (lowestAge &gt; age) &#123;</span><br><span class="line">        <span class="comment">// 如果找到更小的年龄，则更新 &quot;最低年龄&quot; 为当前元素</span></span><br><span class="line">        lowestAge = age;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 输出最低年龄的值</span></span><br><span class="line">    System.out.println(<span class="string">&quot;数组中的最低年龄是：&quot;</span> + lowestAge);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二-变量类型"><a href="#二-变量类型" class="headerlink" title="二 .  变量类型"></a>二 .  变量类型</h2><p>Kotlin 中的变量<strong>不需要</strong>声明指定的类型</p>
+<p>示例1：</p>
+<p>在 Kotlin 中创建一个存储文本的变量和一个存储数字的变量</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="keyword">var</span> name = <span class="string">&quot;小美&quot;</span></span><br><span class="line">  <span class="keyword">val</span> birthyear = <span class="number">1999</span></span><br><span class="line">  </span><br><span class="line">  println(name)</span><br><span class="line">  println(birthyear)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>代码解释：</strong></p>
-<p><code>int lowestAge = ages[0];</code></p>
-<ul>
-<li>创建一个变量 <code>lowestAge</code>，并将 <code>ages</code> 数组的第一个元素赋值给它，即将第一个年龄（20）初始化为最低年龄。</li>
-</ul>
-<p><code>for (int age : ages) &#123;</code></p>
-<ul>
-<li>使用增强的 <code>for</code> 循环遍历 <code>ages</code> 数组中的每个元素。每次循环，当前元素（即一个年龄）将赋值给变量 <code>age</code>。</li>
-</ul>
-<p><code>if (lowestAge &gt; age) &#123;</code></p>
-<ul>
-<li>检查当前的 <code>lowestAge</code> 是否大于当前遍历到的 <code>age</code>。如果是，说明当前的 <code>age</code> 比 <code>lowestAge</code> 更小。</li>
-</ul>
-<p><code>lowestAge = age;</code></p>
-<ul>
-<li>如果找到一个比 <code>lowestAge</code> 更小的年龄，则更新 <code>lowestAge</code> 为当前的 <code>age</code>。</li>
-</ul>
-<p><strong>代码结果：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数组中的最低年龄是：<span class="number">18</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>   Kotlin 足够智能,  可以判断变量的类型</p>
+</blockquote>
+<p>示例2：</p>
+<p>可以先声明一个变量，但不立即给它赋值，然后稍后再赋值。然而，如果你<strong>不立即赋值</strong>，<strong>必须显式地指定变量的类型</strong></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="keyword">var</span> name: String</span><br><span class="line">  name = <span class="string">&quot;小美&quot;</span></span><br><span class="line">  println(name)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>总结：</strong></p>
-<p>这个程序演示了如何使用 Java 数组来找到数组中的最小值。通过遍历数组中的每个元素，并在每次迭代中检查是否找到比当前最低值更小的元素，从而找出数组中的最低年龄。</p>
+<h2 id="三-显示变量"><a href="#三-显示变量" class="headerlink" title="三.  显示变量"></a>三.  显示变量</h2><p><strong>要将文本和变量结合在一起，可以使用 <code>+</code> 字符</strong></p>
+<p>例1：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> name = <span class="string">&quot;小美&quot;</span></span><br><span class="line">println(<span class="string">&quot;Hello &quot;</span> + name)</span><br></pre></td></tr></table></figure>
+
+<p>例2：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> firstName = <span class="string">&quot; 苹果 &quot;</span></span><br><span class="line"><span class="keyword">val</span> lastName = <span class="string">&quot; 一种低热量的水果&quot;</span></span><br><span class="line"><span class="keyword">val</span> fullName = firstName + lastName</span><br><span class="line">println(fullName)</span><br></pre></td></tr></table></figure>
+
+<p>例3：运算</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> x = <span class="number">5</span></span><br><span class="line"><span class="keyword">val</span> y = <span class="number">6</span></span><br><span class="line">println(x + y)</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-Kotlin-变量的一般规则"><a href="#1-Kotlin-变量的一般规则" class="headerlink" title="1.  Kotlin 变量的一般规则"></a>1.  Kotlin 变量的一般规则</h3><p>如下：</p>
+<ul>
+<li>名称可以包含字母、数字、下划线和美元符号</li>
+<li>名称应以字母开头</li>
+<li>名称也<strong>可以</strong>以 <code>$</code> 和 <code>_</code> 开头</li>
+<li>名称是区分大小写的（例如 “myVar” 和 “myvar” 是不同的变量）</li>
+<li>名称应以小写字母开头，并且不能包含空格</li>
+<li>保留字（如 Kotlin 关键字，如 <code>or</code>）不能用作变量名</li>
+<li>变量的类型由值决定</li>
+</ul>
+<h4 id="问：什么是保留字？"><a href="#问：什么是保留字？" class="headerlink" title="问：什么是保留字？"></a>问：什么是保留字？</h4><p>答：<strong>保留字</strong>  是编程语言中具有特殊意义的词汇，这些词汇是编程语言的关键组成部分，不能用作变量名、函数名或其他标识符。</p>
+<p>在 Kotlin 中，像 <code>if</code>、<code>for</code>、<code>class</code>、<code>var</code>、<code>fun</code> 这样的词是<strong>保留字</strong>，它们有特定的用途，不能被用作变量名或函数名</p>
+<p>​       <strong>保留字</strong>   通常用于定义语法结构或控制程序流程</p>
 
       
     </div>
@@ -358,37 +376,20 @@
   
   <nav id="article-nav" data-aos="fade-up">
     
-      
-      <div class="article-nav-link-wrap article-nav-link-left">
-        
-          
-          
-            <img data-src="/images/banner.webp" data-sizes="auto" alt="了解递归 和 方法的细节小科普" class="lazyload">
-          
-        
-        <a href="/2024/12/05/java%E7%9A%84%E9%80%92%E5%BD%92%E7%9F%A5%E8%AF%86%E5%92%8C%E6%96%B9%E6%B3%95%E5%B0%8F%E7%82%B9/"></a>
-        <div class="article-nav-caption">Newer</div>
-        <h3 class="article-nav-title">
-          
-            了解递归 和 方法的细节小科普
-          
-        </h3>
-      </div>
-    
     
     
     <div class="article-nav-link-wrap article-nav-link-right">
       
         
         
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="Java数组的学习" class="lazyload">
+          <img data-src="/images/banner.webp" data-sizes="auto" alt="hi KOTLIN" class="lazyload">
         
       
-      <a href="/2024/11/29/Java%E6%95%B0%E7%BB%84%E7%9A%84%E5%AD%A6%E4%B9%A0/"></a>
+      <a href="/2025/03/01/HI%20KOTLIN/"></a>
       <div class="article-nav-caption">Older</div>
       <h3 class="article-nav-title">
         
-          Java数组的学习
+          hi KOTLIN
         
       </h3>
     </div>
@@ -465,7 +466,7 @@
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A81"><span class="toc-number">1.</span> <span class="toc-text">实际应用1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A82"><span class="toc-number">2.</span> <span class="toc-text">实际应用2</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-Kotlin-%E5%8F%98%E9%87%8F"><span class="toc-number">1.</span> <span class="toc-text">一.  Kotlin 变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">二 .  变量类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E6%98%BE%E7%A4%BA%E5%8F%98%E9%87%8F"><span class="toc-number">3.</span> <span class="toc-text">三.  显示变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Kotlin-%E5%8F%98%E9%87%8F%E7%9A%84%E4%B8%80%E8%88%AC%E8%A7%84%E5%88%99"><span class="toc-number">3.1.</span> <span class="toc-text">1.  Kotlin 变量的一般规则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%AE%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AF%E4%BF%9D%E7%95%99%E5%AD%97%EF%BC%9F"><span class="toc-number">3.1.1.</span> <span class="toc-text">问：什么是保留字？</span></a></li></ol></li></ol></li></ol>
       
   </div>
 </div>
@@ -607,13 +608,13 @@
       <script data-pjax>
         window.REIMU_POST = {
           author: "civet",
-          title: "简单代码示例--》java数组篇",
-          url: "http://example.com/2024/11/30/%E6%95%B0%E7%BB%84%E4%BE%8B%E5%AD%90/",
+          title: "KOTLIN 变量",
+          url: "http://example.com/2025/03/01/KOTLIN%20%E5%8F%98%E9%87%8F/",
           excerpt: "",
           description: "",
-          stripContent: "实际应用1为了展示数组的实际应用，我们可以创建一个程序，计算不同年龄的平均值 1234567891011121314151617181920212223public class Main &amp;#123;  public static void main(String[] args) &amp;#123;    // 定义一个整数数组，存储不同的年龄    int ages[] = &amp;#123;20, 22, 18, 35, 48, 26, 87, 70&amp;#125;;    float avg, sum =",
-          date: "Sat Nov 30 2024 22:56:29 GMT+0800",
-          updated: "Sat Nov 30 2024 22:54:39 GMT+0800",
+          stripContent: "一.  Kotlin 变量​    变量是用来存储数据值的容器。 要创建一个变量，可以使用 var 或 val = 语法： 1234var variableName = value// 声明一个可变的变量 variableName，并给它赋一个初始值 value。你可以在之后修改这个变量的值val variableName = value// 声明一个不可变的变量 variableName，并给它赋一个初始值 value。一旦赋值后，变量的值就不能再修改   var 赋值后，允许修改变量的值。 ",
+          date: "Sat Mar 01 2025 21:07:10 GMT+0800",
+          updated: "Sat Mar 01 2025 21:07:22 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
