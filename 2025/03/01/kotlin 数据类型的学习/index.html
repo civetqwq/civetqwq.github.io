@@ -16,7 +16,7 @@
   <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_0khxww3tj3q9';window.REIMU_CONFIG.clipboard_tips = {"success":"复制成功(*^▽^*)","fail":"复制失败 (ﾟ⊿ﾟ)ﾂ","copyright":{"enable":false,"count":50,"content":"本文版权：本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！"}};window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'http://example.com';</script>
   
   <title>
-    java hashmap 部分二 |
+    kotlin 数据类型的学习 |
     
     昨天放的鸽子，今天要亲自去追
   </title>
@@ -31,15 +31,15 @@
 
   
   
-    <meta name="description" content="for-each 循环遍历 HashMap 的项只需要 键，使用 keySet() 方法；只需要 值，使用 values() 方法  a.  示例：keySet()和values()1234567891011121314import java.util.HashMap;public class Main &#123;  public static void main(String[] args)">
+    <meta name="description" content="有时需要指定类型，但通常不需要 一. 了解何时需要指定类型1. 数据类型可以分为不同的组别： 数字 字符 布尔值 字符串 数组  2.  知识点A.  数据类型分两类： 整数：Byte、Short、Int和Long 浮点：Float 和 Double   如果没有为一个数字变量指定类型，它通常会被默认返回为 Int（用于整数）和 Double（用于浮点数）  B.  数值范围 Byte：范围从 -">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java hashmap 部分二">
-<meta property="og:url" content="http://example.com/2025/02/27/java%20hashmap%20%E9%83%A8%E5%88%86%E4%BA%8C/index.html">
+<meta property="og:title" content="kotlin 数据类型的学习">
+<meta property="og:url" content="http://example.com/2025/03/01/kotlin%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="昨天放的鸽子，今天要亲自去追">
-<meta property="og:description" content="for-each 循环遍历 HashMap 的项只需要 键，使用 keySet() 方法；只需要 值，使用 values() 方法  a.  示例：keySet()和values()1234567891011121314import java.util.HashMap;public class Main &#123;  public static void main(String[] args)">
+<meta property="og:description" content="有时需要指定类型，但通常不需要 一. 了解何时需要指定类型1. 数据类型可以分为不同的组别： 数字 字符 布尔值 字符串 数组  2.  知识点A.  数据类型分两类： 整数：Byte、Short、Int和Long 浮点：Float 和 Double   如果没有为一个数字变量指定类型，它通常会被默认返回为 Int（用于整数）和 Double（用于浮点数）  B.  数值范围 Byte：范围从 -">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-02-27T03:30:26.647Z">
-<meta property="article:modified_time" content="2025-02-27T03:31:14.991Z">
+<meta property="article:published_time" content="2025-03-01T15:19:54.318Z">
+<meta property="article:modified_time" content="2025-02-27T01:53:54.654Z">
 <meta property="article:author" content="civet">
 <meta name="twitter:card" content="summary">
   
@@ -175,7 +175,7 @@
       
     </picture>
     
-      <img fetchpriority="high" src="/images/banner.webp" alt="java hashmap 部分二">
+      <img fetchpriority="high" src="/images/banner.webp" alt="kotlin 数据类型的学习">
     
   
   <div id="header-outer">
@@ -184,7 +184,7 @@
         
         
           <a href="/" id="logo">
-            <h1 data-aos="slide-up">java hashmap 部分二</h1>
+            <h1 data-aos="slide-up">kotlin 数据类型的学习</h1>
           </a>
         
       
@@ -209,7 +209,7 @@
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#for-each-%E5%BE%AA%E7%8E%AF%E9%81%8D%E5%8E%86-HashMap-%E7%9A%84%E9%A1%B9"><span class="toc-number">1.</span> <span class="toc-text">for-each 循环遍历 HashMap 的项</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-%E7%A4%BA%E4%BE%8B%EF%BC%9AkeySet-%E5%92%8Cvalues"><span class="toc-number">1.1.</span> <span class="toc-text">a.  示例：keySet()和values()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-Print-keys-and-values"><span class="toc-number">1.2.</span> <span class="toc-text">b.   Print keys and values</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E4%BA%86%E8%A7%A3%E4%BD%95%E6%97%B6%E9%9C%80%E8%A6%81%E6%8C%87%E5%AE%9A%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">一. 了解何时需要指定类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%AF%E4%BB%A5%E5%88%86%E4%B8%BA%E4%B8%8D%E5%90%8C%E7%9A%84%E7%BB%84%E5%88%AB%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">1. 数据类型可以分为不同的组别：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-number">1.2.</span> <span class="toc-text">2.  知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#A-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%88%86%E4%B8%A4%E7%B1%BB%EF%BC%9A"><span class="toc-number">1.2.1.</span> <span class="toc-text">A.  数据类型分两类：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#B-%E6%95%B0%E5%80%BC%E8%8C%83%E5%9B%B4"><span class="toc-number">1.2.2.</span> <span class="toc-text">B.  数值范围</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-number">1.3.</span> <span class="toc-text">3.  知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#A-Int-%E5%92%8C-Long-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.3.1.</span> <span class="toc-text">A.  Int 和 Long 的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#B-%E6%B5%AE%E7%82%B9"><span class="toc-number">1.3.2.</span> <span class="toc-text">B.  浮点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#C-%E7%A7%91%E5%AD%A6%E8%AE%A1%E6%95%B0%E6%B3%95"><span class="toc-number">1.3.3.</span> <span class="toc-text">C.  科学计数法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#D-Booleans"><span class="toc-number">1.3.4.</span> <span class="toc-text">D.  Booleans</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#E-char"><span class="toc-number">1.3.5.</span> <span class="toc-text">E.   char</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">2.</span> <span class="toc-text">二.  数据类型转换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E4%B8%8E-Java-%E5%AF%B9%E6%AF%94%E7%AF%87"><span class="toc-number">2.1.</span> <span class="toc-text">补充：与 Java 对比篇</span></a></li></ol></li></ol>
       
   </div>
 </div>
@@ -289,12 +289,12 @@
   </div>
 </aside>
 
-          <section id="main"><article id="post-java hashmap 部分二" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main"><article id="post-kotlin 数据类型的学习" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
   <span class="article-date-link" data-aos="zoom-in">
-    <time datetime="2025-02-27T03:30:26.647Z" itemprop="datePublished">2025-02-27</time>
+    <time datetime="2025-03-01T15:19:54.318Z" itemprop="datePublished">2025-03-01</time>
     <time style="display: none;" id="post-update-time">2025-02-27</time>
   </span>
 </div>
@@ -308,26 +308,62 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
       
-        <h3 id="for-each-循环遍历-HashMap-的项"><a href="#for-each-循环遍历-HashMap-的项" class="headerlink" title="for-each 循环遍历 HashMap 的项"></a><code>for-each</code> 循环遍历 <code>HashMap</code> 的项</h3><p>只需要 <strong>键</strong>，使用 <code>keySet()</code> 方法；只需要 <strong>值</strong>，使用 <code>values()</code> 方法</p>
-<hr>
-<h4 id="a-示例：keySet-和values"><a href="#a-示例：keySet-和values" class="headerlink" title="a.  示例：keySet()和values()"></a>a.  示例：keySet()和values()</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    HashMap&lt;String, String&gt; capitalCities = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;String, String&gt;();</span><br><span class="line">    capitalCities.put(<span class="string">&quot;天空&quot;</span>, <span class="string">&quot;蓝色&quot;</span>);</span><br><span class="line">    capitalCities.put(<span class="string">&quot;小草&quot;</span>, <span class="string">&quot;绿色&quot;</span>);</span><br><span class="line">      </span><br><span class="line"><span class="comment">//  使用 for-each 循环遍历 capitalCities 中的所有键。keySet() 方法返回一个包含所有键的集合</span></span><br><span class="line">    <span class="keyword">for</span> (String i : capitalCities.keySet()) &#123;</span><br><span class="line">      System.out.println(i);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>values()</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">for</span> (String i : capitalCities.values()) &#123;</span><br><span class="line">      System.out.println(i);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//  使用 for-each 循环遍历 capitalCities 中的所有键。values() 方法返回一个包含所有键的集合</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="b-Print-keys-and-values"><a href="#b-Print-keys-and-values" class="headerlink" title="b.   Print keys and values"></a>b.   Print keys and values</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.HashMap;  <span class="comment">// 导入 HashMap 类，HashMap 用于存储键值对</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;  <span class="comment">// 定义一个名为 Main 的公共类</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;  <span class="comment">// 程序的入口方法</span></span><br><span class="line">    HashMap&lt;String, String&gt; capitalCities = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;String, String&gt;();  </span><br><span class="line">      <span class="comment">// 创建一个 HashMap 实例，键和值的类型都是 String</span></span><br><span class="line">    capitalCities.put(<span class="string">&quot;天空&quot;</span>, <span class="string">&quot;蓝色&quot;</span>);  </span><br><span class="line">    capitalCities.put(<span class="string">&quot;小草&quot;</span>, <span class="string">&quot;绿色&quot;</span>); </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (String i : capitalCities.keySet()) &#123;  <span class="comment">// 使用 for-each 循环遍历 HashMap 中所有的键</span></span><br><span class="line">      System.out.println(<span class="string">&quot;key: &quot;</span> + i + <span class="string">&quot; value: &quot;</span> + capitalCities.get(i));  </span><br><span class="line">        <span class="comment">// 打印每一个键及其对应的值</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>解：</strong></p>
-<ul>
-<li><p>程序使用 <code>HashMap</code> 来存储描述颜色的键值对：<code>&quot;天空&quot;</code> 和 <code>&quot;蓝色&quot;</code>，<code>&quot;小草&quot;</code> 和 <code>&quot;绿色&quot;</code>。</p>
-</li>
-<li><p>使用 <code>for-each</code> 循环遍历 <code>HashMap</code> 中的所有键，并打印每个键和它对应的值。</p>
-</li>
-<li><p><code>HashMap</code> 是一个存储键值对的数据结构，可以通过键来访问值。</p>
-</li>
-<li><p><code>keySet()</code> 方法返回所有键，<code>get()</code> 方法用于根据键查找对应的值。</p>
-</li>
+        <p>有时需要指定类型，但通常不需要</p>
+<h2 id="一-了解何时需要指定类型"><a href="#一-了解何时需要指定类型" class="headerlink" title="一. 了解何时需要指定类型"></a>一. 了解何时需要指定类型</h2><h3 id="1-数据类型可以分为不同的组别："><a href="#1-数据类型可以分为不同的组别：" class="headerlink" title="1. 数据类型可以分为不同的组别："></a>1. 数据类型可以分为不同的组别：</h3><ul>
+<li>数字</li>
+<li>字符</li>
+<li>布尔值</li>
+<li>字符串</li>
+<li>数组</li>
 </ul>
+<h3 id="2-知识点"><a href="#2-知识点" class="headerlink" title="2.  知识点"></a>2.  知识点</h3><h4 id="A-数据类型分两类："><a href="#A-数据类型分两类：" class="headerlink" title="A.  数据类型分两类："></a>A.  数据类型分两类：</h4><ol>
+<li>整数：Byte<code>、</code>Short<code>、</code>Int<code>和</code>Long</li>
+<li>浮点：<code>Float</code> 和 <code>Double</code></li>
+</ol>
+<blockquote>
+<p>如果没有为一个数字变量指定类型，它通常会被默认返回为 <strong>Int</strong>（用于整数）和 <strong>Double</strong>（用于浮点数）</p>
+</blockquote>
+<h4 id="B-数值范围"><a href="#B-数值范围" class="headerlink" title="B.  数值范围"></a>B.  数值范围</h4><ul>
+<li><strong>Byte</strong>：范围从 <strong>-128</strong> 到 <strong>127</strong>。</li>
+<li><strong>Short</strong>：范围从 <strong>-32,768</strong> 到 <strong>32,767</strong>。</li>
+<li><strong>Int</strong>：范围从 <strong>-2,147,483,648</strong> 到 <strong>2,147,483,647</strong>。</li>
+<li><strong>Long</strong>：范围从 <strong>-9,223,372,036,854,775,808</strong> 到 <strong>9,223,372,036,854,775,807</strong>。</li>
+</ul>
+<p>这些类型的选择取决于需要存储的数值范围，使用合适的类型<strong>可以</strong>帮助<strong>节省内存</strong></p>
+<p>例如：Byte</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> myNum: <span class="built_in">Byte</span> = <span class="number">100</span></span><br><span class="line">println(myNum)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-知识点"><a href="#3-知识点" class="headerlink" title="3.  知识点"></a>3.  知识点</h3><h4 id="A-Int-和-Long-的区别"><a href="#A-Int-和-Long-的区别" class="headerlink" title="A.  Int 和 Long 的区别"></a>A.  Int 和 Long 的区别</h4><p>一个整数在 <strong>2147483647</strong> 以内被定义为 <strong>Int</strong>。如果超过这个范围，它就被定义为 <strong>Long</strong></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> myNum1 = <span class="number">2147483647</span>  <span class="comment">// Int</span></span><br><span class="line"><span class="keyword">val</span> myNum2 = <span class="number">2147483648</span>  <span class="comment">// Long</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="B-浮点"><a href="#B-浮点" class="headerlink" title="B.  浮点"></a>B.  浮点</h4><p><strong>浮点数值的精度</strong>表示该值在小数点后可以有多少位数字。</p>
+<p><strong>Float</strong> 类型的精度只有六到七位小数，而 <strong>Double</strong> 类型的变量精度大约为 15 位数字。</p>
+<p>因此，对于大多数计算来说，使用 <strong>Double</strong> 会更安全</p>
+<h4 id="C-科学计数法"><a href="#C-科学计数法" class="headerlink" title="C.  科学计数法"></a>C.  科学计数法</h4><p>浮点数也可以是科学计数法形式，使用 “e” 或 “E” 来表示 10 的幂</p>
+<p>例如：</p>
+<ul>
+<li><code>1.23e4</code> 表示 <strong>1.23 × 10^4</strong>，即 <strong>12300</strong>。</li>
+<li><code>5.67E-3</code> 表示 <strong>5.67 × 10^-3</strong>，即 <strong>0.00567</strong>。</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="keyword">val</span> myNum1: <span class="built_in">Float</span> = <span class="number">35E3F</span>    <span class="comment">// 35000.0</span></span><br><span class="line">  <span class="keyword">val</span> myNum2: <span class="built_in">Double</span> = <span class="number">12E4</span>    <span class="comment">// 120000.0</span></span><br><span class="line">  println(myNum1)</span><br><span class="line">  println(myNum2)</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<h4 id="D-Booleans"><a href="#D-Booleans" class="headerlink" title="D.  Booleans"></a>D.  Booleans</h4><p>数据类型 <strong>Boolean</strong> 只能取 <strong>true</strong> 或 <strong>false</strong> 这两个值</p>
+<h4 id="E-char"><a href="#E-char" class="headerlink" title="E.   char"></a>E.   char</h4><p><strong>Char</strong> 是用来存储<strong>单个字符</strong>的数据类型，需要存储一个字符（比如字母、数字或符号）时，会使用 <strong>Char</strong> 类型，<strong>Char</strong> 类型的值<strong>必须用</strong>单引号（’）包围</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="keyword">val</span> myGrade: <span class="built_in">Char</span> = <span class="string">&#x27;B&#x27;</span> </span><br><span class="line">  println(myGrade)</span><br><span class="line">&#125;<span class="comment">//  输出结果：B</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>与 Java 不同，不能使用 ASCII 值来显示某些字符。</p>
+<p>在 Java 中，值 66 会输出字符 “B”，但在 Kotlin 中会生成错误</p>
+</blockquote>
+<p><strong>String</strong> 类型的值必须用双引号括起来</p>
+<h2 id="二-数据类型转换"><a href="#二-数据类型转换" class="headerlink" title="二.  数据类型转换"></a>二.  数据类型转换</h2><p>与java不同，在 Kotlin 中，如果你想把一个 <strong>Int</strong> 类型的值转换为 <strong>Long</strong> 类型，你不能直接用 <code>Int</code> 类型的值来表示 <code>Long</code> 类型，因为这两者不是自动转换的。你需要显式地进行类型转换</p>
+<p>要将数字数据类型转换为另一种类型，必须使用以下函数之一：<code>toByte()</code>、<code>toShort()</code>、<code>toInt()</code>、<code>toLong()</code>、<code>toFloat()</code>、<code>toDouble()</code> 或 <code>toChar()</code>。</p>
+<p>例如：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;  </span><br><span class="line">  <span class="keyword">val</span> x: <span class="built_in">Int</span> = <span class="number">5</span> </span><br><span class="line">  <span class="keyword">val</span> y: <span class="built_in">Long</span> = x.toLong()</span><br><span class="line">  println(y)  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="补充：与-Java-对比篇"><a href="#补充：与-Java-对比篇" class="headerlink" title="补充：与 Java 对比篇"></a>补充：与 Java 对比篇</h3><p>Java的 数据类型转换</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">myInt</span> <span class="operator">=</span> <span class="number">7</span>;</span><br><span class="line">    <span class="type">double</span> <span class="variable">myDouble</span> <span class="operator">=</span> myInt; <span class="comment">// 自动类型转换：从 int 到 double</span></span><br><span class="line">      </span><br><span class="line">    System.out.println(myInt);</span><br><span class="line">    System.out.println(myDouble);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;<span class="comment">// 输出的结果：7</span></span><br><span class="line"> <span class="comment">//           7.0</span></span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -347,37 +383,20 @@
   
   <nav id="article-nav" data-aos="fade-up">
     
-      
-      <div class="article-nav-link-wrap article-nav-link-left">
-        
-          
-          
-            <img data-src="/images/banner.webp" data-sizes="auto" alt="hi KOTLIN" class="lazyload">
-          
-        
-        <a href="/2025/03/01/HI%20KOTLIN/"></a>
-        <div class="article-nav-caption">Newer</div>
-        <h3 class="article-nav-title">
-          
-            hi KOTLIN
-          
-        </h3>
-      </div>
-    
     
     
     <div class="article-nav-link-wrap article-nav-link-right">
       
         
         
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="java hashmap 部分一" class="lazyload">
+          <img data-src="/images/banner.webp" data-sizes="auto" alt="kotlin中的src文件" class="lazyload">
         
       
-      <a href="/2025/02/27/java%20hashmap%20%E9%83%A8%E5%88%86%E4%B8%80/"></a>
+      <a href="/2025/03/01/kotlin%E4%B8%AD%E7%9A%84src%E6%96%87%E4%BB%B6/"></a>
       <div class="article-nav-caption">Older</div>
       <h3 class="article-nav-title">
         
-          java hashmap 部分一
+          kotlin中的src文件
         
       </h3>
     </div>
@@ -454,7 +473,7 @@
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#for-each-%E5%BE%AA%E7%8E%AF%E9%81%8D%E5%8E%86-HashMap-%E7%9A%84%E9%A1%B9"><span class="toc-number">1.</span> <span class="toc-text">for-each 循环遍历 HashMap 的项</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-%E7%A4%BA%E4%BE%8B%EF%BC%9AkeySet-%E5%92%8Cvalues"><span class="toc-number">1.1.</span> <span class="toc-text">a.  示例：keySet()和values()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-Print-keys-and-values"><span class="toc-number">1.2.</span> <span class="toc-text">b.   Print keys and values</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E4%BA%86%E8%A7%A3%E4%BD%95%E6%97%B6%E9%9C%80%E8%A6%81%E6%8C%87%E5%AE%9A%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">一. 了解何时需要指定类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%AF%E4%BB%A5%E5%88%86%E4%B8%BA%E4%B8%8D%E5%90%8C%E7%9A%84%E7%BB%84%E5%88%AB%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">1. 数据类型可以分为不同的组别：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-number">1.2.</span> <span class="toc-text">2.  知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#A-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%88%86%E4%B8%A4%E7%B1%BB%EF%BC%9A"><span class="toc-number">1.2.1.</span> <span class="toc-text">A.  数据类型分两类：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#B-%E6%95%B0%E5%80%BC%E8%8C%83%E5%9B%B4"><span class="toc-number">1.2.2.</span> <span class="toc-text">B.  数值范围</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-number">1.3.</span> <span class="toc-text">3.  知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#A-Int-%E5%92%8C-Long-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.3.1.</span> <span class="toc-text">A.  Int 和 Long 的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#B-%E6%B5%AE%E7%82%B9"><span class="toc-number">1.3.2.</span> <span class="toc-text">B.  浮点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#C-%E7%A7%91%E5%AD%A6%E8%AE%A1%E6%95%B0%E6%B3%95"><span class="toc-number">1.3.3.</span> <span class="toc-text">C.  科学计数法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#D-Booleans"><span class="toc-number">1.3.4.</span> <span class="toc-text">D.  Booleans</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#E-char"><span class="toc-number">1.3.5.</span> <span class="toc-text">E.   char</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">2.</span> <span class="toc-text">二.  数据类型转换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E4%B8%8E-Java-%E5%AF%B9%E6%AF%94%E7%AF%87"><span class="toc-number">2.1.</span> <span class="toc-text">补充：与 Java 对比篇</span></a></li></ol></li></ol>
       
   </div>
 </div>
@@ -596,13 +615,13 @@
       <script data-pjax>
         window.REIMU_POST = {
           author: "civet",
-          title: "java hashmap 部分二",
-          url: "http://example.com/2025/02/27/java%20hashmap%20%E9%83%A8%E5%88%86%E4%BA%8C/",
+          title: "kotlin 数据类型的学习",
+          url: "http://example.com/2025/03/01/kotlin%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AD%A6%E4%B9%A0/",
           excerpt: "",
           description: "",
-          stripContent: "for-each 循环遍历 HashMap 的项只需要 键，使用 keySet() 方法；只需要 值，使用 values() 方法  a.  示例：keySet()和values()1234567891011121314import java.util.HashMap;public class Main &amp;#123;  public static void main(String[] args) &amp;#123;    HashMap&amp;lt;String, String&amp;gt; capitalCit",
-          date: "Thu Feb 27 2025 11:30:26 GMT+0800",
-          updated: "Thu Feb 27 2025 11:31:14 GMT+0800",
+          stripContent: "有时需要指定类型，但通常不需要 一. 了解何时需要指定类型1. 数据类型可以分为不同的组别： 数字 字符 布尔值 字符串 数组  2.  知识点A.  数据类型分两类： 整数：Byte、Short、Int和Long 浮点：Float 和 Double   如果没有为一个数字变量指定类型，它通常会被默认返回为 Int（用于整数）和 Double（用于浮点数）  B.  数值范围 Byte：范围从 -128 到 127。 Short：范围从 -32,768 到 32,767。 Int：范围从 -2,",
+          date: "Sat Mar 01 2025 23:19:54 GMT+0800",
+          updated: "Thu Feb 27 2025 09:53:54 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
