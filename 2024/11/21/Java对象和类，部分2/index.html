@@ -1,0 +1,827 @@
+
+  <!DOCTYPE html>
+  <html lang="en"  
+    
+      data-theme-mode="auto"
+    
+  >
+  <head>
+  <meta charset="utf-8">
+  
+
+  
+
+  
+
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_0khxww3tj3q9';window.REIMU_CONFIG.clipboard_tips = {"success":"复制成功(*^▽^*)","fail":"复制失败 (ﾟ⊿ﾟ)ﾂ","copyright":{"enable":false,"count":50,"content":"本文版权：本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！"}};window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'http://example.com';</script>
+  
+  <title>
+    Java对象和类，部分2 |
+    
+    昨天放的鸽子，今天要亲自去追
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media&#x3D;&#39;all&#39;">
+  
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_0khxww3tj3q9.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  
+  
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+  
+  
+    <meta name="description" content="学习目录：  Java创建对象 访问实例变量与方法 实例 源文件声明规则 了解Java包 了解import语句  一. Java创建对象 对象是根据类创建的  在Java中，使用关键字 new 来创建一个新的对象。 构造器是用来创建类的实例（对象）并初始化其状态的特殊方法。 在这个构造器中，name 参数将被传递给 Puppy 类的实例，用来输出小狗的名字。  创建对象需要以下三步：  声明：声明">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java对象和类，部分2">
+<meta property="og:url" content="http://example.com/2024/11/21/Java%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB%EF%BC%8C%E9%83%A8%E5%88%862/index.html">
+<meta property="og:site_name" content="昨天放的鸽子，今天要亲自去追">
+<meta property="og:description" content="学习目录：  Java创建对象 访问实例变量与方法 实例 源文件声明规则 了解Java包 了解import语句  一. Java创建对象 对象是根据类创建的  在Java中，使用关键字 new 来创建一个新的对象。 构造器是用来创建类的实例（对象）并初始化其状态的特殊方法。 在这个构造器中，name 参数将被传递给 Puppy 类的实例，用来输出小狗的名字。  创建对象需要以下三步：  声明：声明">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-11-20T23:47:30.094Z">
+<meta property="article:modified_time" content="2024-11-20T23:46:36.941Z">
+<meta property="article:author" content="civet">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="alternate" href="/atom.xml" title="昨天放的鸽子，今天要亲自去追" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  
+  
+  
+    
+      
+<link rel="stylesheet" href="https://npm.webcache.cn/gitalk/dist/gitalk.css">
+
+    
+  
+  
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+  
+  
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.0/dist/aos.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+    
+  <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi">
+        
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+        
+      </div>
+      <div class="loading-word">少女祈祷中...</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var startLoading = () => {
+      time = Date.now();
+      document.getElementById('loader').classList.remove("loading");
+    }
+    var endLoading = () => {
+      if (!time) {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loader').classList.add("loading");
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          document.body.style.overflow = 'auto';
+          document.getElementById('loader').classList.add("loading");
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    document.getElementById('loader').addEventListener('click', endLoading);
+  </script>
+
+<div id="copy-tooltip" style="pointer-events: none; opacity: 0; transition: all 0.2s ease; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
+</div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav">
+    
+      
+        <span class="main-nav-link-wrap">
+          <div class="main-nav-icon icon rotate">
+            &#xe62b;
+          </div>
+          <a class="main-nav-link" href="/">Home</a>
+        </span>
+      
+        <span class="main-nav-link-wrap">
+          <div class="main-nav-icon icon rotate">
+            &#xe62b;
+          </div>
+          <a class="main-nav-link" href="/archives">Archives</a>
+        </span>
+      
+        <span class="main-nav-link-wrap">
+          <div class="main-nav-icon icon rotate">
+            &#xe62b;
+          </div>
+          <a class="main-nav-link" href="/about">About</a>
+        </span>
+      
+        <span class="main-nav-link-wrap">
+          <div class="main-nav-icon icon rotate">
+            &#xe62b;
+          </div>
+          <a class="main-nav-link" href="/friend">Friend</a>
+        </span>
+      
+    
+    <a id="main-nav-toggle" class="nav-icon"></a>
+  </nav>
+  <nav id="sub-nav">
+    
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed" target="_blank"></a>
+    
+    
+    
+  </nav>
+  
+</div>
+<header id="header">
+  
+    <picture>
+      
+    </picture>
+    
+      <img fetchpriority="high" src="/images/banner.webp" alt="Java对象和类，部分2">
+    
+  
+  <div id="header-outer">
+    <div id="header-title">
+      
+        
+        
+          <a href="/" id="logo">
+            <h1 data-aos="slide-up">Java对象和类，部分2</h1>
+          </a>
+        
+      
+      
+        
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+          
+        </h2>
+      
+    </div>
+  </div>
+</header>
+
+        <div id="content"  class="sidebar-right" >
+          <aside id="sidebar">
+  
+  
+  <div class="sidebar-wrapper wrap-sticky">
+    <div class="sidebar-wrap" data-aos="fade-up">
+      
+        <div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class" >
+      
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-Java%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.</span> <span class="toc-text">一. Java创建对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-%E8%AE%BF%E9%97%AE%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F%E4%B8%8E%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">二. 访问实例变量与方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-%E5%AE%9E%E4%BE%8B"><span class="toc-number">3.</span> <span class="toc-text">三. 实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-%E6%BA%90%E6%96%87%E4%BB%B6%E5%A3%B0%E6%98%8E%E8%A7%84%E5%88%99"><span class="toc-number">4.</span> <span class="toc-text">四. 源文件声明规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94-%E4%BB%80%E4%B9%88%E6%98%AF-Java%E5%8C%85-%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">五.什么是 Java包 ？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AD-import%E8%AF%AD%E5%8F%A5"><span class="toc-number">6.</span> <span class="toc-text">六. import语句</span></a></li></ol>
+      
+  </div>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="civet" class="lazyload">
+  <div class="sidebar-author-name">civet</div>
+  <div class="sidebar-description"></div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">42</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">3</div>
+  </div>
+</div>
+<div class="sidebar-social">
+  
+</div>
+<div class="sidebar-menu">
+  
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="Home"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          &#xe62b;
+        </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="Archives"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          &#xe62b;
+        </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="About"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          &#xe62b;
+        </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/friend" aria-label="Friend"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          &#xe62b;
+        </div>
+        <div class="sidebar-menu-link">Friend</div>
+      </div>
+    
+  
+</div>
+</div>
+      
+      
+        <div class="sidebar-btn-wrapper" style="position:static">
+          <div class="sidebar-toc-btn current"></div>
+          <div class="sidebar-common-btn"></div>
+        </div>
+      
+    </div>
+  </div>
+
+  <div class="sidebar-widget">
+  
+  </div>
+</aside>
+
+          <section id="main"><article id="post-Java对象和类，部分2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link" data-aos="zoom-in">
+    <time datetime="2024-11-20T23:47:30.094Z" itemprop="datePublished">2024-11-21</time>
+    <time style="display: none;" id="post-update-time">2024-11-21</time>
+  </span>
+</div>
+
+      
+
+    </div>
+    <div class="hr-line"></div>
+    
+
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+      
+        <p><strong>学习目录：</strong></p>
+<ol>
+<li>Java创建对象</li>
+<li>访问实例变量与方法</li>
+<li>实例</li>
+<li>源文件声明规则</li>
+<li>了解Java包</li>
+<li>了解import语句</li>
+</ol>
+<h3 id="一-Java创建对象"><a href="#一-Java创建对象" class="headerlink" title="一. Java创建对象"></a>一. Java创建对象</h3><p> 对象是根据类创建的</p>
+<ol>
+<li>在Java中，使用关键字 new 来创建一个新的对象。</li>
+<li>构造器是用来创建类的实例（对象）并初始化其状态的特殊方法。</li>
+<li>在这个构造器中，<code>name</code> 参数将被传递给 <code>Puppy</code> 类的实例，用来输出小狗的名字。</li>
+</ol>
+<p>创建对象需要以下三步：</p>
+<ul>
+<li><p><strong>声明</strong>：声明一个对象，包括对象名称和对象类型。</p>
+</li>
+<li><p><strong>实例化</strong>：使用关键字 new 来创建一个对象。</p>
+</li>
+<li><p><strong>初始化</strong>：使用 new 创建对象时，会调用构造方法初始化对象。</p>
+<p>例子：</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Puppy</span>&#123;</span><br><span class="line">      <span class="comment">// class：关键字，用来定义一个类。</span></span><br><span class="line">      <span class="comment">// Puppy：类的名称，这里表示该类描述的是一个“小狗”（Puppy）对象。</span></span><br><span class="line"><span class="comment">// 构造器(构造方法)：</span></span><br><span class="line">   <span class="keyword">public</span> <span class="title function_">Puppy</span><span class="params">(String name)</span>&#123;</span><br><span class="line">      <span class="comment">// 这是一个构造器方法，名字和类名相同（Puppy），并且具有一个参数 String name，用于初始化 Puppy 类的对象。</span></span><br><span class="line">      System.out.println(<span class="string">&quot;小狗的名字是 : &quot;</span> + name ); </span><br><span class="line">       <span class="comment">// 这一行代码将 name 的值（即传入的狗的名字）打印到控制台上，格式为 &quot;小狗的名字是 : &quot; 后跟 name 的值。</span></span><br><span class="line">       <span class="comment">// 例如，如果传入的名字是 &quot;tommy&quot;，那么输出会是 小狗的名字是 : tommy。</span></span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123; </span><br><span class="line">     <span class="comment">// String[] args：表示命令行传入的参数，可以通过它接收外部输入的值</span></span><br><span class="line">      <span class="type">Puppy</span> <span class="variable">myPuppy</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Puppy</span>( <span class="string">&quot;tommy&quot;</span> );</span><br><span class="line">     <span class="comment">// 这一行代码创建了一个 Puppy 类的对象 myPuppy，并将字符串 &quot;tommy&quot; 作为参数传递给构造器。</span></span><br><span class="line">     <span class="comment">// 构造器会被调用，输出 小狗的名字是 : tommy。</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>   输出结果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">小狗的名字是 : tommy</span><br></pre></td></tr></table></figure>
+
+<p><strong>详细解释：</strong></p>
+<ul>
+<li><strong><code>Puppy</code></strong> 类有一个构造器，这个构造器接收一个字符串类型的参数 <code>name</code>，并打印出<code>“小狗的名字是 : +name&quot;</code>。</li>
+<li>在 <strong><code>main</code></strong> 方法中，创建了一个 <code>Puppy</code> 对象，并传入 <code>&quot;tommy&quot;</code> 作为参数，最终输出 <code>&quot;小狗的名字是 : tommy&quot;</code>。</li>
+</ul>
+<p><strong>总结：</strong></p>
+<ul>
+<li>这段代码演示了如何定义一个带有构造器的类。构造器接受一个参数（小狗的名字），并将其打印出来。</li>
+<li>通过在 <code>main</code> 方法中创建对象并传递参数，程序会打印出该小狗的名字。</li>
+</ul>
+<h3 id="二-访问实例变量与方法"><a href="#二-访问实例变量与方法" class="headerlink" title="二. 访问实例变量与方法"></a>二. 访问实例变量与方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 实例化对象 */</span></span><br><span class="line"><span class="type">Object</span> <span class="variable">referenceVariable</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Constructor</span>();</span><br><span class="line"><span class="comment">/* 访问类中的变量 */</span></span><br><span class="line">referenceVariable.variableName;</span><br><span class="line"><span class="comment">/* 访问类中的方法 */</span></span><br><span class="line">referenceVariable.methodName();</span><br></pre></td></tr></table></figure>
+
+<p><strong>详细解释：</strong></p>
+<p><strong>第一行：实例化对象</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Object</span> <span class="variable">referenceVariable</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Constructor</span>();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>Object referenceVariable</strong>: 创建一个 <code>Object</code> 类型的变量 <code>referenceVariable</code>。</li>
+<li><strong>Object：</strong> 是 Java 中所有类的基类（根类），因此它可以指向任何对象类型的实例。</li>
+<li><strong>new Constructor()</strong>: 通过 <code>new</code> 关键字调用类的构造函数，创建类的一个新实例。</li>
+<li><strong>Constructor：</strong> 应该是某个类的名称，表示使用该类的构造方法来实例化对象。</li>
+</ul>
+<p><strong>这行代码的意思是：</strong></p>
+<p>创建一个新的对象 <code>referenceVariable</code>，它是通过 <code>Constructor</code> 类的构造函数生成的。</p>
+<p>注意，这里使用 <code>Object</code> 类型来声明变量，因此 <code>referenceVariable</code> 被视为 <code>Object</code> 类型的引用。</p>
+<p><strong>第二行：访问类中的变量</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">referenceVariable.variableName;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>referenceVariable</strong>: 指向通过构造方法创建的对象的引用。</li>
+<li><strong>variableName</strong>: 类中的成员变量（字段）。可以通过该对象引用来访问该变量。</li>
+</ul>
+<p><strong>这行代码的意思是：</strong></p>
+<p>通过对象 <code>referenceVariable</code> 访问该对象的成员变量 <code>variableName</code>。</p>
+<p>然而，由于 <code>referenceVariable</code> 是 <code>Object</code> 类型的引用，而 <code>Object</code> 类并没有直接定义 <code>variableName</code>，</p>
+<p>因此这段代码通常会导致编译错误，除非 <code>referenceVariable</code> 被强制转换为实际类类型。</p>
+<p><strong>第三行：访问类中的方法：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">referenceVariable.methodName();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>methodName()</strong>: 类中的方法（函数），可以通过对象引用来调用。<code>methodName</code> 是该类中定义的某个方法的名称。</li>
+</ul>
+<p><strong>这行代码的意思是：</strong>通过对象 <code>referenceVariable</code> 调用该对象的 <code>methodName</code> 方法。</p>
+<p>如果 <code>referenceVariable</code> 被声明为 <code>Object</code> 类型，则也需要确保 <code>methodName</code> 是 <code>Object</code> 类的方法</p>
+<p>或者通过类型转换将其转换为实际类类型以调用相应的方法。</p>
+<h3 id="三-实例"><a href="#三-实例" class="headerlink" title="三. 实例"></a>三. 实例</h3><p>Puppy.java文件代码:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Puppy</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> age; <span class="comment">// 声明了一个 int 类型的成员变量 age</span></span><br><span class="line">    <span class="keyword">private</span> String name; <span class="comment">// 声明了一个 String 类型的成员变量 name</span></span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 构造器</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Puppy</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        System.out.println(<span class="string">&quot;小狗的名字是 : &quot;</span> + name);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 设置 age 的值</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setAge</span><span class="params">(<span class="type">int</span> age)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 获取 age 的值</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getAge</span><span class="params">()</span> &#123;<span class="comment">// 这是一个返回 int 类型的方法，用于获取 Puppy 对象的年龄。</span></span><br><span class="line">        <span class="keyword">return</span> age; <span class="comment">// 方法返回 age 成员变量的值。</span></span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 获取 name 的值</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 主方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 创建对象</span></span><br><span class="line">        <span class="type">Puppy</span> <span class="variable">myPuppy</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Puppy</span>(<span class="string">&quot;Tommy&quot;</span>);</span><br><span class="line"> </span><br><span class="line">        <span class="comment">// 通过方法来设定 age</span></span><br><span class="line">        myPuppy.setAge(<span class="number">2</span>); <span class="comment">// 通过调用 setAge 方法设置 myPuppy 对象的年龄为 2。</span></span><br><span class="line"> </span><br><span class="line">        <span class="comment">// 调用另一个方法获取 age</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">age</span> <span class="operator">=</span> myPuppy.getAge(); <span class="comment">// 调用 getAge 方法获取 myPuppy 对象的年龄，并将返回值赋给 age 变量。</span></span><br><span class="line">        System.out.println(<span class="string">&quot;小狗的年龄为 : &quot;</span> + age); <span class="comment">// 输出</span></span><br><span class="line"> </span><br><span class="line">        <span class="comment">// 也可以直接访问成员变量（通过 getter 方法）</span></span><br><span class="line">        System.out.println(<span class="string">&quot;变量值 : &quot;</span> + myPuppy.getAge()); <span class="comment">// 输出</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="四-源文件声明规则"><a href="#四-源文件声明规则" class="headerlink" title="四. 源文件声明规则"></a>四. 源文件声明规则</h3><p>当在一个源文件中定义多个类，并且还有import语句和package语句时</p>
+<p>要特别注意这些规则：</p>
+<ol>
+<li><p>一个源文件中只能有一个 public 类</p>
+</li>
+<li><p>一个源文件可以有多个非 public 类</p>
+</li>
+<li><p>文件名与类名一致</p>
+</li>
+<li><p>如果一个类定义在某个包中，那么 package 语句应该在源文件的首行</p>
+</li>
+<li><p>如果源文件包含 import 语句，那么应该放在 package 语句和类定义之间。</p>
+<p>如果没有 package 语句，那么 import 语句应该在源文件中最前面。</p>
+</li>
+<li><p>import 语句和 package 语句对源文件中定义的所有类都有效。</p>
+<p>在同一源文件中，不能给不同的类不同的包声明。</p>
+</li>
+</ol>
+<h3 id="五-什么是-Java包-？"><a href="#五-什么是-Java包-？" class="headerlink" title="五.什么是 Java包 ？"></a>五.什么是 Java包 ？</h3><p>包：主要用来对类和接口进行分类。当开发 Java 程序时，可能编写成百上千的类，因此很有必要对类和接口进行分类。</p>
+<p>包的作用：是组织类，避免类名冲突，并且提供访问控制</p>
+<p>包通常分为两种类型：<strong>默认包</strong>（没有声明包时使用）和<strong>命名包</strong>（通过 <code>package</code> 关键字指定）。</p>
+<p>可以通过 <code>import</code> 语句导入其他包中的类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.myapp;  <span class="comment">// 声明该类所属的包 com.example.myapp</span></span><br><span class="line"><span class="comment">// 这意味着该类会被存储在与 com/example/myapp/ 路径对应的目录结构下。</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;      <span class="comment">// 定义一个公共类 MyClass</span></span><br><span class="line">    <span class="comment">// 类的定义部分，其中 public 关键字表示这个类可以在其他包中被访问和使用。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>小结：这段代码定义了一个名为 <code>MyClass</code> 的类，并将其放入 <code>com.example.myapp</code> 包中。有助于项目中类的组织和结构化管理。</p>
+<h3 id="六-import语句"><a href="#六-import语句" class="headerlink" title="六. import语句"></a>六. import语句</h3><p>在 Java 中，如果给出一个完整的限定名，包括包名、类名，那么 Java 编译器就可以很容易地定位到源代码或者类。</p>
+<p>import 语句就是用来提供一个合理的路径，使得编译器可以找到某个类。</p>
+<p><strong>例如，下面的命令行将会命令编译器载入 java_installation&#x2F;java&#x2F;io 路径下的所有类:</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p><code>import java.io.*;</code> 是用于引入 <code>java.io</code> 包中的所有类，使得我们可以在当前 Java 类中方便地使用这些类。</p>
+</li>
+<li><p>通过 <code>*</code> 通配符，我们不需要逐个列出 <code>java.io</code> 包中的所有类，只需使用一次 <code>import</code> 语句，就能访问该包中的任何类。</p>
+</li>
+<li><p><code>java.io</code> 包包含了许多用于输入输出操作的类和接口，常见的如 <code>FileReader</code>、<code>BufferedReader</code>、<code>FileWriter</code>、<code>PrintWriter</code> 等，用于处理文件的读写、字符流和字节流等。</p>
+</li>
+</ol>
+<p> <strong>总结：</strong></p>
+<ul>
+<li>**<code>java.io</code>**：是一个 <strong>包名</strong>，在代码中使用时引用 Java 标准库中的类和接口。</li>
+<li>**<code>java_installation/java/io</code>**：是指 <strong>文件路径</strong>，表示 Java 安装目录下的文件结构，通常包含该包的实现文件。</li>
+</ul>
+<p>在程序中你通过 <code>import java.io.*;</code> 来使用相关类，而在文件系统中你可以找到 <code>java/io</code> 这样的路径来定位 Java 标准库的实现文件。</p>
+<blockquote>
+<p><em><strong><del>错过了某个人，我们总会觉得心痛和遗憾，但如果真的在一起了，真的能有想象中的那么好吗？</del></strong></em></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+  <nav id="article-nav" data-aos="fade-up">
+    
+      
+      <div class="article-nav-link-wrap article-nav-link-left">
+        
+          
+          
+            <img data-src="/images/banner.webp" data-sizes="auto" alt="两个Java文件=》例子（类和对象）" class="lazyload">
+          
+        
+        <a href="/2024/11/21/Java%E4%B8%80%E4%B8%AA%E4%BE%8B%E5%AD%90/"></a>
+        <div class="article-nav-caption">Newer</div>
+        <h3 class="article-nav-title">
+          
+            两个Java文件=》例子（类和对象）
+          
+        </h3>
+      </div>
+    
+    
+    
+    <div class="article-nav-link-wrap article-nav-link-right">
+      
+        
+        
+          <img data-src="/images/banner.webp" data-sizes="auto" alt="Java的注释，对象和类的学习" class="lazyload">
+        
+      
+      <a href="/2024/11/19/Java%E6%B3%A8%E9%87%8A,%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB/"></a>
+      <div class="article-nav-caption">Older</div>
+      <h3 class="article-nav-title">
+        
+          Java的注释，对象和类的学习
+        
+      </h3>
+    </div>
+    
+  </nav>
+
+
+</article>
+
+
+
+
+  <div id="comments" class="gtcomment" data-aos="fade-up"></div>
+
+
+
+</section>
+        </div>
+        
+        
+        <footer id="footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    
+    <div>
+      <span class="icon-copyright"></span>
+      2020-2025
+      <span class="footer-info-sep rotate"></span>
+      civet
+    </div>
+    
+      <div>
+        Powered by&nbsp;<a href="https://hexo.io/" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener external nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+    
+    
+      <div>
+        <span class="icon-brush"></span>
+        52k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        03:11
+      </div>
+    
+    
+    
+    
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">Number of visits&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">Number of visitors&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+    
+  </div>
+</footer>
+
+        
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav">
+  <div class="sidebar-wrap">
+    
+      <div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">Contents</h3>
+  <div class="sidebar-toc-wrapper toc-div-class" >
+      
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-Java%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.</span> <span class="toc-text">一. Java创建对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-%E8%AE%BF%E9%97%AE%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F%E4%B8%8E%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">二. 访问实例变量与方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-%E5%AE%9E%E4%BE%8B"><span class="toc-number">3.</span> <span class="toc-text">三. 实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-%E6%BA%90%E6%96%87%E4%BB%B6%E5%A3%B0%E6%98%8E%E8%A7%84%E5%88%99"><span class="toc-number">4.</span> <span class="toc-text">四. 源文件声明规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94-%E4%BB%80%E4%B9%88%E6%98%AF-Java%E5%8C%85-%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">五.什么是 Java包 ？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AD-import%E8%AF%AD%E5%8F%A5"><span class="toc-number">6.</span> <span class="toc-text">六. import语句</span></a></li></ol>
+      
+  </div>
+</div>
+</div>
+      <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="civet" class="lazyload">
+  <div class="sidebar-author-name">civet</div>
+  <div class="sidebar-description"></div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">42</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">3</div>
+  </div>
+</div>
+<div class="sidebar-social">
+  
+</div>
+<div class="sidebar-menu">
+  
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="Home"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          &#xe62b;
+        </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="Archives"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          &#xe62b;
+        </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="About"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          &#xe62b;
+        </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+    
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/friend" aria-label="Friend"></a>
+        <div class="sidebar-menu-icon icon rotate">
+          &#xe62b;
+        </div>
+        <div class="sidebar-menu-link">Friend</div>
+      </div>
+    
+  
+</div>
+</div>
+    
+  </div>
+  
+    <div class="sidebar-btn-wrapper">
+      <div class="sidebar-toc-btn current"></div>
+      <div class="sidebar-common-btn"></div>
+    </div>
+  
+</nav>
+
+    </div>
+    
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+
+
+
+
+
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.1.0/dist/index.umd.js" integrity="sha384-KM6i7tu43nYd6e0beIljxHMC5tZc58XBDu7pPA58w50h18Jsx7gLdimfS09RXlKv" crossorigin="anonymous"></script>
+
+  <script>
+    window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["#ff5252","#ff7c7c","#ffafaf","#ffd0d0"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["#ff0000"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'))
+  </script>
+
+
+
+
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+    
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "civet",
+          title: "Java对象和类，部分2",
+          url: "http://example.com/2024/11/21/Java%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB%EF%BC%8C%E9%83%A8%E5%88%862/",
+          excerpt: "",
+          description: "",
+          stripContent: "学习目录：  Java创建对象 访问实例变量与方法 实例 源文件声明规则 了解Java包 了解import语句  一. Java创建对象 对象是根据类创建的  在Java中，使用关键字 new 来创建一个新的对象。 构造器是用来创建类的实例（对象）并初始化其状态的特殊方法。 在这个构造器中，name 参数将被传递给 Puppy 类的实例，用来输出小狗的名字。  创建对象需要以下三步：  声明：声明一个对象，包括对象名称和对象类型。  实例化：使用关键字 new 来创建一个对象。  初始化：使用 ",
+          date: "Thu Nov 21 2024 07:47:30 GMT+0800",
+          updated: "Thu Nov 21 2024 07:46:36 GMT+0800",
+          cover: "/images/banner.webp",
+        };
+      </script>
+       
+    
+    
+      
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+        
+      
+    
+    
+      <script type="module" data-pjax>
+        const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+        
+        const pswp = () => {
+          if (_$$('.article-entry a.article-gallery-item').length > 0) {
+            new PhotoSwipeLightbox({
+              gallery: '.article-entry',
+              children: 'a.article-gallery-item',
+              pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+            }).init();
+          }
+          if(_$$('.article-gallery a.article-gallery-item').length > 0) {
+            new PhotoSwipeLightbox({
+              gallery: '.article-gallery',
+              children: 'a.article-gallery-item',
+              pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+            }).init();
+          }
+          window.lightboxStatus = 'done';
+          window.removeEventListener('lightbox:ready', pswp);
+        }
+        if(window.lightboxStatus === 'ready') {
+          pswp()
+        } else {
+          window.addEventListener('lightbox:ready', pswp);
+        }
+      </script>
+      
+
+
+
+
+  
+<script src="https://npm.webcache.cn/gitalk@1.8.0/dist/gitalk.min.js" integrity="sha384-kspnZUWBoSWwoJHa0hBCXYbHGbhvU&#x2F;lcEH5O8eVbSDhbPwsiVUTp&#x2F;aGX&#x2F;z&#x2F;5EuMA" crossorigin="anonymous" data-pjax></script>
+
+  
+  <script data-pjax>
+    if (window.Gitalk) {
+      var gitalkId = location.pathname;
+      var gitalk = new Gitalk({
+        clientID: 'Ov23liIcFBwFEi7P2ZFH',
+        clientSecret: '4c08c15194602d37c5390f4493524128af7d284d',
+        repo: 'civetqwq.github.io',
+        owner: 'civetqwq',
+        admin: "civetqwq",
+        id: gitalkId, // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+      })
+      if (document.getElementById('comments')) {
+        gitalk.render('comments')
+      }
+    }
+  </script>
+
+
+
+
+
+    
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.5.0' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+
+
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+
+
+
+
+  </body>
+  </html>
+
