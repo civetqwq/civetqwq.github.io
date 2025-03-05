@@ -208,7 +208,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>Post</div>
-    <div class="sidebar-state-number">53</div>
+    <div class="sidebar-state-number">56</div>
   </div>
   <div class="sidebar-state-category">
     <div>Category</div>
@@ -278,10 +278,154 @@
       <div class="post-wrapper">
   <div class="post-wrap-left" data-aos="fade-up">
     
-      <a class="post-link" href="/2024/10/30/PY%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" aria-label="PY基础语法和数据类型"></a>
+      <a class="post-link" href="/2024/11/01/kali%E5%91%BD%E4%BB%A4/" aria-label="kali命令的使用"></a>
     
     
     <div class="post-cover-left">
+      
+        
+        
+          <img data-src="/images/banner.webp" data-sizes="auto" alt="kali命令的使用" class="lazyload">
+        
+      
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2024-11-01</span>
+        <span><span class="icon-pencil"></span>972 words</span>
+        <span><span class="icon-clock"></span>3 mins</span>
+      </div>
+      <h2 class="post-title">kali命令的使用</h2>
+      <article class="post-article">
+        
+          窝爱kali篇 阿础新的启程一.  vi&amp;#x2F;vim ， 命令使用  (在kali的终端) vi&amp;#x2F;vim 分三种模式：命令模式、输入模式和命令行模式。
+A.  命令模式：用户启动vi&amp;#x2F;vim,就进入了命令模式，此状态下敲击键盘任何键都会被当作命令执行。
+普通模式的命令执行：
+
+i – 切换到输入模式，在光标当前位置开始输入文本。
+
+x – 删除当前光标所在处的字符。
+
+: – 切换到底线命令模式，以在最底一行输入命令。
+
+a – 进入插入模式，在光标下一个位置开始输入文本。
+
+o：在当前行的下方插入一个新行，并进入插入模式。
+
+O – 在当前行的上方插入一个新行，并进
+        
+      </article>
+    </div>
+  </div>
+</div>
+      
+    
+      <div class="post-wrapper">
+  <div class="post-wrap-right" data-aos="fade-up">
+    
+      <a class="post-link" href="/2024/11/01/binwalk%E5%92%8Cforemost/" aria-label="binwalk/foremost的查看/分离"></a>
+    
+    
+    <div class="post-cover-right">
+      
+        
+        
+          <img data-src="/images/banner.webp" data-sizes="auto" alt="binwalk/foremost的查看/分离" class="lazyload">
+        
+      
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2024-11-01</span>
+        <span><span class="icon-pencil"></span>651 words</span>
+        <span><span class="icon-clock"></span>2 mins</span>
+      </div>
+      <h2 class="post-title">binwalk/foremost的查看/分离</h2>
+      <article class="post-article">
+        
+          如何使用binwalk查找？一. 使用binwalk查找
+先打开终端输入命令
+
+可以先列出当前目录的文件和文件夹
+1ls
+
+然后使用 cd 进入文件夹
+1cd (文件夹)
+
+可以在查看一下当前目录
+1ls
+
+运行 Binwalk 来分析二进制文件或固件镜像
+1binwalk  (文件名)
+
+Binwalk 会自动扫描文件中的嵌入文件和数据。使用 -e 选项提取文件中识别出的可嵌入部分：
+
+
+1binwalk -e （文件名）
+
+然后在文件打开就可以看到
+二. 使用foremost拆分
+先打开终端输入命令
+
+可以先列出当前目录的文件和文件夹
+1ls
+
+然后使用 cd 进入文件夹
+1cd (文件夹
+        
+      </article>
+    </div>
+  </div>
+</div>
+      
+    
+      <div class="post-wrapper">
+  <div class="post-wrap-left" data-aos="fade-up">
+    
+      <a class="post-link" href="/2024/10/31/py%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%EF%BC%8C%E6%B3%A8%E9%87%8A%EF%BC%8C%E8%BF%90%E7%AE%97%E7%AC%A6/" aria-label="python数据类型转换，注释，运算符"></a>
+    
+    
+    <div class="post-cover-left">
+      
+        
+        
+          <img data-src="/images/banner.webp" data-sizes="auto" alt="python数据类型转换，注释，运算符" class="lazyload">
+        
+      
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2024-10-31</span>
+        <span><span class="icon-pencil"></span>2.1k words</span>
+        <span><span class="icon-clock"></span>8 mins</span>
+      </div>
+      <h2 class="post-title">python数据类型转换，注释，运算符</h2>
+      <article class="post-article">
+        
+          阿础的冒险之旅第二集目录：
+
+数据类型转换
+py的注释
+运算符的运用
+
+一.数据类型转换：A.隐式类型转换
+在隐式类型转换中，Python 会自动将一种数据类型转换为另一种数据类型;我们对两种不同类型的数据进行运算，较低数据类型（整数）就会转换为较高数据类型（浮点数）以避免数据丢失
+
+1234567num_int = 223    #数据类型为：&amp;lt;class &amp;#x27;int&amp;#x27;&amp;gt;num_str = &amp;quot;492&amp;quot;  # 数据类型为: &amp;lt;class &amp;#x27;float&amp;#x27;&amp;gt;print(&amp;quot;num_int 数据类型为:&amp;quo
+        
+      </article>
+    </div>
+  </div>
+</div>
+      
+    
+      <div class="post-wrapper">
+  <div class="post-wrap-right" data-aos="fade-up">
+    
+      <a class="post-link" href="/2024/10/30/PY%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" aria-label="PY基础语法和数据类型"></a>
+    
+    
+    <div class="post-cover-right">
       
         
         
@@ -318,12 +462,12 @@ Python 是初学者的语言：支持广泛的
       
     
       <div class="post-wrapper">
-  <div class="post-wrap-right" data-aos="fade-up">
+  <div class="post-wrap-left" data-aos="fade-up">
     
       <a class="post-link" href="/2024/10/15/%E7%BD%91%E7%BB%9C%E6%94%BB%E9%98%B2%E5%B0%8F%E7%A1%80/" aria-label="网络攻防基础知识"></a>
     
     
-    <div class="post-cover-right">
+    <div class="post-cover-left">
       
         
         
@@ -366,12 +510,12 @@ Morris worm（蠕虫）
       
     
       <div class="post-wrapper">
-  <div class="post-wrap-left" data-aos="fade-up">
+  <div class="post-wrap-right" data-aos="fade-up">
     
       <a class="post-link" href="/2024/10/12/%E5%BF%83%E5%BE%97/" aria-label="心得"></a>
     
     
-    <div class="post-cover-left">
+    <div class="post-cover-right">
       
         
         
@@ -444,10 +588,10 @@ Morris worm（蠕虫）
     
       <div>
         <span class="icon-brush"></span>
-        58.6k
+        60.4k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        03:33
+        03:38
       </div>
     
     
@@ -483,7 +627,7 @@ Morris worm（蠕虫）
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>Post</div>
-    <div class="sidebar-state-number">53</div>
+    <div class="sidebar-state-number">56</div>
   </div>
   <div class="sidebar-state-category">
     <div>Category</div>
