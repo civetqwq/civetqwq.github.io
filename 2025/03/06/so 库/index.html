@@ -16,7 +16,7 @@
   <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_0khxww3tj3q9';window.REIMU_CONFIG.clipboard_tips = {"success":"复制成功(*^▽^*)","fail":"复制失败 (ﾟ⊿ﾟ)ﾂ","copyright":{"enable":false,"count":50,"content":"本文版权：本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！"}};window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'http://example.com';</script>
   
   <title>
-    什么是null？？？哦~，原来如此 |
+    SO 库 |
     
     昨天放的鸽子，今天要亲自去追
   </title>
@@ -31,15 +31,15 @@
 
   
   
-    <meta name="description" content="在 Java 中，null 是一个 特殊的字面量，表示 空值 或 无对象，它是引用类型的默认值，用来表示 没有指向任何对象 或 没有分配值的引用。简单来说，null 可以理解为“没有指向任何东西”的意思。 1. 用法： null 可以赋给引用类型（如类、数组、接口等）的变量，但不能赋给原始数据类型（如 int、double、boolean 等）的变量。 null 并不是一个对象，它只是一个空的引用">
+    <meta name="description" content="前言.so 库 是 Android 应用中的 共享库文件（Shared Object），它是以 .so 扩展名结尾的文件。这个文件包含了用 C 或 C++ 等语言编写的本地代码，并被 Android 系统作为动态链接库加载和执行 .so 库 是 Android 应用中的 共享库文件（Shared Object），它是以 .so 扩展名结尾的文件。这个文件包含了用 C 或 C++ 等语言编写的本地代">
 <meta property="og:type" content="article">
-<meta property="og:title" content="什么是null？？？哦~，原来如此">
-<meta property="og:url" content="http://example.com/2024/11/22/null%E7%9A%84%E6%A6%82%E8%BF%B0/index.html">
+<meta property="og:title" content="SO 库">
+<meta property="og:url" content="http://example.com/2025/03/06/so%20%E5%BA%93/index.html">
 <meta property="og:site_name" content="昨天放的鸽子，今天要亲自去追">
-<meta property="og:description" content="在 Java 中，null 是一个 特殊的字面量，表示 空值 或 无对象，它是引用类型的默认值，用来表示 没有指向任何对象 或 没有分配值的引用。简单来说，null 可以理解为“没有指向任何东西”的意思。 1. 用法： null 可以赋给引用类型（如类、数组、接口等）的变量，但不能赋给原始数据类型（如 int、double、boolean 等）的变量。 null 并不是一个对象，它只是一个空的引用">
+<meta property="og:description" content="前言.so 库 是 Android 应用中的 共享库文件（Shared Object），它是以 .so 扩展名结尾的文件。这个文件包含了用 C 或 C++ 等语言编写的本地代码，并被 Android 系统作为动态链接库加载和执行 .so 库 是 Android 应用中的 共享库文件（Shared Object），它是以 .so 扩展名结尾的文件。这个文件包含了用 C 或 C++ 等语言编写的本地代">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-11-22T14:06:08.289Z">
-<meta property="article:modified_time" content="2024-11-22T14:21:11.456Z">
+<meta property="article:published_time" content="2025-03-06T14:03:27.367Z">
+<meta property="article:modified_time" content="2025-03-05T11:37:10.705Z">
 <meta property="article:author" content="civet">
 <meta name="twitter:card" content="summary">
   
@@ -175,7 +175,7 @@
       
     </picture>
     
-      <img fetchpriority="high" src="/images/banner.webp" alt="什么是null？？？哦~，原来如此">
+      <img fetchpriority="high" src="/images/banner.webp" alt="SO 库">
     
   
   <div id="header-outer">
@@ -184,7 +184,7 @@
         
         
           <a href="/" id="logo">
-            <h1 data-aos="slide-up">什么是null？？？哦~，原来如此</h1>
+            <h1 data-aos="slide-up">SO 库</h1>
           </a>
         
       
@@ -209,7 +209,7 @@
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%94%A8%E6%B3%95%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">1. 用法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%BB%86%E8%8A%82%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">2. 细节说明：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-null-%E4%B8%8E%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">3. null 与原始数据类型的区别：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-null-%E4%B8%8E%E7%A9%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9A"><span class="toc-number">4.</span> <span class="toc-text">4. null 与空字符串的区别：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Null-%E4%B8%8E-Optional-%E7%9A%84%E5%85%B3%E7%B3%BB%EF%BC%9A"><span class="toc-number">5.</span> <span class="toc-text">5. Null 与 Optional 的关系：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="toc-number">6.</span> <span class="toc-text">总结：</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SO-%E5%BA%93%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number"></span> <span class="toc-text">SO 库的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SO-%E5%BA%93%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-number"></span> <span class="toc-text">SO 库的结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SO-%E5%BA%93%E7%9A%84%E7%A4%BA%E4%BE%8B%E7%94%A8%E9%80%94"><span class="toc-number"></span> <span class="toc-text">SO 库的示例用途</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number"></span> <span class="toc-text">总结</span></a>
       
   </div>
 </div>
@@ -289,13 +289,13 @@
   </div>
 </aside>
 
-          <section id="main"><article id="post-null的概述" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main"><article id="post-so 库" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
   <span class="article-date-link" data-aos="zoom-in">
-    <time datetime="2024-11-22T14:06:08.289Z" itemprop="datePublished">2024-11-22</time>
-    <time style="display: none;" id="post-update-time">2024-11-22</time>
+    <time datetime="2025-03-06T14:03:27.367Z" itemprop="datePublished">2025-03-06</time>
+    <time style="display: none;" id="post-update-time">2025-03-05</time>
   </span>
 </div>
 
@@ -308,48 +308,32 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
       
-        <p>在 Java 中，<code>null</code> 是一个 <strong>特殊的字面量</strong>，表示 <strong>空值</strong> 或 <strong>无对象</strong>，它是引用类型的默认值，用来表示 <strong>没有指向任何对象</strong> 或 <strong>没有分配值的引用</strong>。简单来说，<code>null</code> 可以理解为“没有指向任何东西”的意思。</p>
-<h3 id="1-用法："><a href="#1-用法：" class="headerlink" title="1. 用法："></a>1. <strong>用法</strong>：</h3><ul>
-<li><code>null</code> 可以赋给引用类型（如类、数组、接口等）的变量，但不能赋给原始数据类型（如 <code>int</code>、<code>double</code>、<code>boolean</code> 等）的变量。</li>
-<li><code>null</code> 并不是一个对象，它只是一个空的引用值，表示这个引用变量目前不指向任何实际的对象。</li>
-</ul>
-<h3 id="2-细节说明："><a href="#2-细节说明：" class="headerlink" title="2. 细节说明："></a>2. <strong>细节说明</strong>：</h3><ul>
-<li><strong>引用类型变量</strong>：<code>null</code> 只能赋值给引用类型变量（如对象、数组、接口）。例如：</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> <span class="literal">null</span>;    <span class="comment">// 允许，name 是一个引用类型（String）</span></span><br><span class="line"><span class="type">int</span> <span class="variable">number</span> <span class="operator">=</span> <span class="literal">null</span>;     <span class="comment">// 错误，int 是原始数据类型，不允许赋值为 null</span></span><br></pre></td></tr></table></figure>
-
+        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p><strong>.so 库</strong> 是 Android 应用中的 <strong>共享库文件（Shared Object）</strong>，它是以 <strong><code>.so</code></strong> 扩展名结尾的文件。这个文件包含了用 <strong>C</strong> 或 <strong>C++</strong> 等语言编写的本地代码，并被 Android 系统作为动态链接库加载和执行</p>
+<p><strong>.so 库</strong> 是 Android 应用中的 <strong>共享库文件（Shared Object）</strong>，它是以 <strong><code>.so</code></strong> 扩展名结尾的文件。这个文件包含了用 <strong>C</strong> 或 <strong>C++</strong> 等语言编写的本地代码，并被 Android 系统作为动态链接库加载和执行。</p>
+<h3 id="SO-库的作用"><a href="#SO-库的作用" class="headerlink" title="SO 库的作用"></a><strong>SO 库的作用</strong></h3><ol>
+<li><strong>本地代码执行</strong>： <code>.so</code> 文件主要用于在 Android 应用中执行本地代码（即非 Java 代码）。这些代码通常是用 C、C++ 等低级语言编写的。通过 <code>.so</code> 库，开发者可以访问底层硬件功能、提升性能、实现一些 Java 不支持的功能等。</li>
+<li><strong>提高性能</strong>： 相比于 Java 代码，C&#x2F;C++ 语言的代码在执行时更为高效。因此，很多性能要求较高的功能（例如图形处理、加密算法、机器学习推理等）会使用 <code>.so</code> 库来实现，以提高应用的性能。</li>
+<li><strong>与硬件交互</strong>： 一些与设备硬件直接交互的操作，如图形渲染、传感器操作、摄像头控制等，可能通过 <code>.so</code> 库来实现。</li>
+</ol>
+<h3 id="SO-库的结构"><a href="#SO-库的结构" class="headerlink" title="SO 库的结构"></a><strong>SO 库的结构</strong></h3><p><code>.so</code> 文件通常包含以下内容：</p>
 <ul>
-<li><strong>默认值</strong>：对于类的实例变量和数组元素，未显式初始化时，引用类型的变量会被自动赋值为 <code>null</code>。例如：</li>
+<li><strong>机器代码</strong>：编译后的二进制代码，直接与目标设备的硬件架构兼容。</li>
+<li><strong>函数和方法</strong>：包含 C 或 C++ 中编写的函数和方法，Android 应用通过 JNI（Java Native Interface）调用这些函数和方法</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Example</span> &#123;</span><br><span class="line">    String str;  <span class="comment">// 未初始化，默认值为 null</span></span><br><span class="line">    <span class="type">int</span> number;  <span class="comment">// 默认值为 0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Android 项目的目录结构</strong>： 在 Android 项目中，<code>.so</code> 库通常放置在 <code>lib/</code> 文件夹中，按照不同的 CPU 架构（如 ARM、x86 等）组织文件。</p>
+<p>常见的路径结构如下：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">project/</span><br><span class="line">  ├── app/</span><br><span class="line">  │    ├── src/</span><br><span class="line">  │    └── main/</span><br><span class="line">  │         ├── jniLibs/</span><br><span class="line">  │         │    ├── armeabi-v7a/</span><br><span class="line">  │         │    ├── arm64-v8a/</span><br><span class="line">  │         │    ├── x86/</span><br><span class="line">  │         │    └── x86_64/</span><br><span class="line">  │         └── java/</span><br><span class="line">  └── build.gradle</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li><strong>NullPointerException</strong>：如果你尝试对 <code>null</code> 进行操作（如调用方法、访问字段等），会抛出 <code>NullPointerException</code>，因为 <code>null</code> 没有指向任何对象，所以不能执行任何操作。</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">str.length();  <span class="comment">// 会抛出 NullPointerException</span></span><br><span class="line"><span class="comment">// 这一行代码调用了 str 对象的 length() 方法。然而，由于 str 是 null，它不指向任何实际的对象，所以调用 length() 方法会导致 NullPointerException（空指针异常）。</span></span><br></pre></td></tr></table></figure>
-
-<p>简单来说，就是当代码尝试使用一个未初始化或指向空的对象时，就会抛出这个异常。</p>
-<h3 id="3-null-与原始数据类型的区别："><a href="#3-null-与原始数据类型的区别：" class="headerlink" title="3. null 与原始数据类型的区别："></a>3. <strong>null 与原始数据类型的区别</strong>：</h3><ul>
-<li>原始数据类型（如 <code>int</code>、<code>boolean</code>）不能为 <code>null</code>，它们有明确的默认值，例如： <code>int</code> 默认值为 <code>0</code>，<code>boolean</code> 默认值为 <code>false</code>。</li>
-<li>只有 <strong>引用类型</strong>（类、接口、数组、枚举等）才能为 <code>null</code>，而且 <code>null</code> 不是对象，只是一个表示“没有对象”的特殊标识。</li>
-</ul>
-<h3 id="4-null-与空字符串的区别："><a href="#4-null-与空字符串的区别：" class="headerlink" title="4. null 与空字符串的区别："></a>4. <strong>null 与空字符串的区别</strong>：</h3><ul>
-<li><p><code>null</code> 和 <strong>空字符串</strong> (<code>&quot;&quot;</code>) 是不同的。</p>
-<ul>
-<li><code>null</code> 表示引用没有指向任何对象，完全没有值。</li>
-<li>空字符串 <code>&quot;&quot;</code> 是一个有效的字符串对象，它的长度为 0，但是它已经是一个存在的对象，只是没有内容。</li>
-</ul>
-<p>示例：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str1</span> <span class="operator">=</span> <span class="literal">null</span>;    <span class="comment">// 引用为 null，表示没有指向任何字符串对象</span></span><br><span class="line"><span class="type">String</span> <span class="variable">str2</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span>;      <span class="comment">// 引用指向一个空字符串对象</span></span><br><span class="line">System.out.println(str1);  <span class="comment">// 输出 null</span></span><br><span class="line">System.out.println(str2);  <span class="comment">// 输出空字符串</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="5-Null-与-Optional-的关系："><a href="#5-Null-与-Optional-的关系：" class="headerlink" title="5. Null 与 Optional 的关系："></a>5. <strong>Null 与 Optional 的关系</strong>：</h3><p>在 Java 8 及以后版本，为了避免空指针异常，<code>Optional</code> 类提供了一种优雅的方式来处理可能为 <code>null</code> 的值。</p>
-<p><code>Optional</code> 用于包装可能为 <code>null</code> 的对象，避免显式使用 <code>null</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Optional;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">OptionalExample</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        Optional&lt;String&gt; optionalStr = Optional.ofNullable(str);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 使用 isPresent() 检查是否有值</span></span><br><span class="line">        <span class="keyword">if</span> (optionalStr.isPresent()) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;Value: &quot;</span> + optionalStr.get());</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;Value is null&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><ul>
-<li><code>null</code> 是 Java 中的一个特殊字面量，表示“没有对象”或“空引用”。</li>
-<li>它只能赋值给引用类型变量，不能赋值给原始数据类型。</li>
-<li>尝试对 <code>null</code> 进行操作会抛出 <code>NullPointerException</code>，因此在使用时需要小心。</li>
+<p>这些子文件夹分别存放不同架构的 <code>.so</code> 文件（如 <code>armeabi-v7a</code> 存放 ARM 架构的 <code>.so</code> 文件）</p>
+<h3 id="SO-库的示例用途"><a href="#SO-库的示例用途" class="headerlink" title="SO 库的示例用途"></a><strong>SO 库的示例用途</strong></h3><ol>
+<li><strong>图形渲染</strong>： 游戏开发中，图形渲染常常使用 C++ 编写的库来提升性能。这样，游戏可以通过 <code>.so</code> 库调用底层的图形 API 来渲染场景。</li>
+<li><strong>加密与解密</strong>： 由于 C&#x2F;C++ 在处理加密算法时性能更强，许多加密库会以 <code>.so</code> 格式提供，供 Android 应用调用。</li>
+<li><strong>多媒体处理</strong>： 一些视频和音频编解码库，如 FFmpeg，也可以作为 <code>.so</code> 文件集成到 Android 应用中，处理高效的媒体文件解码和转换。</li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><ul>
+<li><strong>.so 库</strong> 是 Android 应用中的动态链接库，通常由 C 或 C++ 代码编写，主要用于提升应用性能、进行硬件交互或实现底层功能。</li>
+<li>这些库通过 <strong>JNI</strong> 与 Java 层的应用程序进行交互，Android 应用通过调用 <code>.so</code> 文件中的本地代码来实现某些操作。</li>
+<li><code>.so</code> 库的使用可以显著提高 Android 应用的性能，尤其在图形处理、加密算法和其他底层操作中，常常采用 <code>.so</code> 文件来提升执行效率</li>
 </ul>
 
       
@@ -375,14 +359,14 @@
         
           
           
-            <img data-src="/images/banner.webp" data-sizes="auto" alt="Java数据类型转换" class="lazyload">
+            <img data-src="/images/banner.webp" data-sizes="auto" alt="Android的代码提交，克隆和运行" class="lazyload">
           
         
-        <a href="/2024/11/23/Java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/"></a>
+        <a href="/2025/03/06/Android%E7%9A%84%E4%BB%A3%E7%A0%81%E6%8F%90%E4%BA%A4%EF%BC%8C%E5%85%8B%E9%9A%86%E5%92%8C%E8%BF%90%E8%A1%8C/"></a>
         <div class="article-nav-caption">Newer</div>
         <h3 class="article-nav-title">
           
-            Java数据类型转换
+            Android的代码提交，克隆和运行
           
         </h3>
       </div>
@@ -393,14 +377,14 @@
       
         
         
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="Java的基础数据类型" class="lazyload">
+          <img data-src="/images/banner.webp" data-sizes="auto" alt="Smali  ART字节码" class="lazyload">
         
       
-      <a href="/2024/11/22/java%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"></a>
+      <a href="/2025/03/05/smali%20ART%20%E5%AD%97%E8%8A%82%E7%A0%81/"></a>
       <div class="article-nav-caption">Older</div>
       <h3 class="article-nav-title">
         
-          Java的基础数据类型
+          Smali  ART字节码
         
       </h3>
     </div>
@@ -477,7 +461,7 @@
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%94%A8%E6%B3%95%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">1. 用法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%BB%86%E8%8A%82%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">2. 细节说明：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-null-%E4%B8%8E%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">3. null 与原始数据类型的区别：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-null-%E4%B8%8E%E7%A9%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9A"><span class="toc-number">4.</span> <span class="toc-text">4. null 与空字符串的区别：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Null-%E4%B8%8E-Optional-%E7%9A%84%E5%85%B3%E7%B3%BB%EF%BC%9A"><span class="toc-number">5.</span> <span class="toc-text">5. Null 与 Optional 的关系：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="toc-number">6.</span> <span class="toc-text">总结：</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SO-%E5%BA%93%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number"></span> <span class="toc-text">SO 库的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SO-%E5%BA%93%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-number"></span> <span class="toc-text">SO 库的结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SO-%E5%BA%93%E7%9A%84%E7%A4%BA%E4%BE%8B%E7%94%A8%E9%80%94"><span class="toc-number"></span> <span class="toc-text">SO 库的示例用途</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number"></span> <span class="toc-text">总结</span></a>
       
   </div>
 </div>
@@ -619,13 +603,13 @@
       <script data-pjax>
         window.REIMU_POST = {
           author: "civet",
-          title: "什么是null？？？哦~，原来如此",
-          url: "http://example.com/2024/11/22/null%E7%9A%84%E6%A6%82%E8%BF%B0/",
+          title: "SO 库",
+          url: "http://example.com/2025/03/06/so%20%E5%BA%93/",
           excerpt: "",
           description: "",
-          stripContent: "在 Java 中，null 是一个 特殊的字面量，表示 空值 或 无对象，它是引用类型的默认值，用来表示 没有指向任何对象 或 没有分配值的引用。简单来说，null 可以理解为“没有指向任何东西”的意思。 1. 用法： null 可以赋给引用类型（如类、数组、接口等）的变量，但不能赋给原始数据类型（如 int、double、boolean 等）的变量。 null 并不是一个对象，它只是一个空的引用值，表示这个引用变量目前不指向任何实际的对象。  2. 细节说明： 引用类型变量：null 只能赋值",
-          date: "Fri Nov 22 2024 22:06:08 GMT+0800",
-          updated: "Fri Nov 22 2024 22:21:11 GMT+0800",
+          stripContent: "前言.so 库 是 Android 应用中的 共享库文件（Shared Object），它是以 .so 扩展名结尾的文件。这个文件包含了用 C 或 C++ 等语言编写的本地代码，并被 Android 系统作为动态链接库加载和执行 .so 库 是 Android 应用中的 共享库文件（Shared Object），它是以 .so 扩展名结尾的文件。这个文件包含了用 C 或 C++ 等语言编写的本地代码，并被 Android 系统作为动态链接库加载和执行。 SO 库的作用 本地代码执行： .so 文",
+          date: "Thu Mar 06 2025 22:03:27 GMT+0800",
+          updated: "Wed Mar 05 2025 19:37:10 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
