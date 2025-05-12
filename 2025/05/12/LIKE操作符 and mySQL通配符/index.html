@@ -16,7 +16,7 @@
   <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_0khxww3tj3q9';window.REIMU_CONFIG.clipboard_tips = {"success":"复制成功(*^▽^*)","fail":"复制失败 (ﾟ⊿ﾟ)ﾂ","copyright":{"enable":false,"count":50,"content":"本文版权：本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！"}};window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'http://example.com';</script>
   
   <title>
-    VIEW的认识 |
+    LIKE操作符 and mySQL通配符 |
     
     昨天放的鸽子，今天要亲自去追
   </title>
@@ -31,15 +31,15 @@
 
   
   
-    <meta name="description" content="什么是View?view是Android中所有控制件的基类。是一种界面层的控件的一种抽象，它代表了一个控件 不管是简单的Button和TexView还是复杂的RelativeLayout和ListView, 他们都是共同基类，都是View ViewGroup内部包含了许多个控件，即一组View 根据概念，Button显示是个View，而Linear Android view 前端在 Android">
+    <meta name="description" content="MySQL LIKE 操作符LIKE 操作符用于 WHERE 子句中，用于在列内搜索指定的模式。LIKE 操作符通常结合以下两种通配符使用：  百分号 % 匹配零个、一个或多个任意字符 下划线 _ 精确匹配一个任意字符百分号和下划线还可以组合使用！  可以使用 AND 或 OR 运算符组合任意数量的查询条件 LIKE 操作符用法对照表   运算符 解释与说明    WHERE CustomerNa">
 <meta property="og:type" content="article">
-<meta property="og:title" content="VIEW的认识">
-<meta property="og:url" content="http://example.com/2025/03/05/Android%20view%20%E5%89%8D%E7%AB%AF/index.html">
+<meta property="og:title" content="LIKE操作符 and mySQL通配符">
+<meta property="og:url" content="http://example.com/2025/05/12/LIKE%E6%93%8D%E4%BD%9C%E7%AC%A6%20and%20mySQL%E9%80%9A%E9%85%8D%E7%AC%A6/index.html">
 <meta property="og:site_name" content="昨天放的鸽子，今天要亲自去追">
-<meta property="og:description" content="什么是View?view是Android中所有控制件的基类。是一种界面层的控件的一种抽象，它代表了一个控件 不管是简单的Button和TexView还是复杂的RelativeLayout和ListView, 他们都是共同基类，都是View ViewGroup内部包含了许多个控件，即一组View 根据概念，Button显示是个View，而Linear Android view 前端在 Android">
+<meta property="og:description" content="MySQL LIKE 操作符LIKE 操作符用于 WHERE 子句中，用于在列内搜索指定的模式。LIKE 操作符通常结合以下两种通配符使用：  百分号 % 匹配零个、一个或多个任意字符 下划线 _ 精确匹配一个任意字符百分号和下划线还可以组合使用！  可以使用 AND 或 OR 运算符组合任意数量的查询条件 LIKE 操作符用法对照表   运算符 解释与说明    WHERE CustomerNa">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-03-05T11:45:50.510Z">
-<meta property="article:modified_time" content="2025-03-05T11:34:03.195Z">
+<meta property="article:published_time" content="2025-05-12T14:53:27.629Z">
+<meta property="article:modified_time" content="2025-05-12T03:31:48.501Z">
 <meta property="article:author" content="civet">
 <meta name="twitter:card" content="summary">
   
@@ -175,7 +175,7 @@
       
     </picture>
     
-      <img fetchpriority="high" src="/images/banner.webp" alt="VIEW的认识">
+      <img fetchpriority="high" src="/images/banner.webp" alt="LIKE操作符 and mySQL通配符">
     
   
   <div id="header-outer">
@@ -184,7 +184,7 @@
         
         
           <a href="/" id="logo">
-            <h1 data-aos="slide-up">VIEW的认识</h1>
+            <h1 data-aos="slide-up">LIKE操作符 and mySQL通配符</h1>
           </a>
         
       
@@ -209,7 +209,7 @@
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFView"><span class="toc-number">1.</span> <span class="toc-text">什么是View?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-view-%E5%89%8D%E7%AB%AF"><span class="toc-number"></span> <span class="toc-text">Android view 前端</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-XML-%E5%B8%83%E5%B1%80%E6%96%87%E4%BB%B6%EF%BC%88%E4%BC%A0%E7%BB%9F%E6%96%B9%E6%B3%95%EF%BC%89"><span class="toc-number">0.1.</span> <span class="toc-text">1.   XML 布局文件（传统方法）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Jetpack-Compose-%E7%8E%B0%E4%BB%A3%E6%96%B9%E6%B3%95"><span class="toc-number">0.2.</span> <span class="toc-text">2.  Jetpack Compose (现代方法)</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-LIKE-%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">1.</span> <span class="toc-text">MySQL LIKE 操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#LIKE-%E6%93%8D%E4%BD%9C%E7%AC%A6%E7%94%A8%E6%B3%95%E5%AF%B9%E7%85%A7%E8%A1%A8"><span class="toc-number">1.1.</span> <span class="toc-text">LIKE 操作符用法对照表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B1%EF%BC%9A"><span class="toc-number">1.1.1.</span> <span class="toc-text">示例1：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B2%EF%BC%9A"><span class="toc-number">1.1.2.</span> <span class="toc-text">示例2：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B-3%EF%BC%9ANOT-LIKE%EF%BC%9A%E5%90%A6%E5%AE%9A%E5%8C%B9%E9%85%8D%E6%9D%A1%E4%BB%B6"><span class="toc-number">1.1.3.</span> <span class="toc-text">示例 3：NOT LIKE：否定匹配条件</span></a></li></ol></li></ol></li></ol>
       
   </div>
 </div>
@@ -289,13 +289,13 @@
   </div>
 </aside>
 
-          <section id="main"><article id="post-Android view 前端" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main"><article id="post-LIKE操作符 and mySQL通配符" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
   <span class="article-date-link" data-aos="zoom-in">
-    <time datetime="2025-03-05T11:45:50.510Z" itemprop="datePublished">2025-03-05</time>
-    <time style="display: none;" id="post-update-time">2025-03-05</time>
+    <time datetime="2025-05-12T14:53:27.629Z" itemprop="datePublished">2025-05-12</time>
+    <time style="display: none;" id="post-update-time">2025-05-12</time>
   </span>
 </div>
 
@@ -308,21 +308,86 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
       
-        <h3 id="什么是View"><a href="#什么是View" class="headerlink" title="什么是View?"></a>什么是View?</h3><p><code>view</code>是<code>Android</code>中所有控制件的基类。是一种界面层的控件的一种抽象，它代表了一个控件</p>
-<p>不管是简单的<code>Button</code>和<code>TexView</code>还是复杂的<code>RelativeLayout</code>和<code>ListView</code>,</p>
-<p>他们都是共同基类，都是<code>View</code></p>
-<p><code>ViewGroup</code>内部包含了许多个控件，即一组<code>View</code></p>
-<p>根据概念，<code>Button</code>显示是个<code>View</code>，而<code>Linear</code></p>
-<h2 id="Android-view-前端"><a href="#Android-view-前端" class="headerlink" title="Android view 前端"></a>Android view 前端</h2><p>在 <code>Android</code> 开发中，”前端” 这个概念通常指的是用户界面的构建和交互部分</p>
-<p>前端可分：</p>
-<h4 id="1-XML-布局文件（传统方法）"><a href="#1-XML-布局文件（传统方法）" class="headerlink" title="1.   XML 布局文件（传统方法）"></a>1.   XML 布局文件（传统方法）</h4><p><strong>UI 是用户界面</strong>，主要组成部分：试图设计，交互设计，反馈和响应</p>
-<p><strong>UX 是用户体验</strong></p>
-<p>在 Android 中，传统的前端 UI 是通过 XML 布局文件来定义的</p>
-<p>开发者可以在 <code>res/layout/</code> 目录下创建 XML 文件，使用各种视图组件（如 <code>TextView</code>、<code>Button</code>、<code>ImageView</code> 等）来布局和设计 UI</p>
-<p>UI 组件通过 XML 定义，并且可以在 Java 或 Kotlin 代码中与它们进行交互</p>
-<h4 id="2-Jetpack-Compose-现代方法"><a href="#2-Jetpack-Compose-现代方法" class="headerlink" title="2.  Jetpack Compose (现代方法)"></a>2.  Jetpack Compose (现代方法)</h4><p><strong>Jetpack</strong>: &#x2F;ˈdʒɛtˌpæk&#x2F;</p>
-<p><strong>Compose</strong>: &#x2F;kəmˈpoʊz&#x2F;</p>
-<p>Jetpack Compose 是 Android 的现代 UI 构建工具，它让开发者通过 Kotlin 代码直接声明和构建 UI。与传统的 XML 布局方法不同，Jetpack Compose <strong>使用声明式</strong>的编程方式来创建 UI，代码和布局混合在一起</p>
+        <h2 id="MySQL-LIKE-操作符"><a href="#MySQL-LIKE-操作符" class="headerlink" title="MySQL LIKE 操作符"></a>MySQL LIKE 操作符</h2><p>LIKE 操作符用于 WHERE 子句中，用于在列内搜索指定的模式。<br>LIKE 操作符通常结合以下两种通配符使用：</p>
+<ul>
+<li>百分号 <code>%</code> 匹配零个、一个或多个任意字符</li>
+<li>下划线 <code>_</code> 精确匹配一个任意字符<br>百分号和下划线还可以组合使用！</li>
+</ul>
+<p>可以使用 <code>AND</code> 或 <code>OR</code> 运算符组合任意数量的查询条件</p>
+<h3 id="LIKE-操作符用法对照表"><a href="#LIKE-操作符用法对照表" class="headerlink" title="LIKE 操作符用法对照表"></a>LIKE 操作符用法对照表</h3><table>
+<thead>
+<tr>
+<th><strong>运算符</strong></th>
+<th><strong>解释与说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>WHERE CustomerName LIKE &#39;a%&#39;</code></td>
+<td>查找所有以字母 <strong>“a” 开头</strong> 的客户名</td>
+</tr>
+<tr>
+<td><code>WHERE CustomerName LIKE &#39;%a&#39;</code></td>
+<td>查找所有以字母 <strong>“a” 结尾</strong> 的客户名</td>
+</tr>
+<tr>
+<td><code>WHERE CustomerName LIKE &#39;%or%&#39;</code></td>
+<td>查找所有包含 <strong>“or”</strong> 子串的客户名（任意位置）</td>
+</tr>
+<tr>
+<td><code>WHERE CustomerName LIKE &#39;_r%&#39;</code></td>
+<td>查找所有 <strong>第二个字母为 “r”</strong> 的客户名</td>
+</tr>
+<tr>
+<td><code>WHERE CustomerName LIKE &#39;a_%&#39;</code></td>
+<td>查找以 <strong>“a” 开头且至少2个字符</strong> 的客户名</td>
+</tr>
+<tr>
+<td><code>WHERE CustomerName LIKE &#39;a__%&#39;</code></td>
+<td>查找以 <strong>“a” 开头且至少3个字符</strong> 的客户名</td>
+</tr>
+<tr>
+<td><code>WHERE ContactName LIKE &#39;a%o&#39;</code></td>
+<td>查找所有 <strong>以 “a” 开头且以 “o” 结尾</strong> 的联系人名</td>
+</tr>
+</tbody></table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">WHERE CustomerName LIKE &#x27;a_%_%&#x27; </span><br><span class="line">// 查找所有以字母 &quot;a&quot; 开头且长度至少为 3 个字符的客户名称</span><br></pre></td></tr></table></figure>
+
+<p><strong>通配符差异</strong></p>
+<ul>
+<li><code>%</code> 匹配 <strong>任意长度字符</strong>（包括空字符串）<br><em>示例：</em> <code>&#39;%son&#39;</code> 可匹配 “Johnson”、”Jackson”、”son”</li>
+<li><code>_</code> 精确匹配 <strong>单个字符</strong><br><em>示例：</em> <code>&#39;_at&#39;</code> 可匹配 “cat”、”bat”，但不匹配 “that”</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>符号</strong></th>
+<th><strong>解释与说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>%</code></td>
+<td>匹配零个或多个任意字符</td>
+</tr>
+<tr>
+<td><code>_</code></td>
+<td>精确匹配一个任意字符</td>
+</tr>
+</tbody></table>
+<p><strong>组合用法逻辑</strong></p>
+<ul>
+<li><code>&#39;a_%&#39;</code> &#x3D; 首字母 <code>a</code> + 至少1个任意字符（总长≥2）</li>
+<li><code>&#39;a__%&#39;</code> &#x3D; 首字母 <code>a</code> + 至少2个任意字符（总长≥3）</li>
+</ul>
+<h4 id="示例1："><a href="#示例1：" class="headerlink" title="示例1："></a>示例1：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM Customers</span><br><span class="line">WHERE CustomerName LIKE &#x27;ber%&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>​           查找所有以字母 <strong>“ber” 开头</strong> 的客户名</p>
+<h4 id="示例2："><a href="#示例2：" class="headerlink" title="示例2："></a>示例2：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM Customers</span><br><span class="line">WHERE City LIKE &#x27;L_n_on&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>  以字母 “L” 开头，后接任意单个字符，接着是字母 “n”，再接任意单个字符，最后以 “on” 结尾</p>
+<h4 id="示例-3：NOT-LIKE：否定匹配条件"><a href="#示例-3：NOT-LIKE：否定匹配条件" class="headerlink" title="示例 3：NOT LIKE：否定匹配条件"></a>示例 3：<code>NOT LIKE</code>：否定匹配条件</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM Customers</span><br><span class="line">WHERE CustomerName NOT LIKE &#x27;a%&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>查询所有客户名称不以字母’a’开头的客户记录</p>
+<p>使用<code>NOT LIKE</code>操作符进行反向模式匹配</p>
 
       
     </div>
@@ -342,37 +407,20 @@
   
   <nav id="article-nav" data-aos="fade-up">
     
-      
-      <div class="article-nav-link-wrap article-nav-link-left">
-        
-          
-          
-            <img data-src="/images/banner.webp" data-sizes="auto" alt="ART字节码处理器" class="lazyload">
-          
-        
-        <a href="/2025/03/05/ART%20%E5%AD%97%E8%8A%82%E7%A0%81%E5%A4%84%E7%90%86%E5%99%A8/"></a>
-        <div class="article-nav-caption">Newer</div>
-        <h3 class="article-nav-title">
-          
-            ART字节码处理器
-          
-        </h3>
-      </div>
-    
     
     
     <div class="article-nav-link-wrap article-nav-link-right">
       
         
         
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="kotlin 类函数和继承" class="lazyload">
+          <img data-src="/images/banner.webp" data-sizes="auto" alt="MySQL COUNT()、AVG() 和 SUM() 函数" class="lazyload">
         
       
-      <a href="/2025/03/03/kotlin%20%E7%B1%BB%E5%87%BD%E6%95%B0%E5%92%8C%E7%BB%A7%E6%89%BF/"></a>
+      <a href="/2025/05/12/MySQL%20COUNT()%E3%80%81AVG()%20%E5%92%8C%20SUM()%20%E5%87%BD%E6%95%B0/"></a>
       <div class="article-nav-caption">Older</div>
       <h3 class="article-nav-title">
         
-          kotlin 类函数和继承
+          MySQL COUNT()、AVG() 和 SUM() 函数
         
       </h3>
     </div>
@@ -449,7 +497,7 @@
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFView"><span class="toc-number">1.</span> <span class="toc-text">什么是View?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-view-%E5%89%8D%E7%AB%AF"><span class="toc-number"></span> <span class="toc-text">Android view 前端</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-XML-%E5%B8%83%E5%B1%80%E6%96%87%E4%BB%B6%EF%BC%88%E4%BC%A0%E7%BB%9F%E6%96%B9%E6%B3%95%EF%BC%89"><span class="toc-number">0.1.</span> <span class="toc-text">1.   XML 布局文件（传统方法）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Jetpack-Compose-%E7%8E%B0%E4%BB%A3%E6%96%B9%E6%B3%95"><span class="toc-number">0.2.</span> <span class="toc-text">2.  Jetpack Compose (现代方法)</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-LIKE-%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">1.</span> <span class="toc-text">MySQL LIKE 操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#LIKE-%E6%93%8D%E4%BD%9C%E7%AC%A6%E7%94%A8%E6%B3%95%E5%AF%B9%E7%85%A7%E8%A1%A8"><span class="toc-number">1.1.</span> <span class="toc-text">LIKE 操作符用法对照表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B1%EF%BC%9A"><span class="toc-number">1.1.1.</span> <span class="toc-text">示例1：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B2%EF%BC%9A"><span class="toc-number">1.1.2.</span> <span class="toc-text">示例2：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B-3%EF%BC%9ANOT-LIKE%EF%BC%9A%E5%90%A6%E5%AE%9A%E5%8C%B9%E9%85%8D%E6%9D%A1%E4%BB%B6"><span class="toc-number">1.1.3.</span> <span class="toc-text">示例 3：NOT LIKE：否定匹配条件</span></a></li></ol></li></ol></li></ol>
       
   </div>
 </div>
@@ -591,13 +639,13 @@
       <script data-pjax>
         window.REIMU_POST = {
           author: "civet",
-          title: "VIEW的认识",
-          url: "http://example.com/2025/03/05/Android%20view%20%E5%89%8D%E7%AB%AF/",
+          title: "LIKE操作符 and mySQL通配符",
+          url: "http://example.com/2025/05/12/LIKE%E6%93%8D%E4%BD%9C%E7%AC%A6%20and%20mySQL%E9%80%9A%E9%85%8D%E7%AC%A6/",
           excerpt: "",
           description: "",
-          stripContent: "什么是View?view是Android中所有控制件的基类。是一种界面层的控件的一种抽象，它代表了一个控件 不管是简单的Button和TexView还是复杂的RelativeLayout和ListView, 他们都是共同基类，都是View ViewGroup内部包含了许多个控件，即一组View 根据概念，Button显示是个View，而Linear Android view 前端在 Android 开发中，”前端” 这个概念通常指的是用户界面的构建和交互部分 前端可分： 1.   XML 布局文",
-          date: "Wed Mar 05 2025 19:45:50 GMT+0800",
-          updated: "Wed Mar 05 2025 19:34:03 GMT+0800",
+          stripContent: "MySQL LIKE 操作符LIKE 操作符用于 WHERE 子句中，用于在列内搜索指定的模式。LIKE 操作符通常结合以下两种通配符使用：  百分号 % 匹配零个、一个或多个任意字符 下划线 _ 精确匹配一个任意字符百分号和下划线还可以组合使用！  可以使用 AND 或 OR 运算符组合任意数量的查询条件 LIKE 操作符用法对照表   运算符 解释与说明    WHERE CustomerName LIKE &amp;#39;a%&amp;#39; 查找所有以字母 “a” 开头 的客户名   WHERE C",
+          date: "Mon May 12 2025 22:53:27 GMT+0800",
+          updated: "Mon May 12 2025 11:31:48 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
