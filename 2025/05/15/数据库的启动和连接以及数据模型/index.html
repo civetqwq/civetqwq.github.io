@@ -16,7 +16,7 @@
   <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_0khxww3tj3q9';window.REIMU_CONFIG.clipboard_tips = {"success":"复制成功(*^▽^*)","fail":"复制失败 (ﾟ⊿ﾟ)ﾂ","copyright":{"enable":false,"count":50,"content":"本文版权：本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！"}};window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'http://example.com';</script>
   
   <title>
-    Smali  ART字节码 |
+    数据库的启动和连接以及数据模型 |
     
     昨天放的鸽子，今天要亲自去追
   </title>
@@ -31,15 +31,15 @@
 
   
   
-    <meta name="description" content="Smali是一种反汇编语言，用于表示Android应用中的 DEX 字节码，而 ART 字节码 主要指代 Android 应用运行时的机器代码。 在 Android 应用中，Smali 和ART 字节码是两种相关但不同的概念。 Smali smali是DEX（Dalvik Executable） 文件的反汇编形式, 用于表示应用的字节码, 与Java字节码紧密相关 当 Android 应用的 AP">
+    <meta name="description" content="MySQL数据库停止与启动方法1： win + R 输入 services.msc 滑动找到 MySQL93 右击选择 启动&#x2F;停止 方法2：以管理员身份启动 命令提示符   启动命令 1net stsrt mysql93  停止命令 1net stop mysql93  其中主要 mysql93 是安装mysql时注册的系统服务名称 MySQL客户端连接方法1：MySQL提供的客户端命令">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Smali  ART字节码">
-<meta property="og:url" content="http://example.com/2025/03/05/smali%20ART%20%E5%AD%97%E8%8A%82%E7%A0%81/index.html">
+<meta property="og:title" content="数据库的启动和连接以及数据模型">
+<meta property="og:url" content="http://example.com/2025/05/15/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%90%AF%E5%8A%A8%E5%92%8C%E8%BF%9E%E6%8E%A5%E4%BB%A5%E5%8F%8A%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B/index.html">
 <meta property="og:site_name" content="昨天放的鸽子，今天要亲自去追">
-<meta property="og:description" content="Smali是一种反汇编语言，用于表示Android应用中的 DEX 字节码，而 ART 字节码 主要指代 Android 应用运行时的机器代码。 在 Android 应用中，Smali 和ART 字节码是两种相关但不同的概念。 Smali smali是DEX（Dalvik Executable） 文件的反汇编形式, 用于表示应用的字节码, 与Java字节码紧密相关 当 Android 应用的 AP">
+<meta property="og:description" content="MySQL数据库停止与启动方法1： win + R 输入 services.msc 滑动找到 MySQL93 右击选择 启动&#x2F;停止 方法2：以管理员身份启动 命令提示符   启动命令 1net stsrt mysql93  停止命令 1net stop mysql93  其中主要 mysql93 是安装mysql时注册的系统服务名称 MySQL客户端连接方法1：MySQL提供的客户端命令">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-03-05T11:46:02.922Z">
-<meta property="article:modified_time" content="2025-03-05T11:45:10.918Z">
+<meta property="article:published_time" content="2025-05-15T01:42:39.623Z">
+<meta property="article:modified_time" content="2025-05-15T01:42:24.094Z">
 <meta property="article:author" content="civet">
 <meta name="twitter:card" content="summary">
   
@@ -175,7 +175,7 @@
       
     </picture>
     
-      <img fetchpriority="high" src="/images/banner.webp" alt="Smali  ART字节码">
+      <img fetchpriority="high" src="/images/banner.webp" alt="数据库的启动和连接以及数据模型">
     
   
   <div id="header-outer">
@@ -184,7 +184,7 @@
         
         
           <a href="/" id="logo">
-            <h1 data-aos="slide-up">Smali  ART字节码</h1>
+            <h1 data-aos="slide-up">数据库的启动和连接以及数据模型</h1>
           </a>
         
       
@@ -209,7 +209,7 @@
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Smali"><span class="toc-number">1.</span> <span class="toc-text">Smali</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#APK-%E5%8C%85"><span class="toc-number">2.</span> <span class="toc-text">APK 包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Smali-%E6%96%87%E4%BB%B6%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-number">3.</span> <span class="toc-text">Smali 文件的结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Smali-%E6%96%87%E4%BB%B6%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-number">4.</span> <span class="toc-text">Smali 文件的特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Smali-%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">5.</span> <span class="toc-text">Smali  的应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Smali-%E5%92%8C-ART-%E5%AD%97%E8%8A%82%E7%A0%81%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">6.</span> <span class="toc-text">Smali 和 ART 字节码的关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="toc-number">7.</span> <span class="toc-text">总结：</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%81%9C%E6%AD%A2%E4%B8%8E%E5%90%AF%E5%8A%A8"><span class="toc-number">1.</span> <span class="toc-text">MySQL数据库停止与启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9E%E6%8E%A5"><span class="toc-number">2.</span> <span class="toc-text">MySQL客户端连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">MySQL 数据模型</span></a></li></ol>
       
   </div>
 </div>
@@ -289,13 +289,13 @@
   </div>
 </aside>
 
-          <section id="main"><article id="post-smali ART 字节码" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main"><article id="post-数据库的启动和连接以及数据模型" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
   <span class="article-date-link" data-aos="zoom-in">
-    <time datetime="2025-03-05T11:46:02.922Z" itemprop="datePublished">2025-03-05</time>
-    <time style="display: none;" id="post-update-time">2025-03-05</time>
+    <time datetime="2025-05-15T01:42:39.623Z" itemprop="datePublished">2025-05-15</time>
+    <time style="display: none;" id="post-update-time">2025-05-15</time>
   </span>
 </div>
 
@@ -308,47 +308,29 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
       
-        <p><code>Smali</code>是一种反汇编语言，用于表示<code>Android</code>应用中的 <strong>DEX</strong> 字节码，而 <strong>ART 字节码</strong> 主要指代 Android 应用运行时的机器代码。</p>
-<p>在 <code>Android</code> 应用中，<code>Smali</code> 和<code>ART </code>字节码是两种相关但不同的概念。</p>
-<h2 id="Smali"><a href="#Smali" class="headerlink" title="Smali"></a>Smali</h2><ul>
-<li><code>smali</code>是<code>DEX</code><strong>（Dalvik Executable）</strong> 文件的反汇编形式, 用于表示应用的字节码, 与Java字节码紧密相关</li>
-<li>当 Android 应用的 APK 包被反编译时，开发者通常会看到 <code>Smali </code>代码，<code>Smali </code>代码可以让开发者看到应用程序的低级实现，包括方法、字段和类的定义</li>
-<li><code>Smali </code>代码通常与 <code>Dalvik</code> 虚拟机<code>（DVM）</code>或<code> ART（Android Runtime）</code>一起使用，因为它是将<code>Java</code>字节码转化为<code>DEX</code>格式后的结果</li>
-</ul>
-<h2 id="APK-包"><a href="#APK-包" class="headerlink" title="APK 包"></a>APK 包</h2><p><strong>APK</strong>（Android Package）包是 <strong>Android 应用程序</strong>的安装包文件格式，APK 文件是 Android 操作系统用来分发和安装应用程序的标准格式</p>
-<p>一个 APK 文件包含了 Android 应用的所有必要文件和资源，这些文件会在设备上被解压缩并执行</p>
-<p>主要包含：</p>
-<ol>
-<li><strong>AndroidManifest.xml</strong>：<br> 该文件描述了应用的基本信息，如包名、版本、权限声明、组件（如活动、服务、广播接收器）等。它是应用的核心配置文件，定义了应用的结构和行为。</li>
-<li><strong>classes.dex</strong>：<br> 包含了应用的 <strong>DEX（Dalvik Executable）</strong> 字节码文件，Android 系统通过这些文件运行 Java 代码。这个文件保存了应用的编译代码。</li>
-<li><strong>resources.arsc</strong>：<br> 包含应用的所有资源的预编译版本，例如字符串、颜色、样式、布局等。</li>
-<li><strong>res&#x2F; 文件夹</strong>：<br> 这个文件夹包含应用的所有资源文件，比如图片、布局 XML 文件、动画等。</li>
-<li><strong>assets&#x2F; 文件夹</strong>：<br> 存储应用的原始资源文件，这些文件会以原始格式存储，并可以通过应用程序的 <code>AssetManager</code> 访问。</li>
-<li><strong>META-INF&#x2F; 文件夹</strong>：<br> 这个文件夹包含与 APK 文件签名相关的信息。它包括签名证书和相关的验证文件，确保 APK 文件的完整性和来源可信度。</li>
-<li><strong>lib&#x2F; 文件夹</strong>：<br> 包含应用的原生库（通常是 <code>.so</code> 文件，使用 C 或 C++ 编写），这些库针对不同的处理器架构（如 ARM、x86）进行编译。</li>
-</ol>
-<p>APK 文件是 Android 应用的打包格式，包含了应用运行所需的所有代码、资源和配置文件。通过这个格式，开发者可以将 Android 应用打包并分发给用户进行安装和使用。</p>
-<h2 id="Smali-文件的结构"><a href="#Smali-文件的结构" class="headerlink" title="Smali 文件的结构"></a>Smali 文件的结构</h2><p>通常包含：</p>
+        <h2 id="MySQL数据库停止与启动"><a href="#MySQL数据库停止与启动" class="headerlink" title="MySQL数据库停止与启动"></a>MySQL数据库停止与启动</h2><p>方法1： win + R 输入 services.msc 滑动找到 MySQL93 右击选择 启动&#x2F;停止</p>
+<p>方法2：以管理员身份启动 命令提示符 </p>
 <ul>
-<li>类声明：定义类名，访问修饰符，继承关系等。</li>
-<li>字段：类的的成员变量</li>
-<li>方法：类的方法及其具体的字节码实现</li>
-<li>字节码指令：每个犯法的具体实现是由一系列 Smali 指令构成，</li>
+<li><p>启动命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net stsrt mysql93</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>停止命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net stop mysql93</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h2 id="Smali-文件的特点"><a href="#Smali-文件的特点" class="headerlink" title="Smali 文件的特点"></a>Smali 文件的特点</h2><p>​     <code> Smali</code>是<code>Android</code>应用的反汇编语言，通常用于调试，反汇编工程或修改APK。它由多条指令构成，每条指令通过对应一段Java字节码的实现；这些指令直接操作寄存器，调用方法或执行其他任务</p>
-<h2 id="Smali-的应用场景"><a href="#Smali-的应用场景" class="headerlink" title="Smali  的应用场景"></a>Smali  的应用场景</h2><ul>
-<li><strong>逆向工程和调试：</strong>通过查看和修改 <code>Smali</code> 字节码，开发者可以理解和修改应该程序的逻辑，尤其是在进行安全研究或修改应用行为时。</li>
-<li><strong>修改APK：</strong>修改<code>Android</code>应用的行为或去除某些限制（如广告或权限）时，往往需要通过<code>Smali</code>进行字节码层面的修改。</li>
-</ul>
-<h2 id="Smali-和-ART-字节码的关系"><a href="#Smali-和-ART-字节码的关系" class="headerlink" title="Smali 和 ART 字节码的关系"></a>Smali 和 ART 字节码的关系</h2><p><code>ART </code>字节码和 <code>Smali </code>不完全相同。<code>Smali</code> 是 <code>DEX </code>字节码的可读形式，而 <code>ART </code>字节码是针对目标设备<code> CPU</code> 的机器代码，这部分是在应用运行时直接执行的</p>
-<ul>
-<li><code>Smali </code>主要是 <strong>DEX 字节码</strong> 的一种反汇编表示，便于开发者对应用进行修改、调试或逆向工程。</li>
-<li><code>ART</code> 则是 <code> Android</code>  运行时的环境，它负责将 <code>Smali </code>中的 <code>DEX </code> 字节码进行 <strong>AOT 编译</strong>，生成特定设备的机器代码，进而提升性能。</li>
-</ul>
-<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><ul>
-<li><strong>Smali</strong> 是<code>Android</code>应用的字节码的反汇编版本，通常用于逆向工程和调试。</li>
-<li><strong>ART 字节码</strong> 是 <code>Android Runtime </code>环境下，将 DEX 字节码提前编译为机器代码后的格式，专为提高运行时性能设计</li>
-</ul>
+<p>其中主要 mysql93 是安装mysql时注册的系统服务名称</p>
+<h2 id="MySQL客户端连接"><a href="#MySQL客户端连接" class="headerlink" title="MySQL客户端连接"></a>MySQL客户端连接</h2><p>方法1：MySQL提供的客户端命令行工具（MySQL 9.3 Command Line Client），输入密码即可</p>
+<p>方法2：以管理员身份启动 命令提示符 </p>
+<pre><code>          <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
+</code></pre>
+<p>之后跳出 Enter password: 输入正确密码即可连接</p>
+<h2 id="MySQL-数据模型"><a href="#MySQL-数据模型" class="headerlink" title="MySQL 数据模型"></a>MySQL 数据模型</h2><p><strong>DBMS</strong> 数据库管理系统：是一个软件，可创建，使用和维护数据库。</p>
+<p>客户端可以使用 SQL语句 通过 DBMS 创建，使用和维护数据库。</p>
+<p>一个数据库可 包含多张表结构同时维护多张数据库表。</p>
+<p>在一个数据库服务器中可以创建多个数据库，在一个数据库中可以创建多个数据库表。</p>
+<p>而基于 表 数据进行存储的数据库称之为 关系行数据库（RDBMS)。</p>
+<p>关系型数据库（RDBMS）概念: 建立在关系模型基础上，由多张相互连接的二维表组成的数据库。</p>
+<p>数据库表也可以称之为 <strong>二维表</strong>。</p>
+<p>数据库中的数据是存储在表结构当中的。</p>
 
       
     </div>
@@ -368,37 +350,20 @@
   
   <nav id="article-nav" data-aos="fade-up">
     
-      
-      <div class="article-nav-link-wrap article-nav-link-left">
-        
-          
-          
-            <img data-src="/images/banner.webp" data-sizes="auto" alt="SO 库" class="lazyload">
-          
-        
-        <a href="/2025/03/06/so%20%E5%BA%93/"></a>
-        <div class="article-nav-caption">Newer</div>
-        <h3 class="article-nav-title">
-          
-            SO 库
-          
-        </h3>
-      </div>
-    
     
     
     <div class="article-nav-link-wrap article-nav-link-right">
       
         
         
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="ART字节码处理器" class="lazyload">
+          <img data-src="/images/banner.webp" data-sizes="auto" alt="MySQL IN操作符" class="lazyload">
         
       
-      <a href="/2025/03/05/ART%20%E5%AD%97%E8%8A%82%E7%A0%81%E5%A4%84%E7%90%86%E5%99%A8/"></a>
+      <a href="/2025/05/14/MySQL%20IN%E6%93%8D%E4%BD%9C%E7%AC%A6/"></a>
       <div class="article-nav-caption">Older</div>
       <h3 class="article-nav-title">
         
-          ART字节码处理器
+          MySQL IN操作符
         
       </h3>
     </div>
@@ -475,7 +440,7 @@
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Smali"><span class="toc-number">1.</span> <span class="toc-text">Smali</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#APK-%E5%8C%85"><span class="toc-number">2.</span> <span class="toc-text">APK 包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Smali-%E6%96%87%E4%BB%B6%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-number">3.</span> <span class="toc-text">Smali 文件的结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Smali-%E6%96%87%E4%BB%B6%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-number">4.</span> <span class="toc-text">Smali 文件的特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Smali-%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">5.</span> <span class="toc-text">Smali  的应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Smali-%E5%92%8C-ART-%E5%AD%97%E8%8A%82%E7%A0%81%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">6.</span> <span class="toc-text">Smali 和 ART 字节码的关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="toc-number">7.</span> <span class="toc-text">总结：</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%81%9C%E6%AD%A2%E4%B8%8E%E5%90%AF%E5%8A%A8"><span class="toc-number">1.</span> <span class="toc-text">MySQL数据库停止与启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9E%E6%8E%A5"><span class="toc-number">2.</span> <span class="toc-text">MySQL客户端连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">MySQL 数据模型</span></a></li></ol>
       
   </div>
 </div>
@@ -617,13 +582,13 @@
       <script data-pjax>
         window.REIMU_POST = {
           author: "civet",
-          title: "Smali  ART字节码",
-          url: "http://example.com/2025/03/05/smali%20ART%20%E5%AD%97%E8%8A%82%E7%A0%81/",
+          title: "数据库的启动和连接以及数据模型",
+          url: "http://example.com/2025/05/15/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%90%AF%E5%8A%A8%E5%92%8C%E8%BF%9E%E6%8E%A5%E4%BB%A5%E5%8F%8A%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B/",
           excerpt: "",
           description: "",
-          stripContent: "Smali是一种反汇编语言，用于表示Android应用中的 DEX 字节码，而 ART 字节码 主要指代 Android 应用运行时的机器代码。 在 Android 应用中，Smali 和ART 字节码是两种相关但不同的概念。 Smali smali是DEX（Dalvik Executable） 文件的反汇编形式, 用于表示应用的字节码, 与Java字节码紧密相关 当 Android 应用的 APK 包被反编译时，开发者通常会看到 Smali 代码，Smali 代码可以让开发者看到应用程序的低级",
-          date: "Wed Mar 05 2025 19:46:02 GMT+0800",
-          updated: "Wed Mar 05 2025 19:45:10 GMT+0800",
+          stripContent: "MySQL数据库停止与启动方法1： win + R 输入 services.msc 滑动找到 MySQL93 右击选择 启动&amp;#x2F;停止 方法2：以管理员身份启动 命令提示符   启动命令 1net stsrt mysql93  停止命令 1net stop mysql93  其中主要 mysql93 是安装mysql时注册的系统服务名称 MySQL客户端连接方法1：MySQL提供的客户端命令行工具（MySQL 9.3 Command Line Client），输入密码即可 方法2：以管理员",
+          date: "Thu May 15 2025 09:42:39 GMT+0800",
+          updated: "Thu May 15 2025 09:42:24 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
