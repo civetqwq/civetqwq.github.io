@@ -16,7 +16,7 @@
   <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_0khxww3tj3q9';window.REIMU_CONFIG.clipboard_tips = {"success":"复制成功(*^▽^*)","fail":"复制失败 (ﾟ⊿ﾟ)ﾂ","copyright":{"enable":false,"count":50,"content":"本文版权：本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！"}};window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'http://example.com';</script>
   
   <title>
-    kotlin数组和For循环 |
+    SQL-DML-修改数据 |
     
     昨天放的鸽子，今天要亲自去追
   </title>
@@ -31,15 +31,15 @@
 
   
   
-    <meta name="description" content="一.  数组数组用于在一个变量中存储多个值，而不是为每个值声明单独的变量 要创建一个数组，使用 arrayOf() 函数，并将值以逗号分隔的列表放在其中： 1val cars &#x3D; arrayOf(&quot;chang&quot;, &quot;kuan&quot;, &quot;gao&quot;, &quot;di&quot;)  a. 访问数组元素：​    可以通过引用索引号，在方括号内访">
+    <meta name="description" content="SQLDML-修改数据语法 1UPDATE 表名 SET 字段名1 &#x3D; 值1,字段名2&#x3D;值2,...[WHERE 条件];   注意：修改语句的条件可以有，也可以没有，如果没有条件，则会修改整张表的所有数据。 注意：最后一行字段名 不需要 逗号  演示示例表：有一张名为 employee 的数据表    id name gender entrydate    1 李华 男 2005-06-22">
 <meta property="og:type" content="article">
-<meta property="og:title" content="kotlin数组和For循环">
-<meta property="og:url" content="http://example.com/2025/03/03/kotlin%E6%95%B0%E7%BB%84%E5%92%8CFor%E5%BE%AA%E7%8E%AF/index.html">
+<meta property="og:title" content="SQL-DML-修改数据">
+<meta property="og:url" content="http://example.com/2025/05/20/SQL-DML-%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE/index.html">
 <meta property="og:site_name" content="昨天放的鸽子，今天要亲自去追">
-<meta property="og:description" content="一.  数组数组用于在一个变量中存储多个值，而不是为每个值声明单独的变量 要创建一个数组，使用 arrayOf() 函数，并将值以逗号分隔的列表放在其中： 1val cars &#x3D; arrayOf(&quot;chang&quot;, &quot;kuan&quot;, &quot;gao&quot;, &quot;di&quot;)  a. 访问数组元素：​    可以通过引用索引号，在方括号内访">
+<meta property="og:description" content="SQLDML-修改数据语法 1UPDATE 表名 SET 字段名1 &#x3D; 值1,字段名2&#x3D;值2,...[WHERE 条件];   注意：修改语句的条件可以有，也可以没有，如果没有条件，则会修改整张表的所有数据。 注意：最后一行字段名 不需要 逗号  演示示例表：有一张名为 employee 的数据表    id name gender entrydate    1 李华 男 2005-06-22">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-03-03T11:47:22.891Z">
-<meta property="article:modified_time" content="2025-03-02T11:49:46.714Z">
+<meta property="article:published_time" content="2025-05-20T13:15:29.632Z">
+<meta property="article:modified_time" content="2025-05-20T12:47:57.255Z">
 <meta property="article:author" content="civet">
 <meta name="twitter:card" content="summary">
   
@@ -175,7 +175,7 @@
       
     </picture>
     
-      <img fetchpriority="high" src="/images/banner.webp" alt="kotlin数组和For循环">
+      <img fetchpriority="high" src="/images/banner.webp" alt="SQL-DML-修改数据">
     
   
   <div id="header-outer">
@@ -184,7 +184,7 @@
         
         
           <a href="/" id="logo">
-            <h1 data-aos="slide-up">kotlin数组和For循环</h1>
+            <h1 data-aos="slide-up">SQL-DML-修改数据</h1>
           </a>
         
       
@@ -209,7 +209,7 @@
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E6%95%B0%E7%BB%84"><span class="toc-number">1.</span> <span class="toc-text">一.  数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#a-%E8%AE%BF%E9%97%AE%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">a. 访问数组元素：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#b-%E6%94%B9%E5%8F%98%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0"><span class="toc-number">1.2.</span> <span class="toc-text">b.  改变数组元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c-%E6%95%B0%E7%BB%84%E7%9A%84%E9%95%BF%E5%BA%A6-%E5%A4%A7%E5%B0%8F"><span class="toc-number">1.3.</span> <span class="toc-text">c.  数组的长度&#x2F;大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#d-%E6%A3%80%E6%9F%A5%E5%85%83%E7%B4%A0%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8"><span class="toc-number">1.4.</span> <span class="toc-text">d.  检查元素是否存在</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-Kotlin-For-%E5%BE%AA%E7%8E%AF"><span class="toc-number">2.</span> <span class="toc-text">二.  Kotlin For 循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E6%89%A9%E5%B1%95%E7%AF%87"><span class="toc-number">3.</span> <span class="toc-text">三.  扩展篇</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL"><span class="toc-number">1.</span> <span class="toc-text">SQL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DML-%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE"><span class="toc-number">1.1.</span> <span class="toc-text">DML-修改数据</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BC%94%E7%A4%BA%E7%A4%BA%E4%BE%8B%E8%A1%A8%EF%BC%9A"><span class="toc-number">1.1.1.</span> <span class="toc-text">演示示例表：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DML-%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE"><span class="toc-number">1.2.</span> <span class="toc-text">DML-删除数据</span></a></li></ol></li></ol>
       
   </div>
 </div>
@@ -289,13 +289,13 @@
   </div>
 </aside>
 
-          <section id="main"><article id="post-kotlin数组和For循环" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main"><article id="post-SQL-DML-修改数据" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
   <span class="article-date-link" data-aos="zoom-in">
-    <time datetime="2025-03-03T11:47:22.891Z" itemprop="datePublished">2025-03-03</time>
-    <time style="display: none;" id="post-update-time">2025-03-02</time>
+    <time datetime="2025-05-20T13:15:29.632Z" itemprop="datePublished">2025-05-20</time>
+    <time style="display: none;" id="post-update-time">2025-05-20</time>
   </span>
 </div>
 
@@ -308,42 +308,125 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
       
-        <h2 id="一-数组"><a href="#一-数组" class="headerlink" title="一.  数组"></a>一.  数组</h2><p><strong>数组</strong>用于在一个变量中存储多个值，而不是为每个值声明单独的变量</p>
-<p>要创建一个数组，使用 <code>arrayOf()</code> 函数，并将值以逗号分隔的列表放在其中：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> cars = arrayOf(<span class="string">&quot;chang&quot;</span>, <span class="string">&quot;kuan&quot;</span>, <span class="string">&quot;gao&quot;</span>, <span class="string">&quot;di&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="a-访问数组元素："><a href="#a-访问数组元素：" class="headerlink" title="a. 访问数组元素："></a>a. 访问数组元素：</h3><p>​    可以通过引用索引号，在方括号内访问数组元素</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="keyword">val</span> cars = arrayOf(<span class="string">&quot;chang&quot;</span>, <span class="string">&quot;kuan&quot;</span>, <span class="string">&quot;gao&quot;</span>, <span class="string">&quot;di&quot;</span>)</span><br><span class="line">  println(cars[<span class="number">0</span>])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h2><h3 id="DML-修改数据"><a href="#DML-修改数据" class="headerlink" title="DML-修改数据"></a>DML-修改数据</h3><p><strong>语法</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UPDATE 表名 SET 字段名1 = 值1,字段名2=值2,...[WHERE 条件];</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>就像字符串一样，数组的索引从 0 开始：[0] 是第一个元素，[1] 是第二个元素，依此类推</p>
+<p>注意：修改语句的条件可以有，也可以没有，如果没有条件，则会修改整张表的所有数据。</p>
+<p>注意：最后一行字段名 不需要 逗号</p>
 </blockquote>
-<h3 id="b-改变数组元素"><a href="#b-改变数组元素" class="headerlink" title="b.  改变数组元素"></a>b.  改变数组元素</h3><p> 要改变特定元素的值，引用该元素的索引号：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cars[<span class="number">0</span>] = <span class="string">&quot;Opel&quot;</span></span><br></pre></td></tr></table></figure>
+<h4 id="演示示例表："><a href="#演示示例表：" class="headerlink" title="演示示例表："></a>演示示例表：</h4><p>有一张名为 employee 的数据表</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>gender</th>
+<th>entrydate</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>李华</td>
+<td>男</td>
+<td>2005-06-22</td>
+</tr>
+<tr>
+<td>2</td>
+<td>绿萝</td>
+<td>女</td>
+<td>2000-07-24</td>
+</tr>
+<tr>
+<td>3</td>
+<td>昭阳</td>
+<td>男</td>
+<td>2008-01-01</td>
+</tr>
+<tr>
+<td>4</td>
+<td>五齐</td>
+<td>女</td>
+<td>2006-09-14</td>
+</tr>
+</tbody></table>
+<p><strong>例题1：</strong></p>
+<p>​            修改 id 为 1 的数据，将name 修改为  韦丽，gender修改为 女</p>
+<p><strong>答：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update employee set name =&#x27;韦丽&#x27;,gender = &#x27;女&#x27; where id =1;</span><br></pre></td></tr></table></figure>
 
-<p>例子：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="keyword">val</span> cars = arrayOf(<span class="string">&quot;chang&quot;</span>, <span class="string">&quot;kuan&quot;</span>, <span class="string">&quot;gao&quot;</span>, <span class="string">&quot;di&quot;</span>)</span><br><span class="line">  cars[<span class="number">0</span>] = <span class="string">&quot;gengai&quot;</span></span><br><span class="line">  println(cars[<span class="number">0</span>])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>例题2：</strong></p>
+<p>​           将所有的员工入职日期修改为  2004-01-01</p>
+<p><strong>答：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update employee set entrydate = &#x27;2008-01-01&#x27;;</span><br></pre></td></tr></table></figure>
 
-<h3 id="c-数组的长度-大小"><a href="#c-数组的长度-大小" class="headerlink" title="c.  数组的长度&#x2F;大小"></a>c.  数组的长度&#x2F;大小</h3><p>要查找数组中有多少个元素，可以使用属性 <code>size</code></p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="keyword">val</span> cars = arrayOf(<span class="string">&quot;chang&quot;</span>, <span class="string">&quot;kuan&quot;</span>, <span class="string">&quot;gao&quot;</span>, <span class="string">&quot;di&quot;</span>)</span><br><span class="line">  println(cars.size)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="DML-删除数据"><a href="#DML-删除数据" class="headerlink" title="DML-删除数据"></a>DML-删除数据</h3><p><strong>语法</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM 表名 [WHERE 条件];</span><br></pre></td></tr></table></figure>
 
-<h3 id="d-检查元素是否存在"><a href="#d-检查元素是否存在" class="headerlink" title="d.  检查元素是否存在"></a>d.  检查元素是否存在</h3><p> 你可以使用 <code>in</code> 运算符来检查元素是否存在于数组中</p>
-<p>   也可以检查数字，数字不需要用到 引号</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="keyword">val</span> cars = arrayOf(<span class="string">&quot;chang&quot;</span>, <span class="string">&quot;kuan&quot;</span>, <span class="string">&quot;gao&quot;</span>, <span class="string">&quot;di&quot;</span>)</span><br><span class="line">  <span class="keyword">if</span> (<span class="string">&quot;Volvo&quot;</span> <span class="keyword">in</span> cars) &#123;</span><br><span class="line">    println(<span class="string">&quot;它存在&quot;</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    println(<span class="string">&quot;它不存在&quot;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例题1：</p>
+<p>​            删除 gender 为女的员工</p>
+<p>答：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete from employee where gender = &#x27;女&#x27;;</span><br></pre></td></tr></table></figure>
 
-<h2 id="二-Kotlin-For-循环"><a href="#二-Kotlin-For-循环" class="headerlink" title="二.  Kotlin For 循环"></a>二.  Kotlin For 循环</h2><p> 在使用数组时，通常需要遍历所有元素。</p>
-<p>要遍历数组元素，可以将 <code>for</code> 循环与 <code>in</code> 运算符一起使用</p>
-<p>例如：</p>
-<p>​      输出 cars 数组中的所有元素</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="keyword">val</span> cars = arrayOf(<span class="string">&quot;chang&quot;</span>, <span class="string">&quot;kuan&quot;</span>, <span class="string">&quot;gao&quot;</span>, <span class="string">&quot;di&quot;</span>)</span><br><span class="line">  <span class="keyword">for</span> (x <span class="keyword">in</span> cars) &#123;</span><br><span class="line">    println(x)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例题2:</p>
+<p>​           删除所有员工</p>
+<p>答:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dalete from employee; </span><br><span class="line">#  删除 employee 表中的所有数据，但会保留表结构。</span><br></pre></td></tr></table></figure>
 
-<p>例如：</p>
-<p>​       遍历了一个整数数组</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="keyword">val</span> nums = arrayOf(<span class="number">1</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">15</span>, <span class="number">20</span>)</span><br><span class="line">  <span class="keyword">for</span> (x <span class="keyword">in</span> nums) &#123;</span><br><span class="line">    println(x)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="三-扩展篇"><a href="#三-扩展篇" class="headerlink" title="三.  扩展篇"></a>三.  扩展篇</h2><p>传统的 For 循环</p>
-<p>  与 Java 和其他编程语言不同，Kotlin 中没有传统的 <code>for</code> 循环。</p>
-<p>  在 Kotlin 中，<code>for</code> 循环用于遍历数组、范围以及其他包含可计数值的事物</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       
     </div>
@@ -363,37 +446,20 @@
   
   <nav id="article-nav" data-aos="fade-up">
     
-      
-      <div class="article-nav-link-wrap article-nav-link-left">
-        
-          
-          
-            <img data-src="/images/banner.webp" data-sizes="auto" alt="KOTLIN范围，函数和返回值" class="lazyload">
-          
-        
-        <a href="/2025/03/03/KOTLIN%E8%8C%83%E5%9B%B4%EF%BC%8C%E5%87%BD%E6%95%B0%E5%92%8C%E8%BF%94%E5%9B%9E%E5%80%BC/"></a>
-        <div class="article-nav-caption">Newer</div>
-        <h3 class="article-nav-title">
-          
-            KOTLIN范围，函数和返回值
-          
-        </h3>
-      </div>
-    
     
     
     <div class="article-nav-link-wrap article-nav-link-right">
       
         
         
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="KOTLIN的循环和终止语句" class="lazyload">
+          <img data-src="/images/banner.webp" data-sizes="auto" alt="SQL-DML-插入" class="lazyload">
         
       
-      <a href="/2025/03/02/KOTLIN%E7%9A%84%E5%BE%AA%E7%8E%AF%E5%92%8C%E7%BB%88%E6%AD%A2%E8%AF%AD%E5%8F%A5/"></a>
+      <a href="/2025/05/19/SQL-DML-%E6%8F%92%E5%85%A5/"></a>
       <div class="article-nav-caption">Older</div>
       <h3 class="article-nav-title">
         
-          KOTLIN的循环和终止语句
+          SQL-DML-插入
         
       </h3>
     </div>
@@ -470,7 +536,7 @@
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E6%95%B0%E7%BB%84"><span class="toc-number">1.</span> <span class="toc-text">一.  数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#a-%E8%AE%BF%E9%97%AE%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">a. 访问数组元素：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#b-%E6%94%B9%E5%8F%98%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0"><span class="toc-number">1.2.</span> <span class="toc-text">b.  改变数组元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c-%E6%95%B0%E7%BB%84%E7%9A%84%E9%95%BF%E5%BA%A6-%E5%A4%A7%E5%B0%8F"><span class="toc-number">1.3.</span> <span class="toc-text">c.  数组的长度&#x2F;大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#d-%E6%A3%80%E6%9F%A5%E5%85%83%E7%B4%A0%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8"><span class="toc-number">1.4.</span> <span class="toc-text">d.  检查元素是否存在</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-Kotlin-For-%E5%BE%AA%E7%8E%AF"><span class="toc-number">2.</span> <span class="toc-text">二.  Kotlin For 循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E6%89%A9%E5%B1%95%E7%AF%87"><span class="toc-number">3.</span> <span class="toc-text">三.  扩展篇</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL"><span class="toc-number">1.</span> <span class="toc-text">SQL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DML-%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE"><span class="toc-number">1.1.</span> <span class="toc-text">DML-修改数据</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BC%94%E7%A4%BA%E7%A4%BA%E4%BE%8B%E8%A1%A8%EF%BC%9A"><span class="toc-number">1.1.1.</span> <span class="toc-text">演示示例表：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DML-%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE"><span class="toc-number">1.2.</span> <span class="toc-text">DML-删除数据</span></a></li></ol></li></ol>
       
   </div>
 </div>
@@ -612,13 +678,13 @@
       <script data-pjax>
         window.REIMU_POST = {
           author: "civet",
-          title: "kotlin数组和For循环",
-          url: "http://example.com/2025/03/03/kotlin%E6%95%B0%E7%BB%84%E5%92%8CFor%E5%BE%AA%E7%8E%AF/",
+          title: "SQL-DML-修改数据",
+          url: "http://example.com/2025/05/20/SQL-DML-%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE/",
           excerpt: "",
           description: "",
-          stripContent: "一.  数组数组用于在一个变量中存储多个值，而不是为每个值声明单独的变量 要创建一个数组，使用 arrayOf() 函数，并将值以逗号分隔的列表放在其中： 1val cars = arrayOf(&amp;quot;chang&amp;quot;, &amp;quot;kuan&amp;quot;, &amp;quot;gao&amp;quot;, &amp;quot;di&amp;quot;)  a. 访问数组元素：​    可以通过引用索引号，在方括号内访问数组元素 1234fun main() &amp;#123;  val cars = arrayOf(&amp;q",
-          date: "Mon Mar 03 2025 19:47:22 GMT+0800",
-          updated: "Sun Mar 02 2025 19:49:46 GMT+0800",
+          stripContent: "SQLDML-修改数据语法 1UPDATE 表名 SET 字段名1 = 值1,字段名2=值2,...[WHERE 条件];   注意：修改语句的条件可以有，也可以没有，如果没有条件，则会修改整张表的所有数据。 注意：最后一行字段名 不需要 逗号  演示示例表：有一张名为 employee 的数据表    id name gender entrydate    1 李华 男 2005-06-22   2 绿萝 女 2000-07-24   3 昭阳 男 2008-01-01   4 五齐 女 20",
+          date: "Tue May 20 2025 21:15:29 GMT+0800",
+          updated: "Tue May 20 2025 20:47:57 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
