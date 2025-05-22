@@ -16,7 +16,7 @@
   <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_0khxww3tj3q9';window.REIMU_CONFIG.clipboard_tips = {"success":"复制成功(*^▽^*)","fail":"复制失败 (ﾟ⊿ﾟ)ﾂ","copyright":{"enable":false,"count":50,"content":"本文版权：本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！"}};window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'http://example.com';</script>
   
   <title>
-    java封装和访问器方法 |
+    SQL-DQL-基础语法巩固 |
     
     昨天放的鸽子，今天要亲自去追
   </title>
@@ -31,15 +31,15 @@
 
   
   
-    <meta name="description" content="学习目录：  封装 访问器方法 getter 和 setter  简述： “Private”（私有）在面向对象编程中是一个访问控制修饰符，用来限制类中的某些成员（如变量或方法）只能在类的内部访问，外部无法直接访问。这是一种实现封装（Encapsulation）机制的方式，目的是保护数据的安全性，并且使得外部用户不能直接修改类的内部状态。 一. 封装:“Encapsulation”（封装）的意思是">
+    <meta name="description" content="SQL​                                              这是一篇复习和总结篇 DQL-基础语法​                                                                    语法的编写顺序    以下是语法编写顺序 解析    SELECT 字段列表   FROM 表名列表   WHERE 条件列">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java封装和访问器方法">
-<meta property="og:url" content="http://example.com/2024/12/12/java%E5%B0%81%E8%A3%85%E5%92%8C%E8%AE%BF%E9%97%AE%E5%99%A8%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:title" content="SQL-DQL-基础语法巩固">
+<meta property="og:url" content="http://example.com/2025/05/22/SQL-DQL-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%B7%A9%E5%9B%BA/index.html">
 <meta property="og:site_name" content="昨天放的鸽子，今天要亲自去追">
-<meta property="og:description" content="学习目录：  封装 访问器方法 getter 和 setter  简述： “Private”（私有）在面向对象编程中是一个访问控制修饰符，用来限制类中的某些成员（如变量或方法）只能在类的内部访问，外部无法直接访问。这是一种实现封装（Encapsulation）机制的方式，目的是保护数据的安全性，并且使得外部用户不能直接修改类的内部状态。 一. 封装:“Encapsulation”（封装）的意思是">
+<meta property="og:description" content="SQL​                                              这是一篇复习和总结篇 DQL-基础语法​                                                                    语法的编写顺序    以下是语法编写顺序 解析    SELECT 字段列表   FROM 表名列表   WHERE 条件列">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-12-12T11:55:17.986Z">
-<meta property="article:modified_time" content="2024-12-06T03:11:51.337Z">
+<meta property="article:published_time" content="2025-05-22T14:36:54.196Z">
+<meta property="article:modified_time" content="2025-05-22T12:17:43.040Z">
 <meta property="article:author" content="civet">
 <meta name="twitter:card" content="summary">
   
@@ -175,7 +175,7 @@
       
     </picture>
     
-      <img fetchpriority="high" src="/images/banner.webp" alt="java封装和访问器方法">
+      <img fetchpriority="high" src="/images/banner.webp" alt="SQL-DQL-基础语法巩固">
     
   
   <div id="header-outer">
@@ -184,7 +184,7 @@
         
         
           <a href="/" id="logo">
-            <h1 data-aos="slide-up">java封装和访问器方法</h1>
+            <h1 data-aos="slide-up">SQL-DQL-基础语法巩固</h1>
           </a>
         
       
@@ -209,7 +209,7 @@
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E5%B0%81%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">一. 封装:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E5%88%92%E9%87%8D%E7%82%B9%EF%BC%9A%E7%A4%BA%E4%BE%8B%EF%BC%8C%E4%B8%89%E4%B8%AA%E6%96%87%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">二. 划重点：示例，三个文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%B8%80%E4%B8%AA%E8%A2%AB%E8%B0%83%E7%94%A8%E7%9A%84-Java-%E6%96%87%E4%BB%B6"><span class="toc-number">2.1.</span> <span class="toc-text">1.  一个被调用的 Java 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%B0%83%E7%94%A8%E6%96%87%E4%BB%B6-%E4%BE%8B1-%E4%B8%80%E4%B8%AA%E9%94%99%E8%AF%AF%E7%9A%84%E8%B0%83%E7%94%A8-Person-java-%E6%96%87%E4%BB%B6"><span class="toc-number">2.2.</span> <span class="toc-text">2.  调用文件 例1:  一个错误的调用 Person.java 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%B0%83%E7%94%A8%E6%96%87%E4%BB%B6-%E4%BE%8B2-%E6%AD%A3%E7%A1%AE%E7%9A%84-%E8%B0%83%E7%94%A8-Person-java-%E6%96%87%E4%BB%B6"><span class="toc-number">2.3.</span> <span class="toc-text">3.  调用文件 例2:  正确的 调用 Person.java 文件</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL"><span class="toc-number">1.</span> <span class="toc-text">SQL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DQL-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">DQL-基础语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DQL-%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.2.</span> <span class="toc-text">DQL-条件查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DQL-%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.</span> <span class="toc-text">DQL-聚合函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DQL-%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.4.</span> <span class="toc-text">DQL-分页查询</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%E8%AF%95%E7%82%BC%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">总结试炼：</span></a></li></ol>
       
   </div>
 </div>
@@ -289,13 +289,13 @@
   </div>
 </aside>
 
-          <section id="main"><article id="post-java封装和访问器方法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main"><article id="post-SQL-DQL-基础语法巩固" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
   <span class="article-date-link" data-aos="zoom-in">
-    <time datetime="2024-12-12T11:55:17.986Z" itemprop="datePublished">2024-12-12</time>
-    <time style="display: none;" id="post-update-time">2024-12-06</time>
+    <time datetime="2025-05-22T14:36:54.196Z" itemprop="datePublished">2025-05-22</time>
+    <time style="display: none;" id="post-update-time">2025-05-22</time>
   </span>
 </div>
 
@@ -308,75 +308,184 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
       
-        <p> <strong>学习目录：</strong></p>
-<ol>
-<li>封装</li>
-<li>访问器方法 getter 和 setter</li>
-</ol>
-<p><strong>简述：</strong></p>
-<p>“Private”（私有）在面向对象编程中是一个访问控制修饰符，用来限制类中的某些成员（如变量或方法）只能在类的内部访问，外部无法直接访问。这是一种实现封装（Encapsulation）机制的方式，目的是保护数据的安全性，并且使得外部用户不能直接修改类的内部状态。</p>
-<h2 id="一-封装"><a href="#一-封装" class="headerlink" title="一. 封装:"></a>一. 封装:</h2><p>“Encapsulation”（封装）的意思是确保将“敏感”数据从用户中隐藏起来。为实现这一点，需要：</p>
-<ul>
-<li>将类的变量&#x2F;属性声明为 <strong>私有</strong>（private）</li>
-<li>提供公共的 <strong>获取（get）</strong> 和 <strong>设置（set）</strong> 方法，用来访问和更新这些私有变量的值。</li>
-</ul>
-<p>解释：</p>
-<ul>
-<li><p><strong>私有（private）</strong>：</p>
-<p>​    指该成员只能在类内部访问，外部的代码不能直接访问或修改这些私有成员。这样可以保护数据不被意外或恶意地篡改。</p>
+        <h2 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h2><p>​                                              这是一篇复习和总结篇</p>
+<h3 id="DQL-基础语法"><a href="#DQL-基础语法" class="headerlink" title="DQL-基础语法"></a>DQL-基础语法</h3><p>​                                                                    <strong>语法的编写顺序</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">以下是语法编写顺序</th>
+<th>解析</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">SELECT</td>
+<td>字段列表</td>
+</tr>
+<tr>
+<td align="left">FROM</td>
+<td>表名列表</td>
+</tr>
+<tr>
+<td align="left">WHERE</td>
+<td>条件列表</td>
+</tr>
+<tr>
+<td align="left">GROUP BY</td>
+<td>分组字段列表</td>
+</tr>
+<tr>
+<td align="left">HAVING</td>
+<td>分组后条件列表</td>
+</tr>
+<tr>
+<td align="left">ORDER BY</td>
+<td>排序字段列表</td>
+</tr>
+<tr>
+<td align="left">LIMIT</td>
+<td>分页参数</td>
+</tr>
+</tbody></table>
+<p>​                                                       <strong>语法的执行顺序</strong></p>
+<table>
+<thead>
+<tr>
+<th>以下是语法执行时的顺序</th>
+<th>解析</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FROM</td>
+<td>表名列表</td>
+</tr>
+<tr>
+<td>WHERE</td>
+<td>条件列表</td>
+</tr>
+<tr>
+<td>GROUP BY</td>
+<td>分组字段列表</td>
+</tr>
+<tr>
+<td>HAVING</td>
+<td>分组后条件列表</td>
+</tr>
+<tr>
+<td>SELECT</td>
+<td>字段列表</td>
+</tr>
+<tr>
+<td>ORDER BY</td>
+<td>排序字段列表</td>
+</tr>
+<tr>
+<td>LIMIT</td>
+<td>分页参数</td>
+</tr>
+</tbody></table>
+<p><strong>验证执行顺序： 可以用到别名</strong></p>
+<p>​    – 查询年龄大于15的员工的姓名、年龄，并根据年龄进行升序排序</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select e.name ename, e.age eage from emp e where e.age &gt; 15 order by eage asc</span><br></pre></td></tr></table></figure>
+
+<p>理解 <code>order by</code> 后面 可以用别名 <code>eage</code> ，但是 <code>where</code> 后面 却不能用 <code>eage</code> 就能明白。</p>
+<p><strong>原因：</strong>语句执行时，<code>select</code>语句在更改<code>age</code>的别名为<code>eage</code>时，<code>where</code> 早就在<code>select</code>语句前执行完了，如果在<code>where</code> 中就使用<code>eage</code>对于 <code>where</code> 来说 <code>eage</code> 是未知的 无法解析；<strong>同理</strong> <code>select</code> 在 <code>order by</code> 之前执行完，所以 <code>order by</code> 可以使用 <code>age</code>的别名 <code>eage</code> 。</p>
+<p><strong>去除重复记录</strong></p>
+<p>DISTINCT 语法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT DISTINCT 字段列表 FROM 表名;</span><br></pre></td></tr></table></figure>
+
+<h3 id="DQL-条件查询"><a href="#DQL-条件查询" class="headerlink" title="DQL-条件查询"></a>DQL-条件查询</h3><p>WHERE语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT 字段列表 FROM 表名 WHERE 条件列表;</span><br></pre></td></tr></table></figure>
+
+<h3 id="DQL-聚合函数"><a href="#DQL-聚合函数" class="headerlink" title="DQL-聚合函数"></a>DQL-聚合函数</h3><ol>
+<li><p>介绍</p>
+<p>将一列数据作为一个整体，进行纵向计算</p>
 </li>
-<li><p><strong>公共（public）</strong>：</p>
-<p>​    指可以从类外部直接访问或调用的成员。通过公共的方法（如 getter 和 setter），外部代码可以间接地读取和修改私有数据。</p>
+<li><p>常见的聚合函数</p>
 </li>
-</ul>
-<p><strong>获取（get）</strong> 方法返回变量的值，</p>
-<p><strong>设置（set）</strong> 方法则设置变量的值。</p>
-<p>两者的方法语法是以 <strong>get</strong> 或 <strong>set</strong> 开头，后面跟着变量名，并且变量名的首字母大写。</p>
-<p>解释：</p>
-<ul>
-<li><strong>Get 方法</strong>：用于获取（读取）某个私有变量的值。</li>
-<li><strong>Set 方法</strong>：用于设置（修改）某个私有变量的值。</li>
-</ul>
-<p>在 Java 或 C# 等语言中，这种方法通常以 <strong>get</strong> 和 <strong>set</strong> 为前缀，后跟变量名，并且通常采用驼峰命名法（首字母大写）。</p>
-<p><strong>示例：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> age;  <span class="comment">// 私有成员变量</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取年龄的方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getAge</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 设置年龄的方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setAge</span><span class="params">(<span class="type">int</span> age)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (age &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="built_in">this</span>.age = age;  <span class="comment">// 设置年龄</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;年龄不能为负数！&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Person</span> <span class="variable">person</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Person</span>();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 使用 set 方法设置年龄</span></span><br><span class="line">        person.setAge(<span class="number">25</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 使用 get 方法获取年龄</span></span><br><span class="line">        System.out.println(<span class="string">&quot;年龄是：&quot;</span> + person.getAge());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="二-划重点：示例，三个文件"><a href="#二-划重点：示例，三个文件" class="headerlink" title="二. 划重点：示例，三个文件"></a>二. 划重点：示例，三个文件</h2><h3 id="1-一个被调用的-Java-文件"><a href="#1-一个被调用的-Java-文件" class="headerlink" title="1.  一个被调用的 Java 文件"></a>1.  一个被调用的 Java 文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class Person &#123;</span><br><span class="line">   private String name;</span><br><span class="line"></span><br><span class="line">   // “获取器”方法 =&gt; Getter 方法通常用于获取私有成员变量的值</span><br><span class="line">   public String getName() &#123;</span><br><span class="line">     return name;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   // “设置器”方法 =&gt; Setter 方法通常用于设置或修改对象的私有成员变量</span><br><span class="line">   public void setName(String newName) &#123;</span><br><span class="line">     this.name = newName;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>此文件相当与一个容器，不能输出值，是一个被调用的java文件，我们将创建一个文件进行调用</p>
-<h3 id="2-调用文件-例1-一个错误的调用-Person-java-文件"><a href="#2-调用文件-例1-一个错误的调用-Person-java-文件" class="headerlink" title="2.  调用文件 例1:  一个错误的调用 Person.java 文件"></a>2.  调用文件 例1:  一个错误的调用 Person.java 文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class Main &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        hello myObj = new hello();</span><br><span class="line">        myObj.name = &quot;John&quot;;</span><br><span class="line">        System.out.println(myObj.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong><code>name</code>会出现报错，报错原因：name  在  Person.java 中具有 private  访问权限</strong></p>
-<p>输出的结果也会报错：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java: 类 Main 是公共的, 应在名为 Main.java 的文件中声明</span><br></pre></td></tr></table></figure>
-
-<p><strong>修改方法：</strong></p>
-<ol>
-<li>在调用的 <code>Person.java</code> 文件中，把 <code>private</code> 改成 <code>public</code> 后，此文件就可以实行</li>
-<li>提供访问器方法<code>（getter/setter）</code>,可以通过<code>setName()</code>方法设置<code>name</code>，通过<code>getName()</code>方法获取它</li>
 </ol>
-<h3 id="3-调用文件-例2-正确的-调用-Person-java-文件"><a href="#3-调用文件-例2-正确的-调用-Person-java-文件" class="headerlink" title="3.  调用文件 例2:  正确的 调用 Person.java 文件"></a>3.  调用文件 例2:  正确的 调用 Person.java 文件</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">Person</span> <span class="variable">myObj</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Person</span>();</span><br><span class="line">    myObj.setName(<span class="string">&quot;John&quot;</span>);</span><br><span class="line">    System.out.println(myObj.getName());</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>功能描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>COUNT()</code></td>
+<td>统计符合条件的记录数</td>
+</tr>
+<tr>
+<td><code>SUM()</code></td>
+<td>计算某一列的总和（适用于数值类型字段）</td>
+</tr>
+<tr>
+<td><code>AVG()</code></td>
+<td>计算某一列的平均值（适用于数值类型字段）</td>
+</tr>
+<tr>
+<td><code>MAX()</code></td>
+<td>返回某一列中的最大值（适用于数值、日期、字符等）</td>
+</tr>
+<tr>
+<td><code>MIN()</code></td>
+<td>返回某一列中的最小值（适用于数值、日期、字符等）</td>
+</tr>
+</tbody></table>
+<ol start="3">
+<li><p>语法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT 聚合函数(字段列表) FROM 表名;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<blockquote>
+<p>注意：null不参与所有 聚合函数 运算</p>
+</blockquote>
+<p>DQL-排序查询</p>
+<ol>
+<li>ORDER BY 语法</li>
+</ol>
+   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT 字段列表 FROM 表名 ORDER BY 字段1 排序方式1 ,字段2 排序方式2;</span><br></pre></td></tr></table></figure>
 
-<p><strong>通过<code>setName()</code>方法设置<code>name</code>，通过<code>getName()</code>方法获取它</strong></p>
-<p>输出结果：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">John</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><p>排序方式</p>
+<ul>
+<li>ASC：升序（默认值）</li>
+<li>DESC：降序</li>
+</ul>
+</li>
+<li><p>例题：根据年龄对公司的员工进行升序排序，年龄相同，再按照入职时间进行降序排序</p>
+</li>
+</ol>
+<p>答：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from emp order by age asc,entrydate DESC;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：如果是多字段排序，当第一个字段值相同时，才会根据第二个字段进行排序。</p>
+</blockquote>
+<h3 id="DQL-分页查询"><a href="#DQL-分页查询" class="headerlink" title="DQL-分页查询"></a>DQL-分页查询</h3><ol>
+<li><p>语法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT 字段列表 FROM 表名 LIMT 起始索引,查询记录数;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="总结试炼："><a href="#总结试炼：" class="headerlink" title="总结试炼："></a>总结试炼：</h2><p>– 查询年龄为26，27，35 岁的女性员工信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from emp where gender = &#x27;女&#x27; and age in(26,27,35);</span><br></pre></td></tr></table></figure>
 
 
 
+<p>– 查询 性别为 男 ， 年龄在 20-27岁 以内 的姓名为三个字的员工</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from emp where  gender =&#x27;男&#x27; and age between 20 and 40 and name like &#x27;__&#x27;;</span><br></pre></td></tr></table></figure>
 
 
 
+<p>– 统计员工表，年龄小于27岁的，男和女的人数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select gender, count(*) from emp where age &lt; 27 GROUP BY gender;</span><br></pre></td></tr></table></figure>
 
 
 
+<p>– 查询所有年龄小于30的员工姓名和年龄，年龄升序，相同则按日期降序。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select name,age,entrydate from emp where age &lt; 30 order by age asc ,entrydate desc;</span><br></pre></td></tr></table></figure>
 
 
 
-
-
-
-
-
+<p>– 查询性别为男，年龄在20-30岁以内的前5个员工信息，年龄升序，相同则按日期升序。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from emp where gender = &#x27;男&#x27; and age between 20 and 40 order by age asc , entrydate desc limit 5;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -396,37 +505,20 @@
   
   <nav id="article-nav" data-aos="fade-up">
     
-      
-      <div class="article-nav-link-wrap article-nav-link-left">
-        
-          
-          
-            <img data-src="/images/banner.webp" data-sizes="auto" alt="修饰静态和抽象知识" class="lazyload">
-          
-        
-        <a href="/2024/12/13/Java%20%E4%BF%AE%E9%A5%B0%E7%AC%A6%EF%BC%8C%E9%9D%99%E6%80%81%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%9F%A5%E8%AF%86/"></a>
-        <div class="article-nav-caption">Newer</div>
-        <h3 class="article-nav-title">
-          
-            修饰静态和抽象知识
-          
-        </h3>
-      </div>
-    
     
     
     <div class="article-nav-link-wrap article-nav-link-right">
       
         
         
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="Java 类的方法 和 构造器的知识" class="lazyload">
+          <img data-src="/images/banner.webp" data-sizes="auto" alt="SQL-DQL-分组查询" class="lazyload">
         
       
-      <a href="/2024/12/08/Java%E7%B1%BB%E7%9A%84%E6%96%B9%E6%B3%95%E5%92%8C%E6%9E%84%E9%80%A0%E5%99%A8%E7%9A%84%E7%9F%A5%E8%AF%86/"></a>
+      <a href="/2025/05/21/SQL-DQL-%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2/"></a>
       <div class="article-nav-caption">Older</div>
       <h3 class="article-nav-title">
         
-          Java 类的方法 和 构造器的知识
+          SQL-DQL-分组查询
         
       </h3>
     </div>
@@ -503,7 +595,7 @@
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E5%B0%81%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">一. 封装:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E5%88%92%E9%87%8D%E7%82%B9%EF%BC%9A%E7%A4%BA%E4%BE%8B%EF%BC%8C%E4%B8%89%E4%B8%AA%E6%96%87%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">二. 划重点：示例，三个文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%B8%80%E4%B8%AA%E8%A2%AB%E8%B0%83%E7%94%A8%E7%9A%84-Java-%E6%96%87%E4%BB%B6"><span class="toc-number">2.1.</span> <span class="toc-text">1.  一个被调用的 Java 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%B0%83%E7%94%A8%E6%96%87%E4%BB%B6-%E4%BE%8B1-%E4%B8%80%E4%B8%AA%E9%94%99%E8%AF%AF%E7%9A%84%E8%B0%83%E7%94%A8-Person-java-%E6%96%87%E4%BB%B6"><span class="toc-number">2.2.</span> <span class="toc-text">2.  调用文件 例1:  一个错误的调用 Person.java 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%B0%83%E7%94%A8%E6%96%87%E4%BB%B6-%E4%BE%8B2-%E6%AD%A3%E7%A1%AE%E7%9A%84-%E8%B0%83%E7%94%A8-Person-java-%E6%96%87%E4%BB%B6"><span class="toc-number">2.3.</span> <span class="toc-text">3.  调用文件 例2:  正确的 调用 Person.java 文件</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL"><span class="toc-number">1.</span> <span class="toc-text">SQL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DQL-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">DQL-基础语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DQL-%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.2.</span> <span class="toc-text">DQL-条件查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DQL-%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.</span> <span class="toc-text">DQL-聚合函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DQL-%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.4.</span> <span class="toc-text">DQL-分页查询</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%E8%AF%95%E7%82%BC%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">总结试炼：</span></a></li></ol>
       
   </div>
 </div>
@@ -645,13 +737,13 @@
       <script data-pjax>
         window.REIMU_POST = {
           author: "civet",
-          title: "java封装和访问器方法",
-          url: "http://example.com/2024/12/12/java%E5%B0%81%E8%A3%85%E5%92%8C%E8%AE%BF%E9%97%AE%E5%99%A8%E6%96%B9%E6%B3%95/",
+          title: "SQL-DQL-基础语法巩固",
+          url: "http://example.com/2025/05/22/SQL-DQL-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%B7%A9%E5%9B%BA/",
           excerpt: "",
           description: "",
-          stripContent: " 学习目录：  封装 访问器方法 getter 和 setter  简述： “Private”（私有）在面向对象编程中是一个访问控制修饰符，用来限制类中的某些成员（如变量或方法）只能在类的内部访问，外部无法直接访问。这是一种实现封装（Encapsulation）机制的方式，目的是保护数据的安全性，并且使得外部用户不能直接修改类的内部状态。 一. 封装:“Encapsulation”（封装）的意思是确保将“敏感”数据从用户中隐藏起来。为实现这一点，需要：  将类的变量&amp;#x2F;属性声明为 私有（",
-          date: "Thu Dec 12 2024 19:55:17 GMT+0800",
-          updated: "Fri Dec 06 2024 11:11:51 GMT+0800",
+          stripContent: "SQL​                                              这是一篇复习和总结篇 DQL-基础语法​                                                                    语法的编写顺序    以下是语法编写顺序 解析    SELECT 字段列表   FROM 表名列表   WHERE 条件列表   GROUP BY 分组字段列表   HAVING 分组后条件列表   ORDER BY 排序",
+          date: "Thu May 22 2025 22:36:54 GMT+0800",
+          updated: "Thu May 22 2025 20:17:43 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
