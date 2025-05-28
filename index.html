@@ -208,7 +208,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>Post</div>
-    <div class="sidebar-state-number">84</div>
+    <div class="sidebar-state-number">86</div>
   </div>
   <div class="sidebar-state-category">
     <div>Category</div>
@@ -274,6 +274,135 @@
   
   
     
+    
+      <div class="post-wrapper">
+  <div class="post-wrap-left" data-aos="fade-up">
+    
+      <a class="post-link" href="/2025/05/28/MySQL-%E5%A4%9A%E8%A1%A8%E5%85%B3%E7%B3%BB/" aria-label="MySQL-多表关系"></a>
+    
+    
+    <div class="post-cover-left">
+      
+        
+        
+          <img data-src="/images/banner.webp" data-sizes="auto" alt="MySQL-多表关系" class="lazyload">
+        
+      
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2025-05-28</span>
+        <span><span class="icon-pencil"></span>1.2k words</span>
+        <span><span class="icon-clock"></span>5 mins</span>
+      </div>
+      <h2 class="post-title">MySQL-多表关系</h2>
+      <article class="post-article">
+        
+          多表关系概述各个表结构之间也存在着各种联系，基本上分为三种：
+
+一对多（多对一）
+多对多
+一对一
+
+一对多（多对一）案例：部门 与  员工的关系
+关系：一个部门对应多个员工，一个员工对应一个部门
+实现：在多的一方面建议外键，指向一的一方的主键（可以结合上个笔记）
+多对多案例：学生  与    课程的关系
+关系：一个学生可以选修多门课程，一门课程也可以供多个学生选择
+实现：建立第三张中间表，中间表至上包含两个外键，分别关联两方主键
+创建一张 student 表, 并插入内容
+123456789101112-- 创建学生表 多对多案例CREATE TABLE student(           
+        
+      </article>
+    </div>
+  </div>
+</div>
+      
+    
+      <div class="post-wrapper">
+  <div class="post-wrap-right" data-aos="fade-up">
+    
+      <a class="post-link" href="/2025/05/28/MySQL-%E7%BA%A6%E6%9D%9F-%E6%A6%82%E8%BF%B0%E5%92%8C%E6%9B%B4%E6%96%B0%E5%88%A0%E9%99%A4%E8%A1%8C%E4%B8%BA/" aria-label="MySQL-约束-概述和更新删除行为"></a>
+    
+    
+    <div class="post-cover-right">
+      
+        
+        
+          <img data-src="/images/banner.webp" data-sizes="auto" alt="MySQL-约束-概述和更新删除行为" class="lazyload">
+        
+      
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2025-05-28</span>
+        <span><span class="icon-pencil"></span>526 words</span>
+        <span><span class="icon-clock"></span>2 mins</span>
+      </div>
+      <h2 class="post-title">MySQL-约束-概述和更新删除行为</h2>
+      <article class="post-article">
+        
+          外键约束
+概念
+外键用来让两张表的数据之间连接，从而保证数据的一致性和完整性
+
+
+​                                                               员工表  emp (子表)
+
+
+
+id
+name
+age
+job
+salary
+entrydate
+managerial
+dept_id
+
+
+
+1
+金庸
+66
+总裁
+20000
+2000-01-01
+null
+5
+
+
+2
+张无忌
+20
+项目经理
+12500
+2005-12-05
+1
+1
+
+
+3
+杨逍
+33
+开发
+8400
+2000-11-03
+2
+1
+
+
+4
+韦一笑
+48
+开发
+1100
+        
+      </article>
+    </div>
+  </div>
+</div>
+      
     
       <div class="post-wrapper">
   <div class="post-wrap-left" data-aos="fade-up">
@@ -767,140 +896,6 @@ DML - 添加数据1.  给指定字段添加数据  语法1INSERT INTO 表名(字
 </div>
       
     
-      <div class="post-wrapper">
-  <div class="post-wrap-left" data-aos="fade-up">
-    
-      <a class="post-link" href="/2025/05/19/DDL-%E6%93%8D%E4%BD%9C%E8%A1%A8-%E4%BF%AE%E6%94%B9/" aria-label="DDL-操作表-修改"></a>
-    
-    
-    <div class="post-cover-left">
-      
-        
-        
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="DDL-操作表-修改" class="lazyload">
-        
-      
-    </div>
-    <div class="post-info">
-      <div class="post-meta">
-        <span><span class="icon-calendar"></span>2025-05-19</span>
-        <span><span class="icon-pencil"></span>162 words</span>
-        <span><span class="icon-clock"></span>1 min</span>
-      </div>
-      <h2 class="post-title">DDL-操作表-修改</h2>
-      <article class="post-article">
-        
-          DDL-操作表-修改添加字段
-1ALTER TABLE 表名 ADD 字段名 类型(长度)[CIMMENT 注释];
-
-
-
-修改数据类型
-1ALTER TABLE 表名 MODIFY 字段名 新数据类型(长度);
-
-
-
-修改字段名和字段类型
-1ALTER TABLE 表名 CHANGE 旧字段名 新字段名 类型(长度) [COMMENT &amp;#x27;注释&amp;#x27;];
-
-
-
-删除字段
-1ALTER TABLE 表名 DROP 字段名;
-
-
-
-修改表名
-1ALTER TABLE 表名 RENAME TO 新的表名
-
-
-
-删除表
-1DROP TABLE [IF EXISTS] 表名;
-
-
-
-删除
-        
-      </article>
-    </div>
-  </div>
-</div>
-      
-    
-      <div class="post-wrapper">
-  <div class="post-wrap-right" data-aos="fade-up">
-    
-      <a class="post-link" href="/2025/05/19/SQL%20-DDL-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" aria-label="SQL-DDL-数据类型"></a>
-    
-    
-    <div class="post-cover-right">
-      
-        
-        
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="SQL-DDL-数据类型" class="lazyload">
-        
-      
-    </div>
-    <div class="post-info">
-      <div class="post-meta">
-        <span><span class="icon-calendar"></span>2025-05-19</span>
-        <span><span class="icon-pencil"></span>759 words</span>
-        <span><span class="icon-clock"></span>3 mins</span>
-      </div>
-      <h2 class="post-title">SQL-DDL-数据类型</h2>
-      <article class="post-article">
-        
-          一.  数值类型1 整数类型
-
-
-类型
-字节
-有符号(SIGNED)范围
-无符号(UNSIGNED)范围
-描述
-
-
-
-TINYINT
-1
--128 ~ 127
-0 ~ 255
-小整数
-
-
-SMALLINT
-2
--32,768 ~ 32,767
-0 ~ 65,535
-短整数
-
-
-MEDIUMINT
-3
--8,388,608 ~ 8,388,607
-0 ~ 16,777,215
-中等整数
-
-
-INT或INTEGER
-4
--2,147,483,648 ~ 2,147,483,647
-0 ~ 4,294,967,295
-标准整数（最常用）
-
-
-BIGINT
-8
--2^63 ~ 2^63-1
-0 ~ 2
-        
-      </article>
-    </div>
-  </div>
-</div>
-      
-    
   
 
 
@@ -935,10 +930,10 @@ BIGINT
     
       <div>
         <span class="icon-brush"></span>
-        76.5k
+        78.2k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        04:33
+        04:40
       </div>
     
     
@@ -974,7 +969,7 @@ BIGINT
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>Post</div>
-    <div class="sidebar-state-number">84</div>
+    <div class="sidebar-state-number">86</div>
   </div>
   <div class="sidebar-state-category">
     <div>Category</div>
