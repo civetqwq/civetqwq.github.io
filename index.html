@@ -208,7 +208,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>Post</div>
-    <div class="sidebar-state-number">91</div>
+    <div class="sidebar-state-number">92</div>
   </div>
   <div class="sidebar-state-category">
     <div>Category</div>
@@ -278,10 +278,58 @@
       <div class="post-wrapper">
   <div class="post-wrap-left" data-aos="fade-up">
     
-      <a class="post-link" href="/2025/06/10/MySQL-%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2-%E9%A2%98%E7%9B%AE%E7%BB%83%E4%B9%A0/" aria-label="MySQL-多表查询-题目练习"></a>
+      <a class="post-link" href="/2025/06/12/MySQL-%E4%BA%8B%E5%8A%A1/" aria-label="MySQL-事务"></a>
     
     
     <div class="post-cover-left">
+      
+        
+        
+          <img data-src="/images/banner.webp" data-sizes="auto" alt="MySQL-事务" class="lazyload">
+        
+      
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2025-06-12</span>
+        <span><span class="icon-pencil"></span>724 words</span>
+        <span><span class="icon-clock"></span>2 mins</span>
+      </div>
+      <h2 class="post-title">MySQL-事务</h2>
+      <article class="post-article">
+        
+          事务简介事务  是一组操作的集合，它是一个不可分割的工作单位，事务会把所有的操作作为一个整体一起向系统提交或撤销操作请求，即这些操作 要命同时成功，要么同时失败。
+
+默认MySQL的事务是自动提交的，也就是说，当执行一条DML语句，MySQL会立即隐式的提交事务
+
+方法1查看&amp;#x2F;设置事务提交方式
+12SELECT @@autocommit;sET @@autocommit= 0;
+
+&amp;#x3D; 0 :  手动提交方式；
+&amp;#x3D; 1 ：自动提交方式；
+提交事务
+1COMMIT;
+
+回滚事务
+1ROLLBACK; -- 事务执行失败时使用
+
+
+
+方法2START TRANSACTI
+        
+      </article>
+    </div>
+  </div>
+</div>
+      
+    
+      <div class="post-wrapper">
+  <div class="post-wrap-right" data-aos="fade-up">
+    
+      <a class="post-link" href="/2025/06/10/MySQL-%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2-%E9%A2%98%E7%9B%AE%E7%BB%83%E4%B9%A0/" aria-label="MySQL-多表查询-题目练习"></a>
+    
+    
+    <div class="post-cover-right">
       
         
         
@@ -315,12 +363,12 @@
       
     
       <div class="post-wrapper">
-  <div class="post-wrap-right" data-aos="fade-up">
+  <div class="post-wrap-left" data-aos="fade-up">
     
       <a class="post-link" href="/2025/06/08/%E8%A1%8C%20%E5%92%8C%20%E8%A1%A8%20%E7%9A%84%E5%AD%90%E6%9F%A5%E8%AF%A2/" aria-label="行 和 表 的子查询"></a>
     
     
-    <div class="post-cover-right">
+    <div class="post-cover-left">
       
         
         
@@ -355,12 +403,12 @@ b.  查询与 “吴涛” 的薪资及其直属领导相同的员工信息；
       
     
       <div class="post-wrapper">
-  <div class="post-wrap-left" data-aos="fade-up">
+  <div class="post-wrap-right" data-aos="fade-up">
     
       <a class="post-link" href="/2025/06/04/MySQL-%E5%AD%90%E6%9F%A5%E8%AF%A2%E4%BB%8B%E7%BB%8D-%E6%A0%87%E9%87%8F%E5%92%8C%E5%88%97%E5%AD%90%E6%9F%A5%E8%AF%A2/" aria-label="MySQL-子查询介绍-标量和列子查询"></a>
     
     
-    <div class="post-cover-left">
+    <div class="post-cover-right">
       
         
         
@@ -402,12 +450,12 @@ b.  查询与 “吴涛” 的薪资及其直属领导相同的员工信息；
       
     
       <div class="post-wrapper">
-  <div class="post-wrap-right" data-aos="fade-up">
+  <div class="post-wrap-left" data-aos="fade-up">
     
       <a class="post-link" href="/2025/06/03/MySQL-%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2-%E8%87%AA%E8%BF%9E%E6%8E%A5-%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2union/" aria-label="MySQL-连接查询-自连接-联合查询union"></a>
     
     
-    <div class="post-cover-right">
+    <div class="post-cover-left">
       
         
         
@@ -441,12 +489,12 @@ b.  查询与 “吴涛” 的薪资及其直属领导相同的员工信息；
       
     
       <div class="post-wrapper">
-  <div class="post-wrap-left" data-aos="fade-up">
+  <div class="post-wrap-right" data-aos="fade-up">
     
       <a class="post-link" href="/2025/05/29/MySQL-%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2-%E5%86%85%20%E5%A4%96%E8%BF%9E%E6%8E%A5/" aria-label="MySQL-多表查询-内 外连接"></a>
     
     
-    <div class="post-cover-left">
+    <div class="post-cover-right">
       
         
         
@@ -497,12 +545,12 @@ b.  查询与 “吴涛” 的薪资及其直属领导相同的员工信息；
       
     
       <div class="post-wrapper">
-  <div class="post-wrap-right" data-aos="fade-up">
+  <div class="post-wrap-left" data-aos="fade-up">
     
       <a class="post-link" href="/2025/05/28/MySQL-%E5%A4%9A%E8%A1%A8%E5%85%B3%E7%B3%BB/" aria-label="MySQL-多表关系"></a>
     
     
-    <div class="post-cover-right">
+    <div class="post-cover-left">
       
         
         
@@ -541,12 +589,12 @@ b.  查询与 “吴涛” 的薪资及其直属领导相同的员工信息；
       
     
       <div class="post-wrapper">
-  <div class="post-wrap-left" data-aos="fade-up">
+  <div class="post-wrap-right" data-aos="fade-up">
     
       <a class="post-link" href="/2025/05/28/MySQL-%E7%BA%A6%E6%9D%9F-%E6%A6%82%E8%BF%B0%E5%92%8C%E6%9B%B4%E6%96%B0%E5%88%A0%E9%99%A4%E8%A1%8C%E4%B8%BA/" aria-label="MySQL-约束-概述和更新删除行为"></a>
     
     
-    <div class="post-cover-left">
+    <div class="post-cover-right">
       
         
         
@@ -626,12 +674,12 @@ null
       
     
       <div class="post-wrapper">
-  <div class="post-wrap-right" data-aos="fade-up">
+  <div class="post-wrap-left" data-aos="fade-up">
     
       <a class="post-link" href="/2025/05/27/MySQL-%E7%BA%A6%E6%9D%9F-%E6%A6%82%E8%BF%B0%E5%92%8C%E6%BC%94%E7%A4%BA/" aria-label="MySQL-约束-概述和演示"></a>
     
     
-    <div class="post-cover-right">
+    <div class="post-cover-left">
       
         
         
@@ -683,12 +731,12 @@ email VARCHAR(
       
     
       <div class="post-wrapper">
-  <div class="post-wrap-left" data-aos="fade-up">
+  <div class="post-wrap-right" data-aos="fade-up">
     
       <a class="post-link" href="/2025/05/26/MySQL-%E5%87%BD%E6%95%B0/" aria-label="MySQL-函数"></a>
     
     
-    <div class="post-cover-left">
+    <div class="post-cover-right">
       
         
         
@@ -741,99 +789,6 @@ SELECT LPAD(&amp;#39;5&amp;#
 </div>
       
     
-      <div class="post-wrapper">
-  <div class="post-wrap-right" data-aos="fade-up">
-    
-      <a class="post-link" href="/2025/05/25/MySQL-DCL-%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6/" aria-label="MySQL-DCL-权限控制"></a>
-    
-    
-    <div class="post-cover-right">
-      
-        
-        
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="MySQL-DCL-权限控制" class="lazyload">
-        
-      
-    </div>
-    <div class="post-info">
-      <div class="post-meta">
-        <span><span class="icon-calendar"></span>2025-05-25</span>
-        <span><span class="icon-pencil"></span>271 words</span>
-        <span><span class="icon-clock"></span>1 min</span>
-      </div>
-      <h2 class="post-title">MySQL-DCL-权限控制</h2>
-      <article class="post-article">
-        
-          常用权限类型列表
-
-
-权限类型
-说明
-
-
-
-ALL PRIVILEGES
-所有权限
-
-
-SELECT
-查询数据
-
-
-INSERT
-插入数据
-
-
-UPDATE
-更新数据
-
-
-DELETE
-删除数据
-
-
-CREATE
-创建数据库&amp;#x2F;表
-
-
-DROP
-删除数据库&amp;#x2F;表
-
-
-ALTER
-修改表结构
-
-
-INDEX
-创建&amp;#x2F;删除索引
-
-
-REFERENCES
-创建外键
-
-
-EXECUTE
-执行存储过程
-
-
-SHOW DATABASES
-查看数据库列表
-
-
-GRANT OPTION
-允许用户授权给其他用户
-
-
-DCL-权限控制
-查询权限
-1SHOW GRANTS &amp;#x27;用户名
-        
-      </article>
-    </div>
-  </div>
-</div>
-      
-    
   
 
 
@@ -868,10 +823,10 @@ DCL-权限控制
     
       <div>
         <span class="icon-brush"></span>
-        81.5k
+        82.3k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        04:52
+        04:54
       </div>
     
     
@@ -907,7 +862,7 @@ DCL-权限控制
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>Post</div>
-    <div class="sidebar-state-number">91</div>
+    <div class="sidebar-state-number">92</div>
   </div>
   <div class="sidebar-state-category">
     <div>Category</div>

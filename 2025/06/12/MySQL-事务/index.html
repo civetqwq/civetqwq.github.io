@@ -16,7 +16,7 @@
   <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_0khxww3tj3q9';window.REIMU_CONFIG.clipboard_tips = {"success":"复制成功(*^▽^*)","fail":"复制失败 (ﾟ⊿ﾟ)ﾂ","copyright":{"enable":false,"count":50,"content":"本文版权：本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！"}};window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'http://example.com';</script>
   
   <title>
-    网络攻防基础知识 |
+    MySQL-事务 |
     
     昨天放的鸽子，今天要亲自去追
   </title>
@@ -31,15 +31,15 @@
 
   
   
-    <meta name="description" content="开补学习目录：  络安全核心属性 典型事件（蠕虫，木马等病毒） 事件及作用 什么是漏洞？ 术语解释  一络安全核心属性 保密性 ：确保信息不泄露，仅自己和授权者 完整性：确保信息只能以特定和授权的方式进行改变；分数据和系统完整 可用性：在合法范围能正常使用 可控性：限制对网络资源（软件和硬件）和数据（存储和通信的数据）的访问，其目标是防止未授权使用资源、未授权公开或者修改数据。通过访问控制实现 不">
+    <meta name="description" content="事务简介事务  是一组操作的集合，它是一个不可分割的工作单位，事务会把所有的操作作为一个整体一起向系统提交或撤销操作请求，即这些操作 要命同时成功，要么同时失败。  默认MySQL的事务是自动提交的，也就是说，当执行一条DML语句，MySQL会立即隐式的提交事务  方法1查看&#x2F;设置事务提交方式 12SELECT @@autocommit;sET @@autocommit&#x3D; 0;  &amp;#x">
 <meta property="og:type" content="article">
-<meta property="og:title" content="网络攻防基础知识">
-<meta property="og:url" content="http://example.com/2024/10/15/%E7%BD%91%E7%BB%9C%E6%94%BB%E9%98%B2%E5%B0%8F%E7%A1%80/index.html">
+<meta property="og:title" content="MySQL-事务">
+<meta property="og:url" content="http://example.com/2025/06/12/MySQL-%E4%BA%8B%E5%8A%A1/index.html">
 <meta property="og:site_name" content="昨天放的鸽子，今天要亲自去追">
-<meta property="og:description" content="开补学习目录：  络安全核心属性 典型事件（蠕虫，木马等病毒） 事件及作用 什么是漏洞？ 术语解释  一络安全核心属性 保密性 ：确保信息不泄露，仅自己和授权者 完整性：确保信息只能以特定和授权的方式进行改变；分数据和系统完整 可用性：在合法范围能正常使用 可控性：限制对网络资源（软件和硬件）和数据（存储和通信的数据）的访问，其目标是防止未授权使用资源、未授权公开或者修改数据。通过访问控制实现 不">
+<meta property="og:description" content="事务简介事务  是一组操作的集合，它是一个不可分割的工作单位，事务会把所有的操作作为一个整体一起向系统提交或撤销操作请求，即这些操作 要命同时成功，要么同时失败。  默认MySQL的事务是自动提交的，也就是说，当执行一条DML语句，MySQL会立即隐式的提交事务  方法1查看&#x2F;设置事务提交方式 12SELECT @@autocommit;sET @@autocommit&#x3D; 0;  &amp;#x">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-10-15T15:59:59.181Z">
-<meta property="article:modified_time" content="2024-11-02T10:04:58.535Z">
+<meta property="article:published_time" content="2025-06-12T12:48:28.107Z">
+<meta property="article:modified_time" content="2025-06-12T12:47:54.840Z">
 <meta property="article:author" content="civet">
 <meta name="twitter:card" content="summary">
   
@@ -175,7 +175,7 @@
       
     </picture>
     
-      <img fetchpriority="high" src="/images/banner.webp" alt="网络攻防基础知识">
+      <img fetchpriority="high" src="/images/banner.webp" alt="MySQL-事务">
     
   
   <div id="header-outer">
@@ -184,7 +184,7 @@
         
         
           <a href="/" id="logo">
-            <h1 data-aos="slide-up">网络攻防基础知识</h1>
+            <h1 data-aos="slide-up">MySQL-事务</h1>
           </a>
         
       
@@ -209,7 +209,7 @@
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E8%A1%A5"><span class="toc-number">1.</span> <span class="toc-text">开补</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E7%BB%9C%E5%AE%89%E5%85%A8%E6%A0%B8%E5%BF%83%E5%B1%9E%E6%80%A7"><span class="toc-number"></span> <span class="toc-text">一络安全核心属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-%E5%85%B8%E5%9E%8B%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">二.典型事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-%E4%BA%8B%E4%BB%B6%E5%8F%8A%E4%BD%9C%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">三.事件及作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-%E6%BC%8F%E6%B4%9E"><span class="toc-number">3.</span> <span class="toc-text">四.漏洞</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94-%E6%9C%AF%E8%AF%AD%E8%A7%A3%E9%87%8A"><span class="toc-number"></span> <span class="toc-text">五.术语解释</span></a>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">事务简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%951"><span class="toc-number">1.1.</span> <span class="toc-text">方法1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%952"><span class="toc-number">1.2.</span> <span class="toc-text">方法2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-number">2.</span> <span class="toc-text">示例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F%E4%B8%80"><span class="toc-number">2.1.</span> <span class="toc-text">方式一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F%E4%BA%8C"><span class="toc-number">2.2.</span> <span class="toc-text">方式二</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1%E7%9A%84%E5%9B%9B%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="toc-number">3.</span> <span class="toc-text">事务的四大特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E4%BA%8B%E5%8A%A1%E9%97%AE%E9%A2%98"><span class="toc-number">4.</span> <span class="toc-text">并发事务问题</span></a></li></ol>
       
   </div>
 </div>
@@ -289,13 +289,13 @@
   </div>
 </aside>
 
-          <section id="main"><article id="post-网络攻防小础" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main"><article id="post-MySQL-事务" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
   <span class="article-date-link" data-aos="zoom-in">
-    <time datetime="2024-10-15T15:59:59.181Z" itemprop="datePublished">2024-10-15</time>
-    <time style="display: none;" id="post-update-time">2024-11-02</time>
+    <time datetime="2025-06-12T12:48:28.107Z" itemprop="datePublished">2025-06-12</time>
+    <time style="display: none;" id="post-update-time">2025-06-12</time>
   </span>
 </div>
 
@@ -308,69 +308,81 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
       
-        <h3 id="开补"><a href="#开补" class="headerlink" title="开补"></a>开补</h3><p>学习目录：</p>
-<ol>
-<li>络安全核心属性</li>
-<li>典型事件（蠕虫，木马等病毒）</li>
-<li>事件及作用</li>
-<li>什么是漏洞？</li>
-<li>术语解释</li>
-</ol>
-<h2 id="一络安全核心属性"><a href="#一络安全核心属性" class="headerlink" title="一络安全核心属性"></a>一络安全核心属性</h2><ul>
-<li><strong>保密性</strong> ：确保信息不泄露，仅自己和授权者</li>
-<li><strong>完整性</strong>：确保信息只能以特定和授权的方式进行改变；分数据和系统完整</li>
-<li><strong>可用性</strong>：在合法范围能正常使用</li>
-<li><strong>可控性</strong>：限制对网络资源（软件和硬件）和数据（存储和通信的数据）的访问，其目标是防止未授权使用资源、未授权公开或者修改数据。通过访问控制实现</li>
-<li><strong>不可否认性</strong>：通信实体不能对自己做过的事情抵赖，包括两层含义，一方面发送者不能否认自己发送数据的行为；另一方面，接收者不能否认自己接收过数据</li>
-<li><strong>真实性，可靠性</strong></li>
-</ul>
-<h3 id="二-典型事件"><a href="#二-典型事件" class="headerlink" title="二.典型事件"></a>二.典型事件</h3><ol>
-<li><strong>Morris worm（蠕虫）</strong>：病毒，它利用网络（网络、电子邮件等）进行复制和传播，它能传播自身功能的拷贝或自身的某些部分到其他的计算机系统中（通常是经过网络连接）。<strong>（典型蠕虫病毒：震网病毒、勒索病毒）</strong></li>
-<li><strong>普通病毒与蠕虫病毒的区别</strong>：复制上：普通的需要传播受感染的驻留文件；蠕虫不用，他在系统之间就可进行。传染目标上：普通病毒的传染能力主要针对计算机内的文件系统，而蠕虫病毒的传染目标是互联网内的所有计算机。</li>
-<li>**木马(Trojan Horse)**：指那些表面上是有用的软件，危害计算机安全，破坏其程序。</li>
-<li><strong>隐蔽性</strong>：防止木马发现，采用多种手段隐藏木马，这样服务端即使发现感染了木马，也难确定其具体位置。</li>
-<li><strong>非授权性</strong>：是指一旦控制端与服务端连接后，控制端将窃取到服务端的很多操作权限，如修改文件、修改注册表、控制鼠标、键盘、窃取信息等</li>
-<li><strong>木马与病毒的区别</strong>：木马不具传染性，它并不能像病毒那样复制自身，也并不“刻意”地去感染其他文件，它主要通过将自身伪装起来，吸引用户下载执行。<em><strong>木马一般主要</strong></em>以窃取用户相关信息或隐蔽性控制为主要目的，相对病毒而言，可以简单地说，<em><strong>病毒破坏你的信息，而木马窥视你</strong></em>。</li>
-</ol>
-<h3 id="三-事件及作用"><a href="#三-事件及作用" class="headerlink" title="三.事件及作用"></a>三.事件及作用</h3><ul>
-<li><strong>Morris worm（蠕虫）</strong></li>
-<li><strong>Mirai botnet（DDos）[僵尸网络]<strong>：</strong>通过感染那些存在漏洞或内置有默认密码的IoT设备</strong>，像“寄生虫”一样存在设备中，操控它们，针对目标网络系统发起定向攻击；被感染将成为“肉鸡”</li>
-<li><strong>WannaCry Ransomware（勒索病毒）</strong>：加密用户文件，对用户索要赎金。</li>
-<li><strong>Stuxnet（震网蠕虫病毒）</strong>：是针对微软系统以及西门子工业系统的最新病毒，可以通过网络传播，代码非常精密。</li>
-<li><strong>FireEye Redteam tools（泄露事件）</strong>：某个由国家赞助的APT组织盗取了<strong>FireEye</strong>(金山火眼在线病毒识别服务)的红队<strong>工具</strong>箱</li>
-<li><strong>Solarwinds（供应链攻击事件）：</strong> 2020年12月，SolarWinds旗下的Orion网络监控软件更新服务器遭黑客入侵，攻击者利用Orion Platform中的漏洞植入了名为SUNBURST的恶意代码，实际受影响的客户数量接近100家，这是一次典型的基于供应链漏洞的网络攻击。SolarWinds是一家国际IT管理软件供应商，其Orion软件更新服务器上存在一个被感染的更新程序，导致美国多家企业及政府单位网络受到感染，但对国内影响较小</li>
-</ul>
-<h3 id="四-漏洞"><a href="#四-漏洞" class="headerlink" title="四.漏洞"></a>四.漏洞</h3><ul>
-<li><strong>软件缺陷</strong>（Bug）：软件是开发出来的，由于开发者水平不一样，软件可能出现一些问题，造成软件奔溃不能运行。</li>
-<li><strong>软件漏洞</strong>:软件存在的一些问题被利用，对用户恶意攻击（如：安装木马，窃取用户秘密信息）</li>
-<li><strong>电脑肉鸡</strong>：是受别人控制的远程电脑，<strong>肉鸡</strong>可以是各种系统,如windows,linux,unix等；更可以是一家公司、企业、学校甚至是政府军队的服务器。如果服务器软件存在安全漏洞，攻击者可以发起“主动”进攻，植入木马，<em>将该服务器变为一个任人宰割的<strong>“肉鸡”</strong></em>。</li>
-<li><strong>漏洞分类：</strong>一个漏洞从被攻击者发现并利用，到被厂商截获并发布补丁，再到补丁被大多数用户安装导致漏洞失去了利用价值，一般都要经历一个完整的生命周期。</li>
-</ul>
-<p>​          <strong>按照漏洞生命周期分类为三种：</strong></p>
-<p>a.  <strong>0-day漏洞：</strong>指还处于未公开状态的漏洞,只有攻击者或黑客团体知道</p>
-<p>b.  <strong>1-day漏洞：</strong>原义是指补丁发布在1天内的漏洞</p>
-<p>c.   <strong>n-day漏洞&#x2F;已公开漏洞：</strong>已公开漏洞是指厂商已经发布补丁或修补方法</p>
-<ul>
-<li><p><strong>漏洞库：</strong>统一的命名和管理规范，针对软件漏洞的研究，提升漏洞的检测水平，并为软件使用者和厂商提供有关软件漏洞的确切信息，多个机构和相关国家建立了漏洞数据库，这些数据库分为公开的和某些组织机构私有的不公开数据库。</p>
-</li>
-<li><p><strong>漏洞数据库：</strong>可以找到操作系统和应用程序的特定版本所包含的漏洞信息，甚至针对某些漏洞的专家建议、修复办法和专门的补丁程序。</p>
-<p> <strong>公共的数据库:</strong></p>
-<ol>
-<li><strong>美国国家漏洞数据库NVD:</strong> 同时收录三个漏洞数据库的信息，CVE漏洞公告、US-CERT漏洞公告、USCERT安全警告,他自己也发布了，<em><strong>是目前世界上数据量最大，条目最多的漏洞数据库之一。</strong></em></li>
-<li><strong>（美国）通用漏洞列表 CVE:</strong> <em><strong>相当于软件漏洞的一个行业标准。它实现了安全漏洞命名机制的规范化和标准化,为每个漏洞确定了唯一的名称和标准化的描述</strong></em>，为不同漏洞库之间的信息录入及数据交换提供了统一的标识，使不同的漏洞库和安全工具更容易共享数据，成为评价相应入侵检测和漏洞扫描等工具和数据库的基准。</li>
-<li><strong>中国国家信息安全漏洞库CNNVD：</strong> 隶属于中国信息安全测评中心，履行<strong>漏洞分析</strong>和<strong>风险评估</strong>的职能；负责建设运维的国家级信息安全漏洞库，为我国信息安全保障提供基础服务。</li>
-<li><strong>国家信息安全漏洞共享平台CNVD：</strong> 是由CNCERT&#x2F;CC（国家计算机网络应急技术处理协调中心）联合国内重要信息系统单位、基础电信运营商、网络安全厂商建立的信息安全漏洞信息共享知识库，致力于建立国家统一的信息安全漏洞收集、发布、验证、分析等应急处理体系。</li>
-<li><strong>BugTraq：</strong> <strong>是一个完整的对计算机安全漏洞</strong>公告具体论述进行适度披露的邮件列表。 创立于1993年的Bugtraq，是在互联网兴起之前，就成立专门供讨论和分享软件漏洞信息的<em><strong>第一批安全或黑客邮件群组</strong></em>。</li>
-</ol>
-</li>
-</ul>
-<h2 id="五-术语解释"><a href="#五-术语解释" class="headerlink" title="五.术语解释"></a>五.术语解释</h2><ul>
-<li><em><em>YARA:<strong>一款VirusTotal开发的用于</strong></em>恶意软件识别和分类的规则匹配工具</em>**。</li>
-<li><strong>Snort：</strong> 一款历史悠久的开源<em><strong>网络入侵检测系统</strong></em>。</li>
-<li><strong>IOC：</strong> <strong>失陷指标</strong>（Indicator Of Compromise），即攻击者控制被害主机所使用的远程命令及控制服务器的相关情报。IOC往往是域名、IP、URL等，这种IOC可部署于安全设备（如：IPS（入侵防御）、SIEM（安全、信息和事件管理）等）进行检测发现甚至实时阻截。</li>
-<li><strong>URL:</strong>  <strong>统一资源定位符</strong> (Uniform Resource Locator) ; 它是用于标识和定位互联网上资源的地址，可以指向各种类型的资源，如网页、图片、视频、文件等]。URL是对互联网上资源的位置和访问方法的一种简洁表示，<em><strong>具有全球唯一性</strong></em></li>
-<li><strong>ClamAV：</strong>  Linux平台上的开源<em><strong>病毒扫描程序</strong></em>，主要应用于邮件服务器，采用多线程后台操作，可以自动升级病毒库。</li>
-</ul>
+        <h2 id="事务简介"><a href="#事务简介" class="headerlink" title="事务简介"></a>事务简介</h2><p>事务  是一组操作的集合，它是一个不可分割的工作单位，事务会把所有的操作作为一个整体一起向系统提交或撤销操作请求，即这些操作 <strong>要命同时成功，要么同时失败。</strong></p>
+<blockquote>
+<p>默认MySQL的事务是自动提交的，也就是说，当执行一条DML语句，MySQL会立即隐式的提交事务</p>
+</blockquote>
+<h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h3><p>查看&#x2F;设置事务提交方式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT @@autocommit;</span><br><span class="line">sET @@autocommit= 0;</span><br></pre></td></tr></table></figure>
+
+<p>&#x3D; 0 :  手动提交方式；</p>
+<p>&#x3D; 1 ：自动提交方式；</p>
+<p>提交事务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">COMMIT;</span><br></pre></td></tr></table></figure>
+
+<p>回滚事务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ROLLBACK; -- 事务执行失败时使用</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h3><p><code>START TRANSACTION</code> 用于 <strong>手动开启事务</strong>，此时数据库会进入 <strong>显式事务模式</strong>，需要 <strong>明确执行 <code>COMMIT</code>（提交）或 <code>ROLLBACK</code>（回滚）</strong> 才会结束事务。</p>
+<p>开启事务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">START TRANSACTION 或 BEGIN</span><br></pre></td></tr></table></figure>
+
+<p>提交事务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">COMMIT;</span><br></pre></td></tr></table></figure>
+
+<p>回滚事务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ROLLBACK;</span><br></pre></td></tr></table></figure>
+
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>准备account 账户表</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>money</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>张三</td>
+<td>2000</td>
+</tr>
+<tr>
+<td>2</td>
+<td>李四</td>
+<td>2000</td>
+</tr>
+</tbody></table>
+<h3 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">SELECT @@autocommit; -- 查看提交方式</span><br><span class="line">sET @@autocommit= 0; -- 修改为手动提交</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-- 转账操作（张三给李四转账1000）</span><br><span class="line"></span><br><span class="line">-- 1.查询张三账户余额</span><br><span class="line">select * from account where name = &#x27;张三&#x27;;</span><br><span class="line"></span><br><span class="line">-- 2.将张三账户余额-1000</span><br><span class="line">update account set money = money - 1000 where name = &#x27;张三&#x27;;</span><br><span class="line"></span><br><span class="line">-- 3.将李四账户余额+1000</span><br><span class="line">update account set money = money + 1000 where name = &#x27;李四&#x27;;</span><br><span class="line"></span><br><span class="line">-- 事务提交</span><br><span class="line">COMMIT;</span><br><span class="line"></span><br><span class="line">-- 事务回滚</span><br><span class="line">ROLLBACK;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">-- 方式2</span><br><span class="line">-- START TRANSACTION 用于 手动开启事务，此时数据库会进入 显式事务模式，</span><br><span class="line">--  需要 明确执行 COMMIT（提交）或 ROLLBACK（回滚） 才会结束事务。</span><br><span class="line"></span><br><span class="line">-- 开启事务</span><br><span class="line">START TRANSACTION;</span><br><span class="line"></span><br><span class="line">-- 1.查询张三账户余额</span><br><span class="line">select * from account where name = &#x27;张三&#x27;;</span><br><span class="line"></span><br><span class="line">-- 2.将张三账户余额-1000</span><br><span class="line">update account set money = money - 1000 where name = &#x27;张三&#x27;;</span><br><span class="line"></span><br><span class="line">-- 3.将李四账户余额+1000</span><br><span class="line">update account set money = money + 1000 where name = &#x27;李四&#x27;;</span><br><span class="line"></span><br><span class="line">-- 事务提交</span><br><span class="line">COMMIT;</span><br><span class="line"></span><br><span class="line">-- 事务回滚</span><br><span class="line">ROLLBACK; -- 报错时使用</span><br></pre></td></tr></table></figure>
+
+<h2 id="事务的四大特性"><a href="#事务的四大特性" class="headerlink" title="事务的四大特性"></a>事务的四大特性</h2><p><strong>原子性（Atomicity）</strong>：<br> 事务是不可分割的最小操作单元，要么全部成功，要么全部失败。</p>
+<p><strong>一致性（Consistency）</strong>：<br> 事务完成时，必须使所有的数据都保持一致状态。</p>
+<p><strong>隔离性（Isolation）</strong>：<br> 数据库系统提供的隔离机制，保证事务在不受外部并发操作影响的独立环境下运行。</p>
+<p><strong>持久性（Durability）</strong>：<br> 事务一旦提交或回滚，它对数据库中的数据的改变就是永久的。</p>
+<h2 id="并发事务问题"><a href="#并发事务问题" class="headerlink" title="并发事务问题"></a>并发事务问题</h2><table>
+<thead>
+<tr>
+<th><strong>问题</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>脏读</strong></td>
+<td>一个事务读到另外一个事务还没有提交的数据。</td>
+</tr>
+<tr>
+<td><strong>不可重复读</strong></td>
+<td>一个事务先后读取同一条记录，但两次读取的数据不同，称之为不可重复读。</td>
+</tr>
+<tr>
+<td><strong>幻读</strong></td>
+<td>是数据库事务隔离性问题的一种现象，指在同一事务内，<strong>连续执行相同查询却得到不同结果集</strong>（新增的行像”幻影”一样出现）</td>
+</tr>
+</tbody></table>
 
       
     </div>
@@ -390,37 +402,20 @@
   
   <nav id="article-nav" data-aos="fade-up">
     
-      
-      <div class="article-nav-link-wrap article-nav-link-left">
-        
-          
-          
-            <img data-src="/images/banner.webp" data-sizes="auto" alt="PY基础语法和数据类型" class="lazyload">
-          
-        
-        <a href="/2024/10/30/PY%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"></a>
-        <div class="article-nav-caption">Newer</div>
-        <h3 class="article-nav-title">
-          
-            PY基础语法和数据类型
-          
-        </h3>
-      </div>
-    
     
     
     <div class="article-nav-link-wrap article-nav-link-right">
       
         
         
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="心得" class="lazyload">
+          <img data-src="/images/banner.webp" data-sizes="auto" alt="MySQL-多表查询-题目练习" class="lazyload">
         
       
-      <a href="/2024/10/12/%E5%BF%83%E5%BE%97/"></a>
+      <a href="/2025/06/10/MySQL-%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2-%E9%A2%98%E7%9B%AE%E7%BB%83%E4%B9%A0/"></a>
       <div class="article-nav-caption">Older</div>
       <h3 class="article-nav-title">
         
-          心得
+          MySQL-多表查询-题目练习
         
       </h3>
     </div>
@@ -497,7 +492,7 @@
   <h3 class="toc-title">Contents</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E8%A1%A5"><span class="toc-number">1.</span> <span class="toc-text">开补</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E7%BB%9C%E5%AE%89%E5%85%A8%E6%A0%B8%E5%BF%83%E5%B1%9E%E6%80%A7"><span class="toc-number"></span> <span class="toc-text">一络安全核心属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-%E5%85%B8%E5%9E%8B%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">二.典型事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-%E4%BA%8B%E4%BB%B6%E5%8F%8A%E4%BD%9C%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">三.事件及作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-%E6%BC%8F%E6%B4%9E"><span class="toc-number">3.</span> <span class="toc-text">四.漏洞</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94-%E6%9C%AF%E8%AF%AD%E8%A7%A3%E9%87%8A"><span class="toc-number"></span> <span class="toc-text">五.术语解释</span></a>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">事务简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%951"><span class="toc-number">1.1.</span> <span class="toc-text">方法1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%952"><span class="toc-number">1.2.</span> <span class="toc-text">方法2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-number">2.</span> <span class="toc-text">示例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F%E4%B8%80"><span class="toc-number">2.1.</span> <span class="toc-text">方式一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F%E4%BA%8C"><span class="toc-number">2.2.</span> <span class="toc-text">方式二</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1%E7%9A%84%E5%9B%9B%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="toc-number">3.</span> <span class="toc-text">事务的四大特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E4%BA%8B%E5%8A%A1%E9%97%AE%E9%A2%98"><span class="toc-number">4.</span> <span class="toc-text">并发事务问题</span></a></li></ol>
       
   </div>
 </div>
@@ -639,13 +634,13 @@
       <script data-pjax>
         window.REIMU_POST = {
           author: "civet",
-          title: "网络攻防基础知识",
-          url: "http://example.com/2024/10/15/%E7%BD%91%E7%BB%9C%E6%94%BB%E9%98%B2%E5%B0%8F%E7%A1%80/",
+          title: "MySQL-事务",
+          url: "http://example.com/2025/06/12/MySQL-%E4%BA%8B%E5%8A%A1/",
           excerpt: "",
           description: "",
-          stripContent: "开补学习目录：  络安全核心属性 典型事件（蠕虫，木马等病毒） 事件及作用 什么是漏洞？ 术语解释  一络安全核心属性 保密性 ：确保信息不泄露，仅自己和授权者 完整性：确保信息只能以特定和授权的方式进行改变；分数据和系统完整 可用性：在合法范围能正常使用 可控性：限制对网络资源（软件和硬件）和数据（存储和通信的数据）的访问，其目标是防止未授权使用资源、未授权公开或者修改数据。通过访问控制实现 不可否认性：通信实体不能对自己做过的事情抵赖，包括两层含义，一方面发送者不能否认自己发送数据的行为；另",
-          date: "Tue Oct 15 2024 23:59:59 GMT+0800",
-          updated: "Sat Nov 02 2024 18:04:58 GMT+0800",
+          stripContent: "事务简介事务  是一组操作的集合，它是一个不可分割的工作单位，事务会把所有的操作作为一个整体一起向系统提交或撤销操作请求，即这些操作 要命同时成功，要么同时失败。  默认MySQL的事务是自动提交的，也就是说，当执行一条DML语句，MySQL会立即隐式的提交事务  方法1查看&amp;#x2F;设置事务提交方式 12SELECT @@autocommit;sET @@autocommit= 0;  &amp;#x3D; 0 :  手动提交方式； &amp;#x3D; 1 ：自动提交方式； 提交事务 1COMMIT;  ",
+          date: "Thu Jun 12 2025 20:48:28 GMT+0800",
+          updated: "Thu Jun 12 2025 20:47:54 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
